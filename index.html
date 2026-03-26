@@ -147,7 +147,8 @@ h1 .accent { color: var(--rust); }
 .btn:active { transform: translate(2px,2px); }
 .btn-primary { background: var(--ink); color: var(--cream); }
 .btn-primary:hover { background: var(--rust); border-color: var(--rust); }
-.btn-secondary { background: var(--cream); color: var(--ink); border-left: none; }
+.btn-secondary { background: var(--cream); color: var(--ink); }
+.btn + .btn { border-left: none; }
 .btn-secondary:hover { background: var(--ink); color: var(--cream); }
 
 .hero-right {
@@ -542,8 +543,8 @@ footer {
     <li><a href="#about">ABOUT</a></li>
     <li><a href="#research">RESEARCH</a></li>
     <li><a href="#publications">PAPERS</a></li>
-    <li><a href="#blog">BLOG</a></li>
-    <li><a href="#contact">CONTACT</a></li>
+	<li><a href="blog/index.html">BLOG</a></li>
+	<li><a href="contact.html">CONTACT</a></li>
   </ul>
 </nav>
 

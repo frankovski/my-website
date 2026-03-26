@@ -3,918 +3,294 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ion Francovschi — Geologist</title>
-<meta name="description" content="PhD geologist studying the late Ediacaran and early Cambrian sedimentary successions of southwestern Baltica. Research, publications, and geological writing.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<title>Blog — Ion Francovschi</title>
+<meta name="description" content="Articles on Precambrian geology, stratigraphy, and the Ediacaran–Cambrian transition by Ion Francovschi, PhD geologist.">
+<link rel="stylesheet" href="../css/style.css">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+section { position: relative; z-index: 1; }
 
-:root {
-  --cream: #F5F0E8;
-  --paper: #FDFAF5;
-  --ink: #1A1A18;
-  --ink2: #3D3D38;
-  --ink3: #7A7A72;
-  --rust: #B85C30;
-  --rust-lt: #E8956A;
-  --sage: #5A7A5A;
-  --stone: #8A8278;
-  --border: 2px solid #1A1A18;
-  --border-thin: 1px solid #1A1A18;
-}
-
-body {
-  background: var(--cream);
-  color: var(--ink);
-  font-family: 'Courier Prime', 'Courier New', monospace;
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(26,26,24,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26,26,24,0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+.page-header {
+  border-bottom: var(--border);
+  padding: 4rem 2rem 3rem;
   background: var(--paper);
-  border-bottom: var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
-  height: 56px;
 }
+.page-header-inner { max-width: 1100px; margin: 0 auto; }
 
-.nav-logo {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 9px;
-  color: var(--ink);
-  text-decoration: none;
-  letter-spacing: 0.05em;
-}
-.nav-logo span { color: var(--rust); }
-
-.nav-links { display: flex; gap: 0; list-style: none; }
-.nav-links a {
-  display: block;
-  font-family: 'Courier Prime', monospace;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink2);
-  text-decoration: none;
-  padding: 0 1rem;
-  border-left: var(--border-thin);
-  height: 56px;
-  line-height: 56px;
-  transition: background 0.1s, color 0.1s;
-}
-.nav-links a:hover { background: var(--ink); color: var(--cream); }
-
-/* HERO */
-.hero {
-  position: relative;
-  z-index: 1;
-  border-bottom: var(--border);
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  min-height: 88vh;
-}
-
-.hero-left {
-  padding: 5rem 3rem 4rem;
-  border-right: var(--border);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.hero-tag {
-  display: inline-block;
+.page-tag {
   font-family: 'Press Start 2P', monospace;
   font-size: 8px;
   background: var(--ink);
   color: var(--cream);
   padding: 6px 10px;
-  margin-bottom: 2.5rem;
-  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 1.5rem;
 }
 
 h1 {
   font-family: 'Press Start 2P', monospace;
-  font-size: clamp(18px, 3vw, 30px);
+  font-size: clamp(16px, 3vw, 26px);
   line-height: 1.7;
   color: var(--ink);
-  margin-bottom: 2rem;
-}
-h1 .accent { color: var(--rust); }
-
-.hero-desc {
-  font-size: 16px;
-  color: var(--ink2);
-  max-width: 520px;
-  line-height: 1.9;
-  margin-bottom: 3rem;
-  border-left: 3px solid var(--rust);
-  padding-left: 1.2rem;
-}
-
-.hero-actions { display: flex; gap: 0; }
-
-.btn {
-  display: inline-block;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 8px;
-  padding: 14px 20px;
-  text-decoration: none;
-  border: var(--border);
-  cursor: pointer;
-  transition: all 0.08s;
-  letter-spacing: 0.05em;
-}
-.btn:active { transform: translate(2px,2px); }
-.btn-primary { background: var(--ink); color: var(--cream); }
-.btn-primary:hover { background: var(--rust); border-color: var(--rust); }
-.btn-secondary { background: var(--cream); color: var(--ink); }
-.btn + .btn { border-left: none; }
-.btn-secondary:hover { background: var(--ink); color: var(--cream); }
-
-.hero-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 2rem 1.5rem 0;
-  background: var(--paper);
-  overflow: hidden;
-}
-
-.hero-strat-label {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  color: var(--ink3);
-  letter-spacing: 0.1em;
   margin-bottom: 1rem;
-  text-align: center;
 }
 
-.strat-column {
-  width: 100%;
-  max-width: 280px;
-  border: var(--border);
-  overflow: hidden;
-}
-
-.strat-row {
-  display: flex;
-  align-items: center;
-  border-bottom: var(--border-thin);
-  height: 44px;
-}
-.strat-row:last-child { border-bottom: none; }
-
-.strat-age {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  width: 56px;
-  min-width: 56px;
-  padding: 0 6px;
+.page-desc {
+  font-size: 15px;
   color: var(--ink3);
-  border-right: var(--border-thin);
-  height: 100%;
+  max-width: 540px;
+}
+
+.blog-section { padding: 4rem 2rem; }
+.blog-section-inner { max-width: 1100px; margin: 0 auto; }
+
+/* Filter tags */
+.filter-bar {
   display: flex;
-  align-items: center;
-  background: var(--paper);
-}
-
-.strat-fill {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 8px;
-}
-
-.s-cambrian { background: repeating-linear-gradient(0deg,#C8E4F8 0,#C8E4F8 4px,#A8C8E8 4px,#A8C8E8 8px); }
-.s-boundary { background: var(--rust); }
-.s-vendian3 { background: repeating-linear-gradient(0deg,#E8D8B8 0,#E8D8B8 4px,#D4C4A4 4px,#D4C4A4 8px); }
-.s-vendian2 { background: repeating-linear-gradient(0deg,#D8C8A0 0,#D8C8A0 4px,#C4B48C 4px,#C4B48C 8px); }
-.s-vendian1 { background: repeating-linear-gradient(0deg,#C8B888 0,#C8B888 4px,#B4A474 4px,#B4A474 8px); }
-.s-ediacaran { background: repeating-linear-gradient(0deg,#B8A878 0,#B8A878 4px,#A49464 4px,#A49464 8px); }
-.s-basement { background: repeating-linear-gradient(45deg,#888078 0,#888078 4px,#706860 4px,#706860 8px); }
-
-.strat-name {
-  font-family: 'Courier Prime', monospace;
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--ink);
-  text-shadow: 0 0 4px rgba(245,240,232,0.9);
-  text-align: right;
-}
-.strat-name.light { color: var(--paper); text-shadow: none; }
-
-@keyframes walk {
-  0%   { transform: translateX(-80px); }
-  100% { transform: translateX(380px); }
-}
-
-.walker-wrap {
-  width: 100%;
-  overflow: hidden;
-  height: 72px;
-  border-top: var(--border);
-  position: relative;
-  background: var(--cream);
-  margin-top: 1.5rem;
-}
-
-.walker {
-  position: absolute;
-  bottom: 8px;
-  animation: walk 7s linear infinite;
-}
-
-section { position: relative; z-index: 1; }
-
-.section-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 5rem 2rem;
-}
-
-.section-title {
-  display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.section-num {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 8px;
-  color: var(--rust);
-  background: var(--cream);
+  gap: 0;
   border: var(--border);
-  padding: 5px 8px;
+  width: fit-content;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
 }
 
-h2 {
-  font-family: 'Press Start 2P', monospace;
-  font-size: clamp(13px, 2vw, 18px);
-  color: var(--ink);
-  line-height: 1.6;
-}
-
-/* ABOUT */
-.about { border-bottom: var(--border); }
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.about-box { border: var(--border); background: var(--paper); }
-
-.about-box-header {
+.filter-btn {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
   padding: 10px 14px;
-  border-bottom: var(--border);
-  background: var(--ink);
-  color: var(--cream);
-  letter-spacing: 0.1em;
-}
-
-.about-box-body { padding: 1.5rem; }
-.about-box p { color: var(--ink2); font-size: 14px; margin-bottom: 1.2rem; }
-.about-box p:last-child { margin-bottom: 0; }
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 0;
-  border: var(--border);
-  margin-top: 1.5rem;
-}
-
-.stat {
-  padding: 1.2rem 1rem;
+  border: none;
   border-right: var(--border-thin);
-  border-bottom: var(--border-thin);
-  text-align: center;
+  background: var(--paper);
+  color: var(--ink3);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+  letter-spacing: 0.05em;
 }
-.stat:nth-child(2n) { border-right: none; }
-.stat:nth-last-child(-n+2) { border-bottom: none; }
+.filter-btn:last-child { border-right: none; }
+.filter-btn:hover, .filter-btn.active { background: var(--ink); color: var(--cream); }
 
-.stat-n {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 13px;
-  color: var(--rust);
-  display: block;
-  margin-bottom: 6px;
-}
-.stat-l { font-size: 11px; color: var(--ink3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+/* Article list — big card style */
+.article-list { display: flex; flex-direction: column; gap: 0; border: var(--border); }
 
-.pixel-map-box { border: var(--border); background: var(--paper); overflow: hidden; }
-
-/* RESEARCH */
-.research { border-bottom: var(--border); background: var(--paper); }
-
-.topics-grid {
+.article-row {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 0;
-  border: var(--border);
-  margin-top: 1rem;
-}
-
-.topic {
-  padding: 2rem 1.5rem;
-  border-right: var(--border-thin);
+  grid-template-columns: 260px 1fr;
   border-bottom: var(--border-thin);
+  text-decoration: none;
+  color: inherit;
   transition: background 0.1s;
 }
-.topic:nth-child(2n) { border-right: none; }
-.topic:nth-last-child(-n+2) { border-bottom: none; }
-.topic:hover { background: var(--cream); }
+.article-row:last-child { border-bottom: none; }
+.article-row:hover { background: var(--paper); }
 
-.topic-icon-px {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background: var(--ink);
+.article-row-img {
+  border-right: var(--border-thin);
+  overflow: hidden;
+}
+.article-row-img svg { display: block; width: 100%; height: 100%; }
+
+.article-row-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.article-row-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--rust);
+  margin-bottom: 0.8rem;
+}
+
+.article-row-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(10px, 1.5vw, 13px);
+  color: var(--ink);
+  line-height: 1.8;
   margin-bottom: 1rem;
 }
 
-.topic h3 {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 9px;
-  color: var(--ink);
-  margin-bottom: 0.8rem;
-  line-height: 1.8;
-}
-
-.topic p { font-size: 13px; color: var(--ink2); line-height: 1.8; }
-
-.timeline {
-  display: flex;
-  border: var(--border);
-  margin-top: 3rem;
-  overflow: hidden;
-}
-
-.tl-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 8px;
-  text-align: center;
-  border-right: var(--border-thin);
-  font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  line-height: 1.8;
-}
-.tl-block:last-child { border-right: none; }
-.tl-proterozoic { flex: 3; background: #E8E0D0; color: var(--ink3); }
-.tl-ediacaran { flex: 2; background: #D8C8A0; color: var(--ink2); }
-.tl-focus { flex: 1.5; background: var(--rust); color: var(--paper); }
-.tl-cambrian { flex: 1.5; background: #A8C8E8; color: var(--ink2); }
-.tl-rest { flex: 2; background: #C8D8C0; color: var(--ink3); }
-
-/* PUBLICATIONS */
-.publications { border-bottom: var(--border); }
-.pub-list { border: var(--border); }
-
-.pub-item {
-  display: grid;
-  grid-template-columns: 72px 1fr auto;
-  gap: 1.5rem;
-  align-items: center;
-  padding: 1.5rem;
-  border-bottom: var(--border-thin);
-  transition: background 0.1s;
-}
-.pub-item:last-child { border-bottom: none; }
-.pub-item:hover { background: var(--paper); }
-
-.pub-yr { font-family: 'Press Start 2P', monospace; font-size: 8px; color: var(--rust); text-align: center; }
-.pub-title { font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 4px; line-height: 1.5; }
-.pub-authors { font-style: italic; font-size: 13px; color: var(--ink3); margin-bottom: 4px; }
-.pub-journal { font-size: 12px; color: var(--sage); font-weight: 700; letter-spacing: 0.04em; }
-
-.pub-badge {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 6px;
-  padding: 5px 8px;
-  border: var(--border-thin);
+.article-row-excerpt {
+  font-size: 14px;
   color: var(--ink3);
-  white-space: nowrap;
-  align-self: flex-start;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  flex: 1;
 }
 
-/* BLOG */
-.blog { border-bottom: var(--border); background: var(--paper); }
-
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 0;
-  border: var(--border);
-}
-
-.blog-card {
-  border-right: var(--border-thin);
-  text-decoration: none;
-  color: inherit;
+.article-row-meta {
   display: flex;
-  flex-direction: column;
-  transition: background 0.1s;
-}
-.blog-card:last-child { border-right: none; }
-.blog-card:hover { background: var(--cream); }
-
-.blog-card-img { border-bottom: var(--border-thin); overflow: hidden; }
-
-.blog-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-
-.blog-tag { font-family: 'Press Start 2P', monospace; font-size: 7px; color: var(--rust); margin-bottom: 0.8rem; }
-.blog-title { font-weight: 700; font-size: 14px; color: var(--ink); line-height: 1.5; margin-bottom: 0.8rem; flex: 1; }
-.blog-excerpt { font-size: 12.5px; color: var(--ink3); line-height: 1.7; margin-bottom: 1rem; }
-.blog-meta {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 6.5px;
-  color: var(--stone);
-  display: flex;
+  align-items: center;
   justify-content: space-between;
   border-top: var(--border-thin);
-  padding-top: 0.8rem;
+  padding-top: 1rem;
 }
 
-/* CONTACT */
-.contact { border-bottom: var(--border); }
-
-.contact-inner { max-width: 640px; }
-
-.contact-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  border: var(--border);
-  margin-top: 2.5rem;
-}
-
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 8px;
-  color: var(--ink);
-  text-decoration: none;
-  padding: 16px 20px;
-  border-right: var(--border-thin);
-  border-bottom: var(--border-thin);
-  transition: all 0.08s;
-}
-.contact-link:hover { background: var(--ink); color: var(--cream); }
-.contact-link:last-child { border-right: none; }
-
-footer {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 2rem;
-  background: var(--ink);
-  color: var(--cream);
-}
-
-.footer-txt {
+.article-row-date {
   font-family: 'Press Start 2P', monospace;
   font-size: 7px;
-  letter-spacing: 0.08em;
-  line-height: 1.8;
+  color: var(--stone);
 }
-.footer-txt .dim { color: var(--stone); }
 
-@media (max-width: 860px) {
-  nav { padding: 0 1rem; }
-  .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-  .hero-left { padding: 4rem 1.5rem 3rem; min-height: 80vh; }
-  .section-inner { padding: 3.5rem 1.2rem; }
-  .about-grid { grid-template-columns: 1fr; }
-  .topics-grid { grid-template-columns: 1fr; }
-  .topic { border-right: none; }
-  .pub-item { grid-template-columns: 48px 1fr; }
-  .pub-badge { display: none; }
-  .blog-grid { grid-template-columns: 1fr; }
-  .blog-card { border-right: none; border-bottom: var(--border-thin); }
-  .blog-card:last-child { border-bottom: none; }
-  .timeline { overflow-x: auto; }
-  .tl-proterozoic { display: none; }
-  footer { flex-direction: column; gap: 0.8rem; text-align: center; }
+.article-read-more {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--rust);
+}
+
+@media (max-width: 700px) {
+  .article-row { grid-template-columns: 1fr; }
+  .article-row-img { height: 140px; border-right: none; border-bottom: var(--border-thin); }
+  .blog-section { padding: 2.5rem 1.2rem; }
+  .page-header { padding: 3rem 1.2rem 2rem; }
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">ION <span>FRANCOVSCHI</span></a>
+  <a href="../index.html" class="nav-logo">ION <span>FRANCOVSCHI</span></a>
   <ul class="nav-links">
-    <li><a href="#about">ABOUT</a></li>
-    <li><a href="#research">RESEARCH</a></li>
-    <li><a href="#publications">PAPERS</a></li>
-	<li><a href="blog/index.html">BLOG</a></li>
-	<li><a href="contact.html">CONTACT</a></li>
+    <li><a href="../index.html#about">ABOUT</a></li>
+    <li><a href="../index.html#research">RESEARCH</a></li>
+    <li><a href="../index.html#publications">PAPERS</a></li>
+    <li><a href="index.html" class="active">BLOG</a></li>
+    <li><a href="../index.html#contact">CONTACT</a></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <div class="hero-left">
-    <div>
-      <span class="hero-tag">► GEOLOGIST / EARTH SCIENTIST</span>
-      <h1>Reading<br><span class="accent">Deep Time</span><br>in Ancient<br>Rocks</h1>
-      <p class="hero-desc">
-        PhD researcher studying the late Ediacaran and early Cambrian sedimentary successions of southwestern Baltica — the ancient margin of the East European Platform. Published in <em>Precambrian Research</em> and other Elsevier journals.
-      </p>
-    </div>
-    <div class="hero-actions">
-      <a href="#research" class="btn btn-primary">► RESEARCH</a>
-      <a href="#blog" class="btn btn-secondary">▷ BLOG</a>
-    </div>
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="page-tag">► FIELD NOTES &amp; RESEARCH WRITING</span>
+    <h1>From the Field<br>&amp; the Lab</h1>
+    <p class="page-desc">Articles on Precambrian geology, stratigraphy, geochemistry, and the Ediacaran–Cambrian transition — written for researchers and curious readers alike.</p>
   </div>
+</div>
 
-  <div class="hero-right">
-    <div class="hero-strat-label">STRATIGRAPHIC COLUMN — EEP</div>
-    <div class="strat-column">
-      <div class="strat-row">
-        <div class="strat-age">Є1</div>
-        <div class="strat-fill s-cambrian"><span class="strat-name">Early Cambrian</span></div>
-      </div>
-      <div class="strat-row" style="height:32px;">
-        <div class="strat-age" style="font-size:6px; color:var(--paper); background:var(--rust);">~~~</div>
-        <div class="strat-fill s-boundary"><span class="strat-name light" style="font-size:9px;">Ed / Cm boundary</span></div>
-      </div>
-      <div class="strat-row">
-        <div class="strat-age">V3</div>
-        <div class="strat-fill s-vendian3"><span class="strat-name">Vendian III</span></div>
-      </div>
-      <div class="strat-row">
-        <div class="strat-age">V2</div>
-        <div class="strat-fill s-vendian2"><span class="strat-name">Vendian II</span></div>
-      </div>
-      <div class="strat-row">
-        <div class="strat-age">V1</div>
-        <div class="strat-fill s-vendian1"><span class="strat-name">Vendian I</span></div>
-      </div>
-      <div class="strat-row">
-        <div class="strat-age">Ed</div>
-        <div class="strat-fill s-ediacaran"><span class="strat-name">Ediacaran</span></div>
-      </div>
-      <div class="strat-row" style="height:36px;">
-        <div class="strat-age">pЄ</div>
-        <div class="strat-fill s-basement"><span class="strat-name light">Precambrian basement</span></div>
-      </div>
+<section class="blog-section">
+  <div class="blog-section-inner">
+
+    <div class="filter-bar">
+      <button class="filter-btn active">ALL</button>
+      <button class="filter-btn">STRATIGRAPHY</button>
+      <button class="filter-btn">GEOCHEMISTRY</button>
+      <button class="filter-btn">PALEOGEOGRAPHY</button>
+      <button class="filter-btn">FIELDWORK</button>
     </div>
 
-    <div class="walker-wrap">
-      <div class="walker">
-        <svg width="48" height="64" viewBox="0 0 8 11" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated; width:48px; height:64px;">
-          <rect x="2" y="0" width="4" height="1" fill="#5A3E10"/>
-          <rect x="1" y="1" width="6" height="1" fill="#7A5820"/>
-          <rect x="2" y="2" width="4" height="3" fill="#F0C880"/>
-          <rect x="3" y="3" width="1" height="1" fill="#1A1A18"/>
-          <rect x="5" y="3" width="1" height="1" fill="#1A1A18"/>
-          <rect x="1" y="5" width="6" height="3" fill="#3A5A8A"/>
-          <rect x="7" y="4" width="1" height="3" fill="#5A3E10"/>
-          <rect x="6" y="3" width="2" height="1" fill="#8A8278"/>
-          <rect x="0" y="6" width="2" height="2" fill="#8B6914"/>
-          <rect x="2" y="8" width="2" height="3" fill="#3A3A38"/>
-          <rect x="5" y="8" width="2" height="3" fill="#3A3A38"/>
-          <rect x="2" y="10" width="2" height="1" fill="#2A1A08"/>
-          <rect x="5" y="10" width="2" height="1" fill="#2A1A08"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="article-list">
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="section-inner">
-    <div class="section-title">
-      <span class="section-num">01</span>
-      <h2>ABOUT</h2>
-    </div>
-    <div class="about-grid">
-      <div>
-        <div class="about-box">
-          <div class="about-box-header">BIO.TXT</div>
-          <div class="about-box-body">
-            <p>I am a geologist and earth scientist with a PhD, specializing in Precambrian and early Paleozoic geology of the East European Platform.</p>
-            <p>My research focuses on the late Ediacaran and early Cambrian sedimentary successions of southwestern Baltica — decoding the ancient passive margin through sedimentology, stratigraphy, and geochemistry.</p>
-            <p>Published in <em>Precambrian Research</em> and other Elsevier journals. Fieldwork across the Volyn–Podolia region and related outcrops of the EEP.</p>
+      <!-- Article 1 — REAL, links to full page -->
+      <a href="vendian-sea-baltica.html" class="article-row">
+        <div class="article-row-img">
+          <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
+            <rect width="260" height="180" fill="#C8DDE8"/>
+            <rect x="0" y="95" width="260" height="8" fill="#D8C8A0"/>
+            <rect x="0" y="103" width="260" height="8" fill="#C8B888"/>
+            <rect x="0" y="111" width="260" height="8" fill="#B8A878"/>
+            <rect x="0" y="119" width="260" height="8" fill="#A89868"/>
+            <rect x="0" y="127" width="260" height="53" fill="#887848"/>
+            <rect x="0" y="91" width="32" height="4" fill="#D8C8A0"/>
+            <rect x="32" y="87" width="32" height="4" fill="#D8C8A0"/>
+            <rect x="64" y="91" width="32" height="4" fill="#D8C8A0"/>
+            <rect x="96" y="87" width="32" height="4" fill="#D8C8A0"/>
+            <rect x="128" y="91" width="32" height="4" fill="#D8C8A0"/>
+            <rect x="160" y="87" width="32" height="4" fill="#D8C8A0"/>
+            <rect x="192" y="91" width="32" height="4" fill="#D8C8A0"/>
+            <rect x="224" y="87" width="36" height="4" fill="#D8C8A0"/>
+            <rect x="100" y="106" width="4" height="4" fill="#8A7848" opacity="0.7"/>
+            <rect x="104" y="102" width="8" height="4" fill="#8A7848" opacity="0.7"/>
+            <rect x="112" y="106" width="4" height="4" fill="#8A7848" opacity="0.7"/>
+            <rect x="104" y="110" width="8" height="4" fill="#8A7848" opacity="0.7"/>
+            <rect x="20" y="40" width="40" height="2" fill="rgba(255,255,255,0.3)"/>
+            <rect x="80" y="55" width="60" height="2" fill="rgba(255,255,255,0.3)"/>
+            <rect x="170" y="35" width="50" height="2" fill="rgba(255,255,255,0.3)"/>
+            <text x="130" y="60" font-family="monospace" font-size="9" fill="rgba(58,106,138,0.6)" text-anchor="middle">VENDIAN SEA</text>
+          </svg>
+        </div>
+        <div class="article-row-body">
+          <div>
+            <div class="article-row-tag">STRATIGRAPHY</div>
+            <div class="article-row-title">What the Vendian Sea Tells Us About the Edge of Ancient Baltica</div>
+            <div class="article-row-excerpt">The sedimentary rocks of Podolia record a remarkable story — a passive continental margin slowly drowning under a warm, shallow Ediacaran sea. Here is how to read it, layer by layer.</div>
+          </div>
+          <div class="article-row-meta">
+            <span class="article-row-date">JANUARY 2025 · 8 MIN READ</span>
+            <span class="article-read-more">READ → </span>
           </div>
         </div>
-        <div class="stats-grid">
-          <div class="stat"><span class="stat-n">541</span><span class="stat-l">Ma boundary</span></div>
-          <div class="stat"><span class="stat-n">PhD</span><span class="stat-l">Earth Sciences</span></div>
-          <div class="stat"><span class="stat-n">EEP</span><span class="stat-l">Study region</span></div>
-          <div class="stat"><span class="stat-n">Ed/Cm</span><span class="stat-l">Interval focus</span></div>
-        </div>
-      </div>
+      </a>
 
-      <div class="pixel-map-box">
-        <div style="font-family:'Press Start 2P',monospace;font-size:7px;padding:10px 14px;border-bottom:var(--border);background:var(--ink);color:var(--cream);letter-spacing:0.1em;">MAP.SVG — ~541 MA</div>
-        <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;image-rendering:pixelated;">
-          <rect width="320" height="280" fill="#A8C8D8"/>
-          <!-- Baltica pixel blocks -->
-          <rect x="140" y="20" width="8" height="8" fill="#D8C8A0"/>
-          <rect x="132" y="28" width="24" height="8" fill="#D8C8A0"/>
-          <rect x="128" y="36" width="32" height="8" fill="#D8C8A0"/>
-          <rect x="128" y="44" width="32" height="8" fill="#D8C8A0"/>
-          <rect x="132" y="52" width="24" height="8" fill="#D8C8A0"/>
-          <rect x="136" y="60" width="16" height="8" fill="#D8C8A0"/>
-          <rect x="128" y="36" width="20" height="30" fill="#C8B888" opacity="0.4"/>
-          <!-- Study area -->
-          <rect x="128" y="56" width="8" height="8" fill="#B85C30"/>
-          <rect x="124" y="60" width="4" height="4" fill="#B85C30" opacity="0.7"/>
-          <text x="90" y="64" font-family="monospace" font-size="7" fill="#B85C30" font-weight="bold">SW BALTICA</text>
-          <text x="90" y="74" font-family="monospace" font-size="6" fill="#B85C30">study area →</text>
-          <text x="152" y="48" font-family="monospace" font-size="8" fill="#5A4520" font-weight="bold">BALTICA</text>
-          <!-- Avalonia -->
-          <rect x="40" y="60" width="8" height="8" fill="#D8C8A0"/>
-          <rect x="32" y="64" width="16" height="8" fill="#D8C8A0"/>
-          <rect x="36" y="72" width="16" height="8" fill="#D8C8A0"/>
-          <text x="25" y="90" font-family="monospace" font-size="6" fill="#5A4520">AVALONIA</text>
-          <!-- Laurentia -->
-          <rect x="240" y="20" width="16" height="8" fill="#C8D8B8"/>
-          <rect x="232" y="28" width="32" height="8" fill="#C8D8B8"/>
-          <rect x="228" y="36" width="40" height="8" fill="#C8D8B8"/>
-          <rect x="228" y="44" width="40" height="8" fill="#C8D8B8"/>
-          <rect x="232" y="52" width="32" height="8" fill="#C8D8B8"/>
-          <text x="234" y="75" font-family="monospace" font-size="7" fill="#3A5A3A">LAURENTIA</text>
-          <!-- Gondwana -->
-          <rect x="60" y="195" width="200" height="8" fill="#E0D0A8"/>
-          <rect x="40" y="203" width="240" height="8" fill="#E0D0A8"/>
-          <rect x="16" y="211" width="288" height="8" fill="#E0D0A8"/>
-          <rect x="0" y="219" width="320" height="61" fill="#E0D0A8"/>
-          <text x="160" y="248" font-family="monospace" font-size="9" fill="#5A4520" font-weight="bold" text-anchor="middle">GONDWANA</text>
-          <!-- Iapetus -->
-          <text x="80" y="145" font-family="monospace" font-size="8" fill="#3A6A8A" text-anchor="middle">IAPETUS OCEAN</text>
-          <!-- Paleoequator -->
-          <line x1="0" y1="165" x2="320" y2="165" stroke="#8A6A4A" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
-          <text x="4" y="161" font-family="monospace" font-size="6" fill="#8A6A4A" opacity="0.7">equator</text>
-          <!-- North pixel arrow -->
-          <rect x="290" y="20" width="4" height="4" fill="#1A1A18"/>
-          <rect x="286" y="24" width="12" height="4" fill="#1A1A18"/>
-          <rect x="290" y="28" width="4" height="8" fill="#1A1A18"/>
-          <text x="292" y="46" font-family="monospace" font-size="7" fill="#1A1A18" text-anchor="middle">N</text>
-          <!-- Legend -->
-          <rect x="4" y="4" width="84" height="32" fill="rgba(253,250,245,0.9)" stroke="#1A1A18" stroke-width="1"/>
-          <rect x="8" y="10" width="8" height="8" fill="#D8C8A0" stroke="#1A1A18" stroke-width="0.5"/>
-          <text x="20" y="18" font-family="monospace" font-size="6" fill="#1A1A18">continent</text>
-          <rect x="8" y="22" width="8" height="8" fill="#B85C30" stroke="#1A1A18" stroke-width="0.5"/>
-          <text x="20" y="30" font-family="monospace" font-size="6" fill="#1A1A18">study area</text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESEARCH -->
-<section class="research" id="research">
-  <div class="section-inner">
-    <div class="section-title">
-      <span class="section-num">02</span>
-      <h2>RESEARCH</h2>
-    </div>
-    <div class="timeline">
-      <div class="tl-block tl-proterozoic">PROTEROZOIC<br>2500–541 Ma</div>
-      <div class="tl-block tl-ediacaran">EDIACARAN<br>635–541 Ma</div>
-      <div class="tl-block tl-focus">★ Ed/Cm<br>~541 Ma<br>FOCUS</div>
-      <div class="tl-block tl-cambrian">CAMBRIAN<br>541–485 Ma</div>
-      <div class="tl-block tl-rest">PHANEROZOIC<br>485–0 Ma</div>
-    </div>
-    <div class="topics-grid">
-      <div class="topic">
-        <div class="topic-icon-px" style="clip-path:polygon(0 100%,50% 0,100% 100%);"></div>
-        <h3>LITHOSTRATIGRAPHY &amp; SEDIMENTOLOGY</h3>
-        <p>Detailed logging and facies analysis of the Vendian–Cambrian succession, reconstructing depositional environments along the EEP passive margin.</p>
-      </div>
-      <div class="topic">
-        <div class="topic-icon-px" style="clip-path:polygon(0 0,100% 50%,0 100%);"></div>
-        <h3>CHEMOSTRATIGRAPHY</h3>
-        <p>Carbon and strontium isotope stratigraphy across the Ediacaran–Cambrian boundary, correlating excursions with global events and extinction horizons.</p>
-      </div>
-      <div class="topic">
-        <div class="topic-icon-px" style="border-radius:50%;width:24px;height:24px;"></div>
-        <h3>PALEOENVIRONMENTAL RECONSTRUCTION</h3>
-        <p>Integrating trace fossils, body fossils, and geochemical proxies to reconstruct paleo-oceanographic conditions during the Cambrian Explosion.</p>
-      </div>
-      <div class="topic">
-        <div class="topic-icon-px" style="transform:rotate(45deg);"></div>
-        <h3>BIOSTRATIGRAPHY &amp; CORRELATION</h3>
-        <p>Calibrating the Vendian–Cambrian succession of the EEP against global Ediacaran fossil assemblages to constrain boundary ages.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PUBLICATIONS -->
-<section class="publications" id="publications">
-  <div class="section-inner">
-    <div class="section-title" style="justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-      <div style="display:flex;align-items:baseline;gap:1.5rem;">
-        <span class="section-num">03</span>
-        <h2>PUBLICATIONS</h2>
-      </div>
-      <a href="#" class="btn btn-secondary" style="font-size:7px;padding:10px 16px;">↗ GOOGLE SCHOLAR</a>
-    </div>
-    <div class="pub-list">
-      <div class="pub-item">
-        <div class="pub-yr">2024</div>
-        <div>
-          <div class="pub-title">Stratigraphic architecture and carbon isotope record across the Ediacaran–Cambrian boundary, southwestern East European Platform</div>
-          <div class="pub-authors">Your Name, Co-author A, Co-author B</div>
-          <div class="pub-journal">Precambrian Research — Elsevier</div>
-        </div>
-        <div class="pub-badge">REPLACE ME</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-yr">2023</div>
-        <div>
-          <div class="pub-title">Vendian–Cambrian transition in the Podolia region: facies, paleoenvironments, and global correlations</div>
-          <div class="pub-authors">Your Name, Co-author C</div>
-          <div class="pub-journal">Precambrian Research — Elsevier</div>
-        </div>
-        <div class="pub-badge">REPLACE ME</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-yr">2022</div>
-        <div>
-          <div class="pub-title">Trace fossil assemblages from the uppermost Ediacaran of Baltica: implications for early metazoan diversification</div>
-          <div class="pub-authors">Your Name, Co-author D, Co-author E</div>
-          <div class="pub-journal">Palaeogeography, Palaeoclimatology, Palaeoecology — Elsevier</div>
-        </div>
-        <div class="pub-badge">REPLACE ME</div>
-      </div>
-      <div class="pub-item">
-        <div class="pub-yr">2021</div>
-        <div>
-          <div class="pub-title">Sr isotope stratigraphy of Ediacaran carbonates from the Volyn–Podolia margin: constraints on seawater chemistry</div>
-          <div class="pub-authors">Your Name, Co-author F</div>
-          <div class="pub-journal">Earth-Science Reviews — Elsevier</div>
-        </div>
-        <div class="pub-badge">REPLACE ME</div>
-      </div>
-    </div>
-    <p style="font-size:12px;color:var(--ink3);margin-top:1rem;font-style:italic;">Replace placeholders with your actual publications.</p>
-  </div>
-</section>
-
-<!-- BLOG -->
-<section class="blog" id="blog">
-  <div class="section-inner">
-    <div class="section-title" style="justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-      <div style="display:flex;align-items:baseline;gap:1.5rem;">
-        <span class="section-num">04</span>
-        <h2>BLOG</h2>
-      </div>
-      <a href="#" class="btn btn-secondary" style="font-size:7px;padding:10px 16px;">ALL ARTICLES →</a>
-    </div>
-    <div class="blog-grid">
-      <a href="#" class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;image-rendering:pixelated;">
-            <rect width="320" height="140" fill="#C8DDE8"/>
-            <rect x="0" y="72" width="320" height="8" fill="#D8C8A0"/>
-            <rect x="0" y="80" width="320" height="8" fill="#C8B888"/>
-            <rect x="0" y="88" width="320" height="8" fill="#B8A878"/>
-            <rect x="0" y="96" width="320" height="8" fill="#A89868"/>
-            <rect x="0" y="104" width="320" height="36" fill="#887848"/>
-            <rect x="0" y="68" width="40" height="4" fill="#D8C8A0"/>
-            <rect x="40" y="64" width="40" height="4" fill="#D8C8A0"/>
-            <rect x="80" y="68" width="40" height="4" fill="#D8C8A0"/>
-            <rect x="120" y="64" width="40" height="4" fill="#D8C8A0"/>
-            <rect x="160" y="68" width="40" height="4" fill="#D8C8A0"/>
-            <rect x="200" y="64" width="40" height="4" fill="#D8C8A0"/>
-            <rect x="240" y="68" width="40" height="4" fill="#D8C8A0"/>
-            <rect x="280" y="64" width="40" height="4" fill="#D8C8A0"/>
-            <rect x="120" y="82" width="4" height="4" fill="#8A7848" opacity="0.7"/>
-            <rect x="124" y="78" width="8" height="4" fill="#8A7848" opacity="0.7"/>
-            <rect x="132" y="82" width="4" height="4" fill="#8A7848" opacity="0.7"/>
-            <rect x="124" y="86" width="8" height="4" fill="#8A7848" opacity="0.7"/>
+      <!-- Article 2 -->
+      <a href="carbon-isotope-excursion-ediacaran-cambrian.html" class="article-row">
+        <div class="article-row-img">
+          <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
+            <rect width="260" height="180" fill="#F0ECD8"/>
+            <rect x="28" y="10" width="1" height="160" fill="#C0B898"/>
+            <rect x="28" y="169" width="224" height="1" fill="#C0B898"/>
+            <rect x="28" y="90" width="224" height="2" fill="#8A8278" opacity="0.5"/>
+            <rect x="36" y="65" width="8" height="25" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="52" y="58" width="8" height="32" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="68" y="52" width="8" height="38" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="84" y="48" width="8" height="42" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="100" y="92" width="8" height="38" fill="#B85C30" opacity="0.8"/>
+            <rect x="116" y="92" width="8" height="55" fill="#B85C30" opacity="0.8"/>
+            <rect x="132" y="92" width="8" height="60" fill="#B85C30" opacity="0.8"/>
+            <rect x="148" y="92" width="8" height="48" fill="#B85C30" opacity="0.8"/>
+            <rect x="164" y="92" width="8" height="28" fill="#B85C30" opacity="0.8"/>
+            <rect x="180" y="62" width="8" height="28" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="196" y="60" width="8" height="30" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="136" y="10" width="2" height="158" fill="#B85C30" opacity="0.35"/>
+            <text x="140" y="25" font-family="monospace" font-size="7" fill="#B85C30">Ed/Cm</text>
           </svg>
         </div>
-        <div class="blog-card-body">
-          <div class="blog-tag">STRATIGRAPHY</div>
-          <div class="blog-title">What the Vendian Sea Tells Us About the Edge of Ancient Baltica</div>
-          <div class="blog-excerpt">The sedimentary rocks of Podolia record a remarkable story — a passive margin slowly drowning under a warm Ediacaran sea.</div>
-          <div class="blog-meta"><span>JAN 2025</span><span>8 MIN</span></div>
+        <div class="article-row-body">
+          <div>
+            <div class="article-row-tag">GEOCHEMISTRY</div>
+            <div class="article-row-title">The Carbon Isotope Excursion at the Ediacaran–Cambrian Boundary Explained</div>
+            <div class="article-row-excerpt">A dramatic negative δ¹³C excursion marks one of the most debated events in Earth history — a signal recorded in ancient seas across every continent. What caused it, and what does it mean?</div>
+          </div>
+          <div class="article-row-meta">
+            <span class="article-row-date">MARCH 2025 · 12 MIN READ</span>
+            <span class="article-read-more">READ → </span>
+          </div>
         </div>
       </a>
 
-      <a href="#" class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;image-rendering:pixelated;">
-            <rect width="320" height="140" fill="#F0ECD8"/>
-            <rect x="30" y="10" width="1" height="120" fill="#C0B898"/>
-            <rect x="30" y="129" width="280" height="1" fill="#C0B898"/>
-            <rect x="30" y="70" width="280" height="2" fill="#8A8278" opacity="0.5"/>
-            <rect x="40" y="50" width="8" height="20" fill="#5A7A5A" opacity="0.8"/>
-            <rect x="56" y="45" width="8" height="25" fill="#5A7A5A" opacity="0.8"/>
-            <rect x="72" y="40" width="8" height="30" fill="#5A7A5A" opacity="0.8"/>
-            <rect x="88" y="36" width="8" height="34" fill="#5A7A5A" opacity="0.8"/>
-            <rect x="104" y="33" width="8" height="37" fill="#5A7A5A" opacity="0.8"/>
-            <rect x="120" y="72" width="8" height="32" fill="#B85C30" opacity="0.8"/>
-            <rect x="136" y="72" width="8" height="46" fill="#B85C30" opacity="0.8"/>
-            <rect x="152" y="72" width="8" height="50" fill="#B85C30" opacity="0.8"/>
-            <rect x="168" y="72" width="8" height="40" fill="#B85C30" opacity="0.8"/>
-            <rect x="184" y="72" width="8" height="24" fill="#B85C30" opacity="0.8"/>
-            <rect x="200" y="50" width="8" height="20" fill="#5A7A5A" opacity="0.8"/>
-            <rect x="216" y="48" width="8" height="22" fill="#5A7A5A" opacity="0.8"/>
-            <rect x="232" y="52" width="8" height="18" fill="#5A7A5A" opacity="0.8"/>
-            <rect x="248" y="50" width="8" height="20" fill="#5A7A5A" opacity="0.8"/>
-            <rect x="162" y="10" width="2" height="118" fill="#B85C30" opacity="0.4"/>
-            <text x="167" y="22" font-family="monospace" font-size="7" fill="#B85C30">Ed/Cm</text>
-            <text x="80" y="140" font-family="monospace" font-size="7" fill="#8A8278">δ¹³C ‰ vs. stratigraphic height</text>
+      <!-- Article 3 — placeholder -->
+      <a href="#" class="article-row">
+        <div class="article-row-img">
+          <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
+            <rect width="260" height="180" fill="#A8C8D8"/>
+            <rect x="110" y="18" width="8" height="8" fill="#D8C8A0"/>
+            <rect x="102" y="26" width="24" height="8" fill="#D8C8A0"/>
+            <rect x="98" y="34" width="32" height="8" fill="#D8C8A0"/>
+            <rect x="98" y="42" width="32" height="8" fill="#D8C8A0"/>
+            <rect x="102" y="50" width="24" height="8" fill="#D8C8A0"/>
+            <rect x="98" y="50" width="8" height="8" fill="#B85C30"/>
+            <rect x="180" y="22" width="32" height="8" fill="#B8C8A8"/>
+            <rect x="176" y="30" width="40" height="8" fill="#B8C8A8"/>
+            <rect x="176" y="38" width="40" height="8" fill="#B8C8A8"/>
+            <rect x="30" y="120" width="200" height="8" fill="#C8D8A0"/>
+            <rect x="10" y="128" width="240" height="52" fill="#C8D8A0"/>
+            <text x="118" y="48" font-family="monospace" font-size="7" fill="#5A4520">BALTICA</text>
+            <text x="130" y="100" font-family="monospace" font-size="8" fill="#3A6A8A">IAPETUS</text>
+            <text x="130" y="158" font-family="monospace" font-size="8" fill="#5A4520" text-anchor="middle">GONDWANA</text>
           </svg>
         </div>
-        <div class="blog-card-body">
-          <div class="blog-tag">GEOCHEMISTRY</div>
-          <div class="blog-title">The Carbon Isotope Excursion at the Ediacaran–Cambrian Boundary Explained</div>
-          <div class="blog-excerpt">A dramatic negative δ¹³C excursion marks one of the most debated events in Earth history, recorded across every continent.</div>
-          <div class="blog-meta"><span>MAR 2025</span><span>12 MIN</span></div>
+        <div class="article-row-body">
+          <div>
+            <div class="article-row-tag">PALEOGEOGRAPHY</div>
+            <div class="article-row-title">Where Was Baltica 541 Million Years Ago?</div>
+            <div class="article-row-excerpt">Reconstructing ancient plate positions is detective work on a planetary scale. Here is what we know about Baltica's latitude, orientation, and neighbours during the dawn of complex animal life.</div>
+          </div>
+          <div class="article-row-meta">
+            <span class="article-row-date">MAY 2025 · 10 MIN READ</span>
+            <span class="article-read-more">COMING SOON</span>
+          </div>
         </div>
       </a>
 
-      <a href="#" class="blog-card">
-        <div class="blog-card-img">
-          <svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;image-rendering:pixelated;">
-            <rect width="320" height="140" fill="#A8C8D8"/>
-            <rect x="140" y="20" width="8" height="8" fill="#D8C8A0"/>
-            <rect x="132" y="28" width="24" height="8" fill="#D8C8A0"/>
-            <rect x="128" y="36" width="32" height="8" fill="#D8C8A0"/>
-            <rect x="128" y="44" width="32" height="8" fill="#D8C8A0"/>
-            <rect x="132" y="52" width="24" height="8" fill="#D8C8A0"/>
-            <rect x="128" y="56" width="8" height="8" fill="#B85C30"/>
-            <rect x="220" y="24" width="32" height="8" fill="#B8C8A8"/>
-            <rect x="216" y="32" width="40" height="8" fill="#B8C8A8"/>
-            <rect x="220" y="40" width="32" height="8" fill="#B8C8A8"/>
-            <rect x="40" y="100" width="240" height="8" fill="#C8D8A0"/>
-            <rect x="16" y="108" width="288" height="32" fill="#C8D8A0"/>
-            <text x="152" y="50" font-family="monospace" font-size="8" fill="#5A4520" font-weight="bold">BALTICA</text>
-            <text x="120" y="78" font-family="monospace" font-size="7" fill="#B85C30">● SW Baltica</text>
-            <text x="160" y="128" font-family="monospace" font-size="8" fill="#5A4520" text-anchor="middle" font-weight="bold">GONDWANA</text>
-            <text x="75" y="85" font-family="monospace" font-size="7" fill="#3A6A8A">IAPETUS</text>
-          </svg>
-        </div>
-        <div class="blog-card-body">
-          <div class="blog-tag">PALEOGEOGRAPHY</div>
-          <div class="blog-title">Where Was Baltica 541 Million Years Ago?</div>
-          <div class="blog-excerpt">Reconstructing ancient plate positions is detective work on a planetary scale. What we know about Baltica at the dawn of animal life.</div>
-          <div class="blog-meta"><span>MAY 2025</span><span>10 MIN</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="section-inner">
-    <div class="section-title">
-      <span class="section-num">05</span>
-      <h2>CONTACT</h2>
-    </div>
-    <div class="contact-inner">
-      <p style="font-size:15px;color:var(--ink2);max-width:500px;">Open to correspondence from fellow researchers, students, and anyone curious about the Precambrian world.</p>
-      <div class="contact-links">
-        <a href="/cdn-cgi/l/email-protection" class="contact-link">✉ EMAIL</a>
-        <a href="https://orcid.org/0000-0002-5766-8023" target="_blank" class="contact-link">◉ ORCID</a>
-        <a href="https://scholar.google.com/citations?user=jPq_h78AAAAJ&hl=en" target="_blank" class="contact-link">▣ SCHOLAR</a>
-        <a href="https://researchgate.net" target="_blank" class="contact-link">◈ RESEARCHGATE</a>
-      </div>
     </div>
   </div>
 </section>
@@ -926,3 +302,16 @@ footer {
   </div>
   <div class="footer-txt" style="text-align:right;">
     <span class="dim">STATIC HTML · VERCEL</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

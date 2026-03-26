@@ -207,12 +207,11 @@ h1 .accent { color: var(--rust); }
   padding-right: 8px;
 }
 
-/* Stratigraphic colors */
-.s-silurian { background: repeating-linear-gradient(0deg,#BDE0D0 0,#BDE0D0 4px,#9DC0B0 4px,#9DC0B0 8px); }
-.s-ordovician3 { background: repeating-linear-gradient(0deg,#A8D0B8 0,#A8D0B8 4px,#88B098 4px,#88B098 8px); }
-.s-ordovician2 { background: repeating-linear-gradient(0deg,#93BC9D 0,#93BC9D 4px,#739C7D 4px,#739C7D 8px); }
 .s-cambrian { background: repeating-linear-gradient(0deg,#C8E4F8 0,#C8E4F8 4px,#A8C8E8 4px,#A8C8E8 8px); }
 .s-boundary { background: var(--rust); }
+.s-vendian3 { background: repeating-linear-gradient(0deg,#E8D8B8 0,#E8D8B8 4px,#D4C4A4 4px,#D4C4A4 8px); }
+.s-vendian2 { background: repeating-linear-gradient(0deg,#D8C8A0 0,#D8C8A0 4px,#C4B48C 4px,#C4B48C 8px); }
+.s-vendian1 { background: repeating-linear-gradient(0deg,#C8B888 0,#C8B888 4px,#B4A474 4px,#B4A474 8px); }
 .s-ediacaran { background: repeating-linear-gradient(0deg,#B8A878 0,#B8A878 4px,#A49464 4px,#A49464 8px); }
 .s-basement { background: repeating-linear-gradient(45deg,#888078 0,#888078 4px,#706860 4px,#706860 8px); }
 
@@ -567,24 +566,24 @@ footer {
     <div class="hero-strat-label">STRATIGRAPHIC COLUMN — EEP</div>
     <div class="strat-column">
       <div class="strat-row">
-        <div class="strat-age">S</div>
-        <div class="strat-fill s-silurian"><span class="strat-name">Silurian</span></div>
-      </div>
-      <div class="strat-row">
-        <div class="strat-age">O3</div>
-        <div class="strat-fill s-ordovician3"><span class="strat-name">Ordovician 3</span></div>
-      </div>
-      <div class="strat-row">
-        <div class="strat-age">O2</div>
-        <div class="strat-fill s-ordovician2"><span class="strat-name">Ordovician 2</span></div>
-      </div>
-      <div class="strat-row">
         <div class="strat-age">Є1</div>
         <div class="strat-fill s-cambrian"><span class="strat-name">Early Cambrian</span></div>
       </div>
       <div class="strat-row" style="height:32px;">
         <div class="strat-age" style="font-size:6px; color:var(--paper); background:var(--rust);">~~~</div>
         <div class="strat-fill s-boundary"><span class="strat-name light" style="font-size:9px;">Ed / Cm boundary</span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age">V3</div>
+        <div class="strat-fill s-vendian3"><span class="strat-name">Vendian III</span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age">V2</div>
+        <div class="strat-fill s-vendian2"><span class="strat-name">Vendian II</span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age">V1</div>
+        <div class="strat-fill s-vendian1"><span class="strat-name">Vendian I</span></div>
       </div>
       <div class="strat-row">
         <div class="strat-age">Ed</div>
@@ -803,7 +802,7 @@ footer {
       <a href="#" class="btn btn-secondary" style="font-size:7px;padding:10px 16px;">ALL ARTICLES →</a>
     </div>
     <div class="blog-grid">
-      <a href="blog/vendian-sea-baltica.html" class="blog-card">
+      <a href="#" class="blog-card">
         <div class="blog-card-img">
           <svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;image-rendering:pixelated;">
             <rect width="320" height="140" fill="#C8DDE8"/>
@@ -910,9 +909,9 @@ footer {
     <div class="contact-inner">
       <p style="font-size:15px;color:var(--ink2);max-width:500px;">Open to correspondence from fellow researchers, students, and anyone curious about the Precambrian world.</p>
       <div class="contact-links">
-        <a href="mailto:your@email.com" class="contact-link">✉ EMAIL</a>
-        <a href="https://orcid.org/YOUR-ORCID" target="_blank" class="contact-link">◉ ORCID</a>
-        <a href="https://scholar.google.com" target="_blank" class="contact-link">▣ SCHOLAR</a>
+        <a href="/cdn-cgi/l/email-protection#a1d8ced4d3e1c4ccc0c8cd8fc2cecc" class="contact-link">✉ EMAIL</a>
+        <a href="https://orcid.org/0000-0002-5766-8023" target="_blank" class="contact-link">◉ ORCID</a>
+        <a href="https://scholar.google.com/citations?user=jPq_h78AAAAJ&hl=en" target="_blank" class="contact-link">▣ SCHOLAR</a>
         <a href="https://researchgate.net" target="_blank" class="contact-link">◈ RESEARCHGATE</a>
       </div>
     </div>
@@ -926,8 +925,3 @@ footer {
   </div>
   <div class="footer-txt" style="text-align:right;">
     <span class="dim">STATIC HTML · VERCEL</span>
-  </div>
-</footer>
-
-</body>
-</html>

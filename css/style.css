@@ -112,6 +112,9 @@ footer {
 .btn-ghost { background: var(--cream); color: var(--ink); }
 .btn-ghost:hover { background: var(--ink); color: var(--cream); }
 
+/* When two buttons sit side-by-side, collapse the shared border */
+.btn + .btn { border-left: none; }
+
 /* SECTION NUMS */
 .section-num {
   font-family: 'Press Start 2P', monospace;

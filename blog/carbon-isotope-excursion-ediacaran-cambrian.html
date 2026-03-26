@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Carbon Isotope Excursion at the Ediacaran–Cambrian Boundary Explained — Ion Francovschi</title>
+<meta name="description" content="A dramatic negative δ¹³C excursion marks one of the most debated events in Earth history. What caused it, what it records, and what it means for understanding the Ediacaran–Cambrian transition.">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+section { position: relative; z-index: 1; }
+
+.article-header {
+  border-bottom: var(--border);
+  background: var(--paper);
+  padding: 4rem 2rem 0;
+}
+.article-header-inner { max-width: 800px; margin: 0 auto; }
+
+.article-breadcrumb {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.article-breadcrumb a { color: var(--rust); text-decoration: none; }
+.article-breadcrumb a:hover { text-decoration: underline; }
+
+.article-tag {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 5px 10px;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(14px, 2.5vw, 22px);
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.article-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.2rem 0;
+  border-top: var(--border-thin);
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.article-meta-item {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--stone);
+  line-height: 1.8;
+}
+.article-meta-item span { color: var(--ink2); display: block; }
+
+.article-hero-img { border-bottom: var(--border); overflow: hidden; }
+.article-hero-img svg { display: block; width: 100%; }
+
+.article-body { padding: 4rem 2rem; }
+.article-body-inner { max-width: 720px; margin: 0 auto; }
+
+.article-body p {
+  font-size: 16px;
+  color: var(--ink2);
+  line-height: 1.95;
+  margin-bottom: 1.6rem;
+}
+
+.article-body h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(11px, 1.6vw, 14px);
+  color: var(--ink);
+  line-height: 1.8;
+  margin: 3rem 0 1.2rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--rust);
+}
+
+.article-body h3 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 2.2rem 0 0.8rem;
+}
+
+.pullquote {
+  border: var(--border);
+  padding: 2rem 2rem 2rem 1.6rem;
+  border-left: 6px solid var(--rust);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+.pullquote p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px !important;
+  font-style: italic;
+  color: var(--ink) !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.7 !important;
+}
+.pullquote cite {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--rust);
+  font-style: normal;
+}
+
+.figure {
+  border: var(--border);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+.figure-img { border-bottom: var(--border-thin); overflow: hidden; }
+.figure-img svg { display: block; width: 100%; }
+.figure-caption {
+  padding: 0.8rem 1rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+.key-terms { border: var(--border); margin: 2.5rem 0; }
+.key-terms-header {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+.key-terms-body { padding: 1.2rem 1.4rem; }
+.key-term {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: var(--border-thin);
+  font-size: 14px;
+}
+.key-term:last-child { border-bottom: none; }
+.key-term-word { font-weight: 700; color: var(--rust); font-style: italic; }
+.key-term-def { color: var(--ink2); }
+
+/* Comparison table */
+.data-table {
+  border: var(--border);
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 13px;
+}
+.data-table th {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 10px 12px;
+  text-align: left;
+  border-right: var(--border-thin);
+  letter-spacing: 0.08em;
+}
+.data-table td {
+  padding: 10px 12px;
+  border-bottom: var(--border-thin);
+  border-right: var(--border-thin);
+  color: var(--ink2);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table td:last-child, .data-table th:last-child { border-right: none; }
+.data-table tr:hover td { background: var(--paper); }
+.data-table td strong { color: var(--ink); }
+
+.article-footer { border-top: var(--border); padding: 3rem 2rem; background: var(--paper); }
+.article-footer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.article-footer-box { border: var(--border); }
+.article-footer-box-header {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+.article-footer-box-body {
+  padding: 1.2rem;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+.article-footer-box-body a { color: var(--rust); font-weight: 700; text-decoration: none; }
+.article-footer-box-body a:hover { text-decoration: underline; }
+
+@media (max-width: 700px) {
+  .article-body { padding: 2.5rem 1.2rem; }
+  .article-header { padding: 3rem 1.2rem 0; }
+  .article-footer { padding: 2rem 1.2rem; }
+  .article-footer-inner { grid-template-columns: 1fr; }
+  .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .key-term { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">ION <span>FRANCOVSCHI</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">ABOUT</a></li>
+    <li><a href="../index.html#research">RESEARCH</a></li>
+    <li><a href="../index.html#publications">PAPERS</a></li>
+    <li><a href="index.html" class="active">BLOG</a></li>
+    <li><a href="../contact.html">CONTACT</a></li>
+  </ul>
+</nav>
+
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="index.html">◄ BLOG</a>
+      <span>/</span>
+      <span>GEOCHEMISTRY</span>
+    </div>
+    <span class="article-tag">GEOCHEMISTRY</span>
+    <h1>The Carbon Isotope Excursion<br>at the Ediacaran–Cambrian<br>Boundary Explained</h1>
+    <div class="article-meta-bar">
+      <div class="article-meta-item">DATE<span>MARCH 2025</span></div>
+      <div class="article-meta-item">READ TIME<span>~12 MINUTES</span></div>
+      <div class="article-meta-item">AUTHOR<span>ION FRANCOVSCHI</span></div>
+      <div class="article-meta-item">TOPIC<span>CHEMOSTRATIGRAPHY</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO: pixel δ¹³C curve -->
+<div class="article-hero-img">
+  <svg viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="image-rendering:pixelated; max-height:360px;">
+    <rect width="1200" height="360" fill="#F5F0E8"/>
+    <!-- Grid lines horizontal -->
+    <rect x="80" y="60"  width="1080" height="1" fill="#D8D0C0" opacity="0.8"/>
+    <rect x="80" y="120" width="1080" height="1" fill="#D8D0C0" opacity="0.8"/>
+    <rect x="80" y="180" width="1080" height="1" fill="#D8D0C0" opacity="0.6"/>
+    <rect x="80" y="240" width="1080" height="1" fill="#D8D0C0" opacity="0.8"/>
+    <rect x="80" y="300" width="1080" height="1" fill="#D8D0C0" opacity="0.8"/>
+    <!-- Zero line (δ¹³C = 0) -->
+    <rect x="80" y="180" width="1080" height="2" fill="#8A8278" opacity="0.7"/>
+    <!-- Axis -->
+    <rect x="80" y="40" width="2" height="280" fill="#1A1A18" opacity="0.5"/>
+    <rect x="80" y="318" width="1080" height="2" fill="#1A1A18" opacity="0.5"/>
+    <!-- Y axis labels -->
+    <text x="68" y="64"  font-family="monospace" font-size="11" fill="#5A4520" text-anchor="end">+6</text>
+    <text x="68" y="124" font-family="monospace" font-size="11" fill="#5A4520" text-anchor="end">+3</text>
+    <text x="68" y="184" font-family="monospace" font-size="11" fill="#5A4520" text-anchor="end"> 0</text>
+    <text x="68" y="244" font-family="monospace" font-size="11" fill="#5A4520" text-anchor="end">-3</text>
+    <text x="68" y="304" font-family="monospace" font-size="11" fill="#5A4520" text-anchor="end">-6</text>
+    <text x="20" y="195" font-family="monospace" font-size="11" fill="#5A4520" text-anchor="middle" transform="rotate(-90,20,195)">δ¹³C (‰ VPDB)</text>
+    <!-- X axis label -->
+    <text x="620" y="345" font-family="monospace" font-size="11" fill="#5A4520" text-anchor="middle">Stratigraphic height (older → younger)</text>
+
+    <!-- POSITIVE zone fill -->
+    <polygon points="100,180 130,160 170,148 210,135 250,128 290,132 320,138 350,145 380,155 410,165 440,175 460,180"
+      fill="rgba(90,122,90,0.12)"/>
+    <!-- NEGATIVE zone fill (BACE excursion) -->
+    <polygon points="460,180 490,195 520,215 550,238 580,262 610,278 640,290 670,295 700,288 730,272 760,252 790,228 820,208 850,192 880,183 900,180"
+      fill="rgba(184,92,48,0.12)"/>
+    <!-- RECOVERY positive fill -->
+    <polygon points="900,180 930,165 960,150 990,138 1020,130 1050,125 1080,128 1110,132 1140,138 1160,180"
+      fill="rgba(90,122,90,0.08)"/>
+
+    <!-- THE CURVE — pixel-style (thick, stepped) -->
+    <!-- Pre-excursion positive values -->
+    <polyline points="100,160 130,158 160,148 190,136 220,128 250,126 280,130 310,136 340,143 370,152 400,162 430,172 460,180"
+      fill="none" stroke="#5A7A5A" stroke-width="3" stroke-linejoin="round"/>
+    <!-- BACE drop -->
+    <polyline points="460,180 490,196 520,216 550,240 580,264 610,280 640,292 670,296 700,290 730,274 760,254 790,230 820,210 850,193 880,182 900,180"
+      fill="none" stroke="#B85C30" stroke-width="3.5" stroke-linejoin="round"/>
+    <!-- Post-excursion recovery -->
+    <polyline points="900,180 930,164 960,149 990,137 1020,129 1050,124 1080,127 1110,131 1140,137 1160,143"
+      fill="none" stroke="#5A7A5A" stroke-width="3" stroke-linejoin="round"/>
+
+    <!-- Ed/Cm BOUNDARY LINE -->
+    <rect x="460" y="40" width="2" height="278" fill="#B85C30" opacity="0.5"/>
+    <!-- Boundary label -->
+    <rect x="432" y="40" width="90" height="22" fill="rgba(184,92,48,0.12)" stroke="#B85C30" stroke-width="1"/>
+    <text x="477" y="55" font-family="monospace" font-size="10" fill="#B85C30" text-anchor="middle" font-weight="bold">Ed / Cm</text>
+
+    <!-- SHURAM label (earlier excursion hint) -->
+    <rect x="220" y="85" width="100" height="30" fill="rgba(253,250,245,0.85)" stroke="#1A1A18" stroke-width="1"/>
+    <text x="270" y="100" font-family="monospace" font-size="9" fill="#5A4520" text-anchor="middle">pre-boundary</text>
+    <text x="270" y="112" font-family="monospace" font-size="9" fill="#5A4520" text-anchor="middle">positive values</text>
+    <line x1="270" y1="115" x2="270" y2="130" stroke="#5A4520" stroke-width="0.8" stroke-dasharray="2,2"/>
+
+    <!-- BACE label -->
+    <rect x="555" y="54" width="130" height="40" fill="rgba(253,250,245,0.9)" stroke="#B85C30" stroke-width="1.5"/>
+    <text x="620" y="72" font-family="monospace" font-size="10" fill="#B85C30" text-anchor="middle" font-weight="bold">BACE</text>
+    <text x="620" y="86" font-family="monospace" font-size="8" fill="#B85C30" text-anchor="middle">negative excursion</text>
+    <line x1="620" y1="94" x2="620" y2="275" stroke="#B85C30" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+    <!-- Recovery label -->
+    <rect x="970" y="85" width="110" height="30" fill="rgba(253,250,245,0.85)" stroke="#1A1A18" stroke-width="1"/>
+    <text x="1025" y="100" font-family="monospace" font-size="9" fill="#5A7A5A" text-anchor="middle">Cambrian</text>
+    <text x="1025" y="112" font-family="monospace" font-size="9" fill="#5A7A5A" text-anchor="middle">recovery</text>
+
+    <!-- δ¹³C min annotation -->
+    <circle cx="670" cy="296" r="5" fill="none" stroke="#B85C30" stroke-width="1.5"/>
+    <line x1="670" y1="301" x2="670" y2="318" stroke="#B85C30" stroke-width="1"/>
+    <text x="670" y="332" font-family="monospace" font-size="9" fill="#B85C30" text-anchor="middle">min. ~−8‰</text>
+  </svg>
+</div>
+
+<article class="article-body">
+  <div class="article-body-inner">
+
+    <p>
+      Imagine standing at an outcrop in Podolia, Oman, Newfoundland, or South China — four places separated by thousands of kilometres and different geological histories — and finding the same geochemical signal inscribed in the carbonate rocks at the same stratigraphic level. A sharp, unmistakeable drop in the ratio of carbon-13 to carbon-12. A negative excursion in δ¹³C that plunges to values as low as −8 or even −10 per mille, then slowly recovers into the Cambrian.
+    </p>
+
+    <p>
+      This signal — known as the <em>Basal Cambrian Carbon isotope Excursion</em>, or BACE — is one of the most striking chemostratigraphic markers in the entire geological record. It is found on virtually every palaeocontinent that preserves carbonate-bearing Ediacaran–Cambrian boundary sections. It has been measured in thousands of samples across dozens of sections. And despite decades of study, its ultimate cause remains actively debated.
+    </p>
+
+    <div class="pullquote">
+      <p>"A signal recorded simultaneously on every continent is not a local curiosity — it is a message from the global ocean, written in carbon."</p>
+      <cite>— CHEMOSTRATIGRAPHY, FIELD NOTES</cite>
+    </div>
+
+    <h2>THE BASICS: WHAT IS δ¹³C AND WHY DOES IT MATTER?</h2>
+
+    <p>
+      Carbon has two stable isotopes: carbon-12 (¹²C, the common one, ~99% of all carbon) and carbon-13 (¹³C, ~1%). The ratio between them, expressed as δ¹³C in units of per mille (‰) relative to a standard, records the balance of carbon cycling in the ocean–atmosphere system at the time carbonates were precipitated.
+    </p>
+
+    <p>
+      The key process driving δ¹³C in the ocean is <em>organic carbon burial</em>. Photosynthesising organisms preferentially incorporate ¹²C into their tissues, leaving seawater enriched in ¹³C. When organic matter is buried in sediments rather than oxidised back to CO₂, it removes ¹²C from circulation — driving seawater δ¹³C upward (more positive). Conversely, when organic carbon is oxidised or when large amounts of isotopically light carbon enter the ocean, δ¹³C drops.
+    </p>
+
+    <p>
+      This is why a large negative excursion is so significant: it records a major perturbation to the global carbon cycle — a sudden influx of light carbon, a collapse of organic carbon burial, or both.
+    </p>
+
+    <!-- Figure: carbon cycle schematic -->
+    <div class="figure">
+      <div class="figure-img">
+        <svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
+          <rect width="720" height="260" fill="#F5F0E8"/>
+
+          <!-- Atmosphere box -->
+          <rect x="270" y="20" width="180" height="48" fill="#C8DDE8" stroke="#1A1A18" stroke-width="1.5"/>
+          <text x="360" y="42" font-family="monospace" font-size="10" fill="#1A1A18" text-anchor="middle" font-weight="bold">ATMOSPHERE</text>
+          <text x="360" y="57" font-family="monospace" font-size="9" fill="#3A6A8A" text-anchor="middle">CO₂</text>
+
+          <!-- Ocean box -->
+          <rect x="220" y="110" width="280" height="48" fill="#A8C8D8" stroke="#1A1A18" stroke-width="1.5"/>
+          <text x="360" y="132" font-family="monospace" font-size="10" fill="#1A1A18" text-anchor="middle" font-weight="bold">OCEAN</text>
+          <text x="360" y="148" font-family="monospace" font-size="9" fill="#1A1A18" text-anchor="middle">dissolved inorganic carbon</text>
+
+          <!-- Organic burial box -->
+          <rect x="480" y="180" width="200" height="48" fill="#C8B888" stroke="#1A1A18" stroke-width="1.5"/>
+          <text x="580" y="200" font-family="monospace" font-size="9" fill="#1A1A18" text-anchor="middle" font-weight="bold">ORGANIC C BURIAL</text>
+          <text x="580" y="215" font-family="monospace" font-size="9" fill="#5A4520" text-anchor="middle">removes ¹²C → δ¹³C rises</text>
+
+          <!-- Carbonate burial box -->
+          <rect x="40" y="180" width="200" height="48" fill="#E8D8B0" stroke="#1A1A18" stroke-width="1.5"/>
+          <text x="140" y="200" font-family="monospace" font-size="9" fill="#1A1A18" text-anchor="middle" font-weight="bold">CARBONATE BURIAL</text>
+          <text x="140" y="215" font-family="monospace" font-size="9" fill="#5A4520" text-anchor="middle">records seawater δ¹³C</text>
+
+          <!-- Arrows: atmosphere ↔ ocean -->
+          <line x1="360" y1="68" x2="360" y2="110" stroke="#1A1A18" stroke-width="1.2"/>
+          <polygon points="360,110 355,100 365,100" fill="#1A1A18"/>
+          <line x1="350" y1="110" x2="350" y2="68" stroke="#1A1A18" stroke-width="1.2"/>
+          <polygon points="350,68 345,78 355,78" fill="#1A1A18"/>
+
+          <!-- Ocean → organic burial -->
+          <line x1="500" y1="134" x2="530" y2="180" stroke="#5A7A5A" stroke-width="1.5"/>
+          <polygon points="530,180 522,170 532,168" fill="#5A7A5A"/>
+          <text x="540" y="163" font-family="monospace" font-size="8" fill="#5A7A5A">photosynthesis</text>
+
+          <!-- Ocean → carbonate -->
+          <line x1="220" y1="144" x2="190" y2="180" stroke="#8A6A4A" stroke-width="1.5"/>
+          <polygon points="190,180 186,168 196,170" fill="#8A6A4A"/>
+
+          <!-- BACE arrow (light C input) -->
+          <line x1="100" y1="20" x2="260" y2="110" stroke="#B85C30" stroke-width="2" stroke-dasharray="5,3"/>
+          <polygon points="260,110 248,105 254,116" fill="#B85C30"/>
+          <rect x="10" y="8" width="160" height="32" fill="rgba(253,250,245,0.9)" stroke="#B85C30" stroke-width="1.5"/>
+          <text x="90" y="22" font-family="monospace" font-size="8" fill="#B85C30" text-anchor="middle" font-weight="bold">LIGHT CARBON INPUT</text>
+          <text x="90" y="34" font-family="monospace" font-size="7" fill="#B85C30" text-anchor="middle">(methane, weathering...)</text>
+          <text x="90" y="46" font-family="monospace" font-size="7" fill="#B85C30" text-anchor="middle">→ drives δ¹³C negative</text>
+        </svg>
+      </div>
+      <div class="figure-caption">FIG. 1 — Simplified carbon cycle. Organic carbon burial drives seawater δ¹³C positive by removing ¹²C. Input of isotopically light carbon (e.g. from methane hydrates, oxidation of organic matter) drives δ¹³C negative — producing excursions like the BACE.</div>
+    </div>
+
+    <h2>THE BACE: ANATOMY OF THE EXCURSION</h2>
+
+    <p>
+      The BACE begins in the uppermost Ediacaran, typically in the last one to two million years before the formal Cambrian boundary at 538.8 Ma. In well-preserved sections, the excursion is characterised by a relatively rapid descent from near-zero or mildly positive δ¹³C values down to a pronounced negative minimum — often between −4 and −8 ‰, with some sections recording values below −10 ‰.
+    </p>
+
+    <p>
+      The recovery is generally gradual, stretching across the earliest Cambrian (Terreneuvian epoch), before δ¹³C stabilises at broadly positive values in the Cambrian Series 2. The entire excursion, from onset to full recovery, likely spans several million years.
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>SECTION / REGION</th>
+          <th>MIN. δ¹³C VALUE</th>
+          <th>POSITION RELATIVE TO BOUNDARY</th>
+          <th>NOTES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Oman (Ara Group)</strong></td>
+          <td>~ −8 to −10 ‰</td>
+          <td>Straddles boundary; onset in uppermost Ediacaran</td>
+          <td>One of the most complete and studied sections globally</td>
+        </tr>
+        <tr>
+          <td><strong>South China (Yangtze Platform)</strong></td>
+          <td>~ −5 to −7 ‰</td>
+          <td>Coincides with disappearance of Ediacaran fauna</td>
+          <td>Associated with phosphorite and black shale intervals</td>
+        </tr>
+        <tr>
+          <td><strong>Namibia (Nama Group)</strong></td>
+          <td>~ −4 to −6 ‰</td>
+          <td>Within the Nomtsas Formation, close to boundary</td>
+          <td>Linked to extinction of rangeomorph Ediacaran fauna</td>
+        </tr>
+        <tr>
+          <td><strong>SW Baltica (Podolia)</strong></td>
+          <td>~ −3 to −5 ‰</td>
+          <td>Upper Vendian to lowermost Cambrian interval</td>
+          <td>Carbonate-bearing interbeds; regional correlation ongoing</td>
+        </tr>
+        <tr>
+          <td><strong>Laurentia (Canada / Nevada)</strong></td>
+          <td>~ −4 to −6 ‰</td>
+          <td>Uppermost Ediacaran; precedes <em>T. pedum</em> FAD locally</td>
+          <td>Well-constrained by radiometric dates in some sections</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>WHAT CAUSED IT? THE MAIN HYPOTHESES</h2>
+
+    <p>
+      This is where consensus dissolves. Several mechanisms have been proposed, and the real answer is likely a combination of more than one. Here are the leading hypotheses.
+    </p>
+
+    <h3>1. Collapse of organic carbon burial</h3>
+    <p>
+      If the organisms responsible for exporting organic carbon to the seafloor suddenly declined in productivity or abundance, less ¹²C would be removed from the ocean. Seawater would become progressively enriched in light carbon, driving δ¹³C negative. The Ediacaran–Cambrian boundary coincides with the disappearance of the Ediacaran macrobiota — large, soft-bodied organisms whose ecological role is still debated. Some researchers argue their demise reduced the biological carbon pump efficiency.
+    </p>
+
+    <h3>2. Oxidation of a large dissolved organic carbon reservoir</h3>
+    <p>
+      The Neoproterozoic ocean may have harboured an enormous reservoir of dissolved organic carbon — perhaps 10 to 100 times larger than today's. If ocean oxygenation increased significantly at the Ediacaran–Cambrian boundary, this reservoir could have been oxidised, releasing vast quantities of isotopically light CO₂ into seawater and driving δ¹³C sharply negative. This hypothesis, associated with the work of Don Canfield and colleagues, has attracted considerable support.
+    </p>
+
+    <h3>3. Methane hydrate destabilisation</h3>
+    <p>
+      Methane (CH₄) is extremely depleted in ¹³C (δ¹³C values as low as −60 ‰). If large quantities of methane were released from seafloor hydrates — triggered by ocean warming, sea level change, or tectonic activity — it could drive a rapid and severe negative δ¹³C excursion. This mechanism has been invoked for other Neoproterozoic excursions (notably the SHURAM excursion at ~560 Ma) but its role specifically at the Ediacaran–Cambrian boundary is less well-constrained.
+    </p>
+
+    <h3>4. Diagenetic overprinting</h3>
+    <p>
+      A more uncomfortable possibility is that some or all of the BACE is not a primary seawater signal at all, but a product of post-depositional alteration. Carbonate rocks are susceptible to diagenesis — recrystallisation, replacement, and exchange with pore fluids that can shift δ¹³C significantly. Careful petrographic screening and the use of multiple geochemical proxies (δ¹⁸O, Mn/Sr ratios, cathodoluminescence) are essential to evaluate the primary nature of any δ¹³C record.
+    </p>
+
+    <div class="pullquote">
+      <p>"Before you interpret a carbon isotope signal, you must earn the right to do so — by demonstrating that what you are measuring is what the ancient ocean actually recorded."</p>
+      <cite>— A LESSON FROM EVERY CHEMOSTRATIGRAPHY COURSE</cite>
+    </div>
+
+    <div class="key-terms">
+      <div class="key-terms-header">► KEY TERMS</div>
+      <div class="key-terms-body">
+        <div class="key-term">
+          <span class="key-term-word">BACE</span>
+          <span class="key-term-def">Basal Cambrian Carbon isotope Excursion — the large negative δ¹³C anomaly straddling the Ediacaran–Cambrian boundary, recorded globally in carbonate rocks.</span>
+        </div>
+        <div class="key-term">
+          <span class="key-term-word">δ¹³C (delta 13C)</span>
+          <span class="key-term-def">The ratio of ¹³C to ¹²C in a sample relative to a standard (VPDB), expressed in per mille (‰). Positive values = enriched in ¹³C; negative = depleted.</span>
+        </div>
+        <div class="key-term">
+          <span class="key-term-word">Organic carbon burial</span>
+          <span class="key-term-def">The sequestration of biologically produced organic matter in seafloor sediments rather than its oxidation. Drives seawater δ¹³C positive by removing light carbon.</span>
+        </div>
+        <div class="key-term">
+          <span class="key-term-word">DOC reservoir</span>
+          <span class="key-term-def">Dissolved Organic Carbon pool in seawater. The Neoproterozoic ocean may have held a large, isotopically light DOC pool whose oxidation contributed to negative excursions.</span>
+        </div>
+        <div class="key-term">
+          <span class="key-term-word">Diagenesis</span>
+          <span class="key-term-def">Post-depositional chemical and physical alteration of sedimentary rocks. Can significantly modify the original geochemical signal recorded at time of deposition.</span>
+        </div>
+        <div class="key-term">
+          <span class="key-term-word">VPDB</span>
+          <span class="key-term-def">Vienna Pee Dee Belemnite — the international reference standard used to report stable carbon and oxygen isotope ratios in carbonates.</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>THE BACE IN SOUTHWESTERN BALTICA</h2>
+
+    <p>
+      In the Podolian sections of the East European Platform, the BACE is recorded in carbonate-bearing intervals within the uppermost Vendian succession. The signal is not as dramatically expressed as in the Oman or South China sections — partly because the carbonate content of the predominantly siliciclastic Podolian sequence is lower, reducing the number of measurable samples — but the negative trend is recognisable and correlatable.
+    </p>
+
+    <p>
+      Extracting a reliable δ¹³C record from Podolia requires careful sample selection. The most suitable material is micritic limestone or dolostone with low Mn/Sr ratios and well-preserved oxygen isotope values, indicating minimal post-depositional alteration. Coarsely recrystallised sparite and veined material are avoided, as are samples with anomalously heavy δ¹⁸O values that suggest meteoric diagenesis.
+    </p>
+
+    <!-- Inline figure: sample screening criteria -->
+    <div class="figure">
+      <div class="figure-img">
+        <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
+          <rect width="720" height="200" fill="#F5F0E8"/>
+
+          <!-- Three columns: criteria -->
+          <rect x="20" y="20" width="210" height="160" fill="var(--paper)" stroke="#1A1A18" stroke-width="1.5"/>
+          <rect x="20" y="20" width="210" height="28" fill="#5A7A5A"/>
+          <text x="125" y="39" font-family="monospace" font-size="9" fill="#F5F0E8" text-anchor="middle" font-weight="bold">✓ USE THIS SAMPLE</text>
+          <text x="125" y="70"  font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">Mn/Sr &lt; 2</text>
+          <text x="125" y="90"  font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">δ¹⁸O &gt; −10 ‰</text>
+          <text x="125" y="110" font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">Micritic texture</text>
+          <text x="125" y="130" font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">No visible veining</text>
+          <text x="125" y="150" font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">Low luminescence (CL)</text>
+          <text x="125" y="170" font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">No dolomite replacement</text>
+
+          <rect x="255" y="20" width="210" height="160" fill="var(--paper)" stroke="#1A1A18" stroke-width="1.5"/>
+          <rect x="255" y="20" width="210" height="28" fill="#B85C30"/>
+          <text x="360" y="39" font-family="monospace" font-size="9" fill="#F5F0E8" text-anchor="middle" font-weight="bold">✗ AVOID THIS SAMPLE</text>
+          <text x="360" y="70"  font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">Mn/Sr &gt; 10</text>
+          <text x="360" y="90"  font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">δ¹⁸O &lt; −14 ‰</text>
+          <text x="360" y="110" font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">Coarse sparite</text>
+          <text x="360" y="130" font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">Calcite veins present</text>
+          <text x="360" y="150" font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">Bright CL (diagenetic)</text>
+          <text x="360" y="170" font-family="monospace" font-size="9" fill="#3D3D38" text-anchor="middle">Secondary dolomite</text>
+
+          <rect x="490" y="20" width="210" height="160" fill="var(--paper)" stroke="#1A1A18" stroke-width="1.5"/>
+          <rect x="490" y="20" width="210" height="28" fill="#1A1A18"/>
+          <text x="595" y="39" font-family="monospace" font-size="9" fill="#F5F0E8" text-anchor="middle" font-weight="bold">WHY IT MATTERS</text>
+          <text x="595" y="62"  font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">Diagenesis shifts δ¹³C</text>
+          <text x="595" y="78"  font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">by up to ±5 ‰ — large</text>
+          <text x="595" y="94"  font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">enough to create or</text>
+          <text x="595" y="110" font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">erase an excursion.</text>
+          <text x="595" y="134" font-family="monospace" font-size="8" fill="#B85C30" text-anchor="middle">Screening is not optional</text>
+          <text x="595" y="150" font-family="monospace" font-size="8" fill="#B85C30" text-anchor="middle">— it is the foundation</text>
+          <text x="595" y="166" font-family="monospace" font-size="8" fill="#B85C30" text-anchor="middle">of the interpretation.</text>
+        </svg>
+      </div>
+      <div class="figure-caption">FIG. 2 — Sample screening criteria for primary δ¹³C preservation in Ediacaran–Cambrian carbonates. Mn/Sr ratios and δ¹⁸O values are the first-order filters; cathodoluminescence (CL) petrography provides additional textural control.</div>
+    </div>
+
+    <h2>CORRELATION AND GLOBAL SIGNIFICANCE</h2>
+
+    <p>
+      The power of the BACE as a stratigraphic tool lies in its global reproducibility. Because it is recorded on virtually every palaeocontinent, it provides one of the few truly worldwide correlation horizons for the Ediacaran–Cambrian boundary interval — a period where biostratigraphic tools are limited by the scarcity and provincialism of Ediacaran fossils.
+    </p>
+
+    <p>
+      When combined with radiometric ages (where available), Sr isotope stratigraphy, and biostratigraphic constraints, the BACE allows geologists to correlate sections across oceans and between continents with a precision that would be otherwise impossible in pre-Cambrian rocks. For the EEP, where radiometric dating of sedimentary intervals is limited, the BACE serves as a critical anchor point for correlating the Podolian succession with better-dated sections in Oman, South China, and Laurentia.
+    </p>
+
+    <p>
+      What this ultimately tells us is profound: the carbon cycle perturbation recorded by the BACE was not a regional phenomenon. It was a global ocean event — one that coincided with the extinction of the Ediacaran biota, the onset of the Cambrian Explosion, and a major reorganisation of the Earth system. Whether the carbon cycle disruption caused these biological changes, or whether it was a symptom of them, remains one of the most compelling open questions in the geosciences.
+    </p>
+
+  </div>
+</article>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">◄ PREVIOUS</div>
+      <div class="article-footer-box-body">
+        <a href="vendian-sea-baltica.html">What the Vendian Sea Tells Us About the Edge of Ancient Baltica</a>
+      </div>
+    </div>
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">NEXT ►</div>
+      <div class="article-footer-box-body">
+        Coming soon: <em>Where Was Baltica 541 Million Years Ago? A Guide to Ediacaran Plate Positions</em>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-txt">
+    © 2025 ION FRANCOVSCHI — PHD EARTH SCIENCES<br>
+    <span class="dim">EDIACARAN · CAMBRIAN · BALTICA · EEP</span>
+  </div>
+  <div class="footer-txt" style="text-align:right;">
+    <span class="dim">STATIC HTML · VERCEL</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where Was Baltica 541 Million Years Ago? — Ion Francovschi</title>
+<meta name="description" content="Reconstructing the position of Baltica during the Ediacaran–Cambrian transition: plate tectonics, paleomagnetism, and the ancient geography of a world without animals.">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+section { position: relative; z-index: 1; }
+
+.article-header {
+  border-bottom: var(--border);
+  background: var(--paper);
+  padding: 4rem 2rem 0;
+}
+.article-header-inner { max-width: 800px; margin: 0 auto; }
+
+.article-breadcrumb {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.article-breadcrumb a { color: var(--rust); text-decoration: none; }
+.article-breadcrumb a:hover { text-decoration: underline; }
+
+.article-tag {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 5px 10px;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(14px, 2.5vw, 22px);
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.article-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.2rem 0;
+  border-top: var(--border-thin);
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.article-meta-item {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--stone);
+  line-height: 1.8;
+}
+.article-meta-item span { color: var(--ink2); display: block; }
+
+.article-hero-img { border-bottom: var(--border); overflow: hidden; }
+.article-hero-img svg { display: block; width: 100%; }
+
+.article-body { padding: 4rem 2rem; }
+.article-body-inner { max-width: 720px; margin: 0 auto; }
+
+.article-body p {
+  font-size: 16px;
+  color: var(--ink2);
+  line-height: 1.95;
+  margin-bottom: 1.6rem;
+}
+
+.article-body h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(11px, 1.6vw, 14px);
+  color: var(--ink);
+  line-height: 1.8;
+  margin: 3rem 0 1.2rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--rust);
+}
+
+.article-body h3 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 2.2rem 0 0.8rem;
+}
+
+.pullquote {
+  border: var(--border);
+  padding: 2rem 2rem 2rem 1.6rem;
+  border-left: 6px solid var(--rust);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+.pullquote p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px !important;
+  font-style: italic;
+  color: var(--ink) !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.7 !important;
+}
+.pullquote cite {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--rust);
+  font-style: normal;
+}
+
+.figure {
+  border: var(--border);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+.figure-img { border-bottom: var(--border-thin); overflow: hidden; }
+.figure-img svg { display: block; width: 100%; }
+.figure-caption {
+  padding: 0.8rem 1rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+.key-terms { border: var(--border); margin: 2.5rem 0; }
+.key-terms-header {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+.key-terms-body { padding: 1.2rem 1.4rem; }
+.key-term {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: var(--border-thin);
+  font-size: 14px;
+}
+.key-term:last-child { border-bottom: none; }
+.key-term-word { font-weight: 700; color: var(--rust); font-style: italic; }
+.key-term-def { color: var(--ink2); }
+
+.data-table {
+  border: var(--border);
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 13px;
+}
+.data-table th {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 10px 12px;
+  text-align: left;
+  border-right: var(--border-thin);
+  letter-spacing: 0.08em;
+}
+.data-table td {
+  padding: 10px 12px;
+  border-bottom: var(--border-thin);
+  border-right: var(--border-thin);
+  color: var(--ink2);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table td:last-child, .data-table th:last-child { border-right: none; }
+.data-table tr:hover td { background: var(--paper); }
+.data-table td strong { color: var(--ink); }
+
+.article-footer { border-top: var(--border); padding: 3rem 2rem; background: var(--paper); }
+.article-footer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.article-footer-box { border: var(--border); }
+.article-footer-box-header {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+.article-footer-box-body {
+  padding: 1.2rem;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+.article-footer-box-body a { color: var(--rust); font-weight: 700; text-decoration: none; }
+.article-footer-box-body a:hover { text-decoration: underline; }
+
+/* Series box */
+.series-box {
+  border: var(--border);
+  margin: 3rem 0;
+}
+.series-box-header {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--rust);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+.series-list { list-style: none; }
+.series-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.9rem 1.4rem;
+  border-bottom: var(--border-thin);
+  font-size: 14px;
+}
+.series-item:last-child { border-bottom: none; }
+.series-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--rust);
+  min-width: 24px;
+}
+.series-item a { color: var(--ink); text-decoration: none; font-weight: 700; }
+.series-item a:hover { color: var(--rust); }
+.series-item.current { background: var(--paper); }
+.series-item.current .series-num { color: var(--sage); }
+.series-item.current span { color: var(--sage); font-weight: 700; }
+
+@media (max-width: 700px) {
+  .article-body { padding: 2.5rem 1.2rem; }
+  .article-header { padding: 3rem 1.2rem 0; }
+  .article-footer { padding: 2rem 1.2rem; }
+  .article-footer-inner { grid-template-columns: 1fr; }
+  .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .key-term { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">ION <span>FRANCOVSCHI</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">ABOUT</a></li>
+    <li><a href="../index.html#research">RESEARCH</a></li>
+    <li><a href="../index.html#publications">PAPERS</a></li>
+    <li><a href="index.html" class="active">BLOG</a></li>
+    <li><a href="../contact.html">CONTACT</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="index.html">◄ BLOG</a>
+      <span>/</span>
+      <span>PALEOGEOGRAPHY</span>
+    </div>
+    <span class="article-tag">PALEOGEOGRAPHY</span>
+    <h1>Where Was Baltica<br>541 Million Years Ago?<br>A Guide to Ediacaran<br>Plate Positions</h1>
+    <div class="article-meta-bar">
+      <div class="article-meta-item">DATE<span>MAY 2025</span></div>
+      <div class="article-meta-item">READ TIME<span>~10 MINUTES</span></div>
+      <div class="article-meta-item">AUTHOR<span>ION FRANCOVSCHI</span></div>
+      <div class="article-meta-item">TOPIC<span>PALEOGEOGRAPHY</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO: pixel world map at 541 Ma -->
+<div class="article-hero-img">
+  <svg viewBox="0 0 1200 420" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="image-rendering:pixelated; max-height:420px;">
+    <rect width="1200" height="420" fill="#A8C8D8"/>
+
+    <!-- Deep ocean shading -->
+    <rect width="1200" height="420" fill="#90B8CC" opacity="0.4"/>
+
+    <!-- Paleoequator -->
+    <line x1="0" y1="210" x2="1200" y2="210" stroke="#F5F0E8" stroke-width="1.5" stroke-dasharray="12,8" opacity="0.5"/>
+    <text x="16" y="206" font-family="monospace" font-size="11" fill="rgba(245,240,232,0.7)">EQUATOR</text>
+
+    <!-- 30°N line -->
+    <line x1="0" y1="140" x2="1200" y2="140" stroke="#F5F0E8" stroke-width="0.8" stroke-dasharray="6,6" opacity="0.3"/>
+    <text x="16" y="136" font-family="monospace" font-size="9" fill="rgba(245,240,232,0.5)">30°N</text>
+
+    <!-- 30°S line -->
+    <line x1="0" y1="280" x2="1200" y2="280" stroke="#F5F0E8" stroke-width="0.8" stroke-dasharray="6,6" opacity="0.3"/>
+    <text x="16" y="296" font-family="monospace" font-size="9" fill="rgba(245,240,232,0.5)">30°S</text>
+
+    <!-- ═══ LAURENTIA (northwest, subtropical) ═══ -->
+    <rect x="60"  y="60"  width="16" height="16" fill="#C8D8B0"/>
+    <rect x="76"  y="52"  width="32" height="16" fill="#C8D8B0"/>
+    <rect x="68"  y="68"  width="56" height="16" fill="#C8D8B0"/>
+    <rect x="60"  y="84"  width="72" height="16" fill="#C8D8B0"/>
+    <rect x="60"  y="100" width="80" height="16" fill="#C8D8B0"/>
+    <rect x="68"  y="116" width="72" height="16" fill="#C8D8B0"/>
+    <rect x="76"  y="132" width="56" height="16" fill="#C8D8B0"/>
+    <rect x="84"  y="148" width="40" height="16" fill="#C8D8B0"/>
+    <rect x="92"  y="164" width="24" height="8"  fill="#C8D8B0"/>
+    <!-- interior shade -->
+    <rect x="76"  y="84"  width="48" height="48" fill="#B8C8A0" opacity="0.5"/>
+    <text x="105" y="108" font-family="monospace" font-size="10" fill="#3A5A3A" text-anchor="middle" font-weight="bold">LAURENTIA</text>
+
+    <!-- ═══ BALTICA (centre-left, mid-latitudes) ═══ -->
+    <rect x="400" y="108" width="16" height="16" fill="#D8C8A0"/>
+    <rect x="392" y="124" width="32" height="16" fill="#D8C8A0"/>
+    <rect x="384" y="140" width="48" height="16" fill="#D8C8A0"/>
+    <rect x="384" y="156" width="56" height="16" fill="#D8C8A0"/>
+    <rect x="388" y="172" width="52" height="16" fill="#D8C8A0"/>
+    <rect x="392" y="188" width="44" height="16" fill="#D8C8A0"/>
+    <rect x="396" y="204" width="32" height="16" fill="#D8C8A0"/>
+    <rect x="400" y="220" width="20" height="8"  fill="#D8C8A0"/>
+    <!-- interior -->
+    <rect x="392" y="148" width="36" height="44" fill="#C8B888" opacity="0.45"/>
+    <!-- SW Baltica STUDY AREA highlight -->
+    <rect x="384" y="188" width="16" height="16" fill="#B85C30" opacity="0.85"/>
+    <rect x="380" y="192" width="4"  height="8"  fill="#B85C30" opacity="0.7"/>
+    <text x="450" y="178" font-family="monospace" font-size="10" fill="#5A4520" font-weight="bold">BALTICA</text>
+    <!-- Arrow to SW Baltica -->
+    <line x1="446" y1="198" x2="406" y2="198" stroke="#B85C30" stroke-width="1.2"/>
+    <polygon points="406,198 414,194 414,202" fill="#B85C30"/>
+    <text x="450" y="196" font-family="monospace" font-size="9" fill="#B85C30">SW Baltica ←</text>
+    <text x="450" y="209" font-family="monospace" font-size="8" fill="#B85C30">(study area)</text>
+
+    <!-- ═══ AVALONIA (small, between Baltica & Laurentia) ═══ -->
+    <rect x="228" y="156" width="16" height="16" fill="#D8C8A0"/>
+    <rect x="220" y="164" width="32" height="16" fill="#D8C8A0"/>
+    <rect x="224" y="180" width="24" height="8"  fill="#D8C8A0"/>
+    <text x="236" y="210" font-family="monospace" font-size="9" fill="#5A4520" text-anchor="middle">AVALONIA</text>
+
+    <!-- ═══ SIBERIA (upper right, high latitude) ═══ -->
+    <rect x="780" y="48"  width="16" height="16" fill="#D0C8A8"/>
+    <rect x="764" y="56"  width="48" height="16" fill="#D0C8A8"/>
+    <rect x="756" y="72"  width="64" height="16" fill="#D0C8A8"/>
+    <rect x="752" y="88"  width="72" height="16" fill="#D0C8A8"/>
+    <rect x="756" y="104" width="64" height="16" fill="#D0C8A8"/>
+    <rect x="764" y="120" width="48" height="8"  fill="#D0C8A8"/>
+    <text x="796" y="98" font-family="monospace" font-size="10" fill="#5A4520" text-anchor="middle" font-weight="bold">SIBERIA</text>
+
+    <!-- ═══ SOUTH CHINA ═══ -->
+    <rect x="900" y="148" width="16" height="16" fill="#C8D8B8"/>
+    <rect x="892" y="156" width="32" height="16" fill="#C8D8B8"/>
+    <rect x="888" y="172" width="40" height="16" fill="#C8D8B8"/>
+    <rect x="892" y="188" width="32" height="8"  fill="#C8D8B8"/>
+    <text x="912" y="215" font-family="monospace" font-size="9" fill="#3A5A3A" text-anchor="middle">S. CHINA</text>
+
+    <!-- ═══ GONDWANA (enormous, south) ═══ -->
+    <!-- Core mass -->
+    <rect x="160" y="280" width="880" height="16" fill="#E0D0A8"/>
+    <rect x="120" y="296" width="960" height="16" fill="#E0D0A8"/>
+    <rect x="80"  y="312" width="1040" height="16" fill="#E0D0A8"/>
+    <rect x="48"  y="328" width="1104" height="16" fill="#E0D0A8"/>
+    <rect x="24"  y="344" width="1152" height="16" fill="#E0D0A8"/>
+    <rect x="0"   y="360" width="1200" height="60" fill="#E0D0A8"/>
+    <!-- Interior tone -->
+    <rect x="200" y="312" width="800" height="48" fill="#D4C498" opacity="0.4"/>
+    <text x="600" y="376" font-family="monospace" font-size="14" fill="#5A4520" text-anchor="middle" font-weight="bold">GONDWANA</text>
+    <text x="600" y="394" font-family="monospace" font-size="9" fill="#8A7848" text-anchor="middle">(Africa · South America · Antarctica · Australia · India · Arabia)</text>
+
+    <!-- ═══ IAPETUS OCEAN label ═══ -->
+    <text x="240" y="120" font-family="monospace" font-size="11" fill="rgba(245,240,232,0.65)" text-anchor="middle" transform="rotate(-8,240,120)">IAPETUS OCEAN</text>
+
+    <!-- ═══ TORNQUIST SEA (between Baltica & Gondwana) ═══ -->
+    <text x="440" y="258" font-family="monospace" font-size="10" fill="rgba(245,240,232,0.55)" text-anchor="middle" transform="rotate(-5,440,258)">TORNQUIST SEA</text>
+
+    <!-- ═══ PROTO-TETHYS (east) ═══ -->
+    <text x="860" y="230" font-family="monospace" font-size="10" fill="rgba(245,240,232,0.55)" text-anchor="middle" transform="rotate(-8,860,230)">PROTO-TETHYS</text>
+
+    <!-- North arrow -->
+    <rect x="1148" y="32"  width="8" height="8"  fill="#F5F0E8"/>
+    <rect x="1140" y="40"  width="24" height="8" fill="#F5F0E8"/>
+    <rect x="1148" y="48"  width="8" height="16" fill="#F5F0E8"/>
+    <text x="1152" y="78" font-family="monospace" font-size="10" fill="#F5F0E8" text-anchor="middle" font-weight="bold">N</text>
+
+    <!-- Legend -->
+    <rect x="8" y="316" width="120" height="92" fill="rgba(253,250,245,0.88)" stroke="#1A1A18" stroke-width="1.5"/>
+    <rect x="14" y="324" width="12" height="10" fill="#D8C8A0" stroke="#1A1A18" stroke-width="0.5"/>
+    <text x="32" y="334" font-family="monospace" font-size="9" fill="#1A1A18">continent</text>
+    <rect x="14" y="340" width="12" height="10" fill="#B85C30" stroke="#1A1A18" stroke-width="0.5"/>
+    <text x="32" y="350" font-family="monospace" font-size="9" fill="#1A1A18">study area</text>
+    <line x1="14" y1="362" x2="26" y2="362" stroke="#F5F0E8" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.8"/>
+    <text x="32" y="366" font-family="monospace" font-size="9" fill="#1A1A18">equator</text>
+    <rect x="8" y="374" width="120" height="1" fill="#1A1A18" opacity="0.2"/>
+    <text x="68" y="386" font-family="monospace" font-size="7" fill="#8A8278" text-anchor="middle">~541 Ma</text>
+    <text x="68" y="398" font-family="monospace" font-size="7" fill="#8A8278" text-anchor="middle">SCHEMATIC</text>
+  </svg>
+</div>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+  <div class="article-body-inner">
+
+    <p>
+      Look at a modern map of Europe and it is almost impossible to imagine that the rocks beneath your feet were once located somewhere near the southern tropics, drifting slowly northward through an ocean that no longer exists, surrounded by continents arranged in a configuration that bears no resemblance to today's world. Yet this is precisely the picture that emerges when we combine palaeomagnetic data, sedimentological evidence, and biogeographic patterns from the late Ediacaran — roughly 541 million years ago.
+    </p>
+
+    <p>
+      Reconstructing the position of Baltica at this moment is not straightforward. The further back in geological time we look, the more uncertain the reconstruction becomes — rocks are altered, palaeomagnetic signals are overprinted, and the sparse biological record provides ambiguous biogeographic constraints. But the broad picture is now reasonably well established, and it has profound implications for understanding the sedimentary record preserved in Podolia and the wider East European Platform.
+    </p>
+
+    <div class="pullquote">
+      <p>"Every sedimentary rock is a postcard from a vanished geography. To read it properly, you must first know where it was written."</p>
+      <cite>— PALEOGEOGRAPHY, LECTURE NOTES</cite>
+    </div>
+
+    <h2>THE TOOLS: HOW WE RECONSTRUCT ANCIENT POSITIONS</h2>
+
+    <p>
+      Paleogeographic reconstruction is never based on a single line of evidence. It is a genuinely interdisciplinary enterprise, drawing on at least four independent datasets that, when they agree, give us confidence in the result.
+    </p>
+
+    <h3>1. Paleomagnetism</h3>
+    <p>
+      When igneous or sedimentary rocks form, magnetic minerals within them align with the Earth's magnetic field, recording the direction and inclination of that field at the time. The inclination encodes the paleolatitude: near the equator, the field is roughly horizontal; near the poles, it dips steeply. By measuring the remanent magnetisation in ancient rocks — carefully screened to remove secondary overprinting — we can calculate the paleolatitude at which they formed. This is the primary tool for constraining ancient plate positions.
+    </p>
+
+    <h3>2. Sedimentary facies and climate indicators</h3>
+    <p>
+      Certain sedimentary features are strongly latitude-dependent. Evaporites (gypsum, halite) form preferentially in the arid subtropical belt (~15–35° latitude). Carbonate buildups and reefs tend to track the warm tropical and subtropical zones. Glaciogenic sediments — diamictites, dropstones, striated pavements — indicate proximity to ice sheets, which in the Ediacaran were far more extensive than today. The presence or absence of these features in a succession provides independent constraints on paleolatitude.
+    </p>
+
+    <h3>3. Biogeography</h3>
+    <p>
+      In principle, the distribution of fossil organisms across palaeocontinents reflects ancient geographic connections and barriers. In practice, Ediacaran biogeography is complicated by the poor preservation of soft-bodied organisms, uncertain taxonomy, and genuine debate about how endemic versus cosmopolitan Ediacaran faunas actually were. Nevertheless, the broad distinction between Ediacaran faunal provinces (the White Sea assemblage, the Nama assemblage, the Avalon assemblage) provides coarse palaeogeographic constraints.
+    </p>
+
+    <h3>4. Geochemical and geochronological constraints</h3>
+    <p>
+      Strontium isotope stratigraphy (⁸⁷Sr/⁸⁶Sr in carbonates) and radiometric dates (U-Pb zircon ages from interbedded tuffs or detrital zircon provenance) provide temporal and sometimes geographic constraints that help anchor reconstructions to an absolute timescale and identify sediment source regions.
+    </p>
+
+    <!-- Figure: methods summary -->
+    <div class="figure">
+      <div class="figure-img">
+        <svg viewBox="0 0 720 180" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
+          <rect width="720" height="180" fill="#F5F0E8"/>
+          <!-- 4 method boxes -->
+          <rect x="16"  y="16" width="156" height="148" fill="var(--paper)" stroke="#1A1A18" stroke-width="1.5"/>
+          <rect x="16"  y="16" width="156" height="28" fill="#1A1A18"/>
+          <text x="94"  y="34" font-family="monospace" font-size="9" fill="#F5F0E8" text-anchor="middle" font-weight="bold">PALEOMAGNETISM</text>
+          <text x="94"  y="62"  font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">Magnetic inclination</text>
+          <text x="94"  y="78"  font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">→ paleolatitude</text>
+          <text x="94"  y="102" font-family="monospace" font-size="8" fill="#B85C30" text-anchor="middle">PRIMARY TOOL</text>
+          <text x="94"  y="120" font-family="monospace" font-size="8" fill="#7A7A72" text-anchor="middle">uncertainty ±5–15°</text>
+          <text x="94"  y="140" font-family="monospace" font-size="8" fill="#7A7A72" text-anchor="middle">lat. typical</text>
+
+          <rect x="188" y="16" width="156" height="148" fill="var(--paper)" stroke="#1A1A18" stroke-width="1.5"/>
+          <rect x="188" y="16" width="156" height="28" fill="#5A7A5A"/>
+          <text x="266" y="34" font-family="monospace" font-size="9" fill="#F5F0E8" text-anchor="middle" font-weight="bold">SEDIM. FACIES</text>
+          <text x="266" y="62"  font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">Evaporites, reefs,</text>
+          <text x="266" y="78"  font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">glaciogenics</text>
+          <text x="266" y="102" font-family="monospace" font-size="8" fill="#5A7A5A" text-anchor="middle">CLIMATE PROXY</text>
+          <text x="266" y="120" font-family="monospace" font-size="8" fill="#7A7A72" text-anchor="middle">broad latitudinal</text>
+          <text x="266" y="140" font-family="monospace" font-size="8" fill="#7A7A72" text-anchor="middle">belt constraint</text>
+
+          <rect x="360" y="16" width="156" height="148" fill="var(--paper)" stroke="#1A1A18" stroke-width="1.5"/>
+          <rect x="360" y="16" width="156" height="28" fill="#3A6A8A"/>
+          <text x="438" y="34" font-family="monospace" font-size="9" fill="#F5F0E8" text-anchor="middle" font-weight="bold">BIOGEOGRAPHY</text>
+          <text x="438" y="62"  font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">Fossil provinces</text>
+          <text x="438" y="78"  font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">and distributions</text>
+          <text x="438" y="102" font-family="monospace" font-size="8" fill="#3A6A8A" text-anchor="middle">CONNECTIVITY</text>
+          <text x="438" y="120" font-family="monospace" font-size="8" fill="#7A7A72" text-anchor="middle">limited by poor</text>
+          <text x="438" y="140" font-family="monospace" font-size="8" fill="#7A7A72" text-anchor="middle">Ediacaran record</text>
+
+          <rect x="532" y="16" width="172" height="148" fill="var(--paper)" stroke="#1A1A18" stroke-width="1.5"/>
+          <rect x="532" y="16" width="172" height="28" fill="#8B6914"/>
+          <text x="618" y="34" font-family="monospace" font-size="9" fill="#F5F0E8" text-anchor="middle" font-weight="bold">GEOCHEMISTRY</text>
+          <text x="618" y="62"  font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">Sr isotopes, U-Pb</text>
+          <text x="618" y="78"  font-family="monospace" font-size="8" fill="#3D3D38" text-anchor="middle">detrital zircons</text>
+          <text x="618" y="102" font-family="monospace" font-size="8" fill="#8B6914" text-anchor="middle">PROVENANCE</text>
+          <text x="618" y="120" font-family="monospace" font-size="8" fill="#7A7A72" text-anchor="middle">temporal anchor +</text>
+          <text x="618" y="140" font-family="monospace" font-size="8" fill="#7A7A72" text-anchor="middle">source terrain ID</text>
+        </svg>
+      </div>
+      <div class="figure-caption">FIG. 1 — The four main lines of evidence used to reconstruct Ediacaran plate positions. Paleomagnetism provides the primary quantitative constraint on paleolatitude; the other three provide independent corroborating evidence.</div>
+    </div>
+
+    <h2>BALTICA AT 541 MA: THE RECONSTRUCTION</h2>
+
+    <p>
+      Based on the available paleomagnetic data, Baltica at ~541 Ma was positioned at approximately 10–30° south of the palaeoequator — a subtropical to tropical position in the southern hemisphere. This places it in a warm, relatively arid to seasonally wet climatic belt, consistent with the carbonate-dominated facies of the upper Vendian and lower Cambrian successions.
+    </p>
+
+    <p>
+      Critically, Baltica was an isolated continent at this time — separated from Gondwana to the south by the Tornquist Sea, and from Laurentia to the northwest by the widening Iapetus Ocean, which had begun opening in the early Ediacaran. This isolation had important consequences for both biogeography (explaining why the Ediacaran fauna of Baltica shows some distinctive features compared to Gondwana sections) and oceanography (the Tornquist Sea and Iapetus provided separate oceanic pathways with different water mass properties).
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>CONTINENT / BLOCK</th>
+          <th>APPROX. POSITION ~541 Ma</th>
+          <th>ADJACENT OCEAN(S)</th>
+          <th>KEY FEATURE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Baltica</strong></td>
+          <td>~10–30°S, isolated craton</td>
+          <td>Iapetus (NW), Tornquist Sea (S)</td>
+          <td>Passive margin on SW side — our study area</td>
+        </tr>
+        <tr>
+          <td><strong>Laurentia</strong></td>
+          <td>~10°S–10°N, equatorial</td>
+          <td>Iapetus (E), Panthalassa (W)</td>
+          <td>Extensive carbonate platform; well-dated boundary sections</td>
+        </tr>
+        <tr>
+          <td><strong>Gondwana</strong></td>
+          <td>High southern latitudes, polar</td>
+          <td>Iapetus (N), Proto-Tethys (NE)</td>
+          <td>Enormous supercontinent; Nama, White Sea faunas</td>
+        </tr>
+        <tr>
+          <td><strong>Avalonia</strong></td>
+          <td>~30–40°S, peri-Gondwanan</td>
+          <td>Tornquist Sea (N), Rheic (proto)</td>
+          <td>Later rifts from Gondwana in Cambrian–Ordovician</td>
+        </tr>
+        <tr>
+          <td><strong>Siberia</strong></td>
+          <td>~40–60°S, isolated</td>
+          <td>Palaeo-Asian Ocean</td>
+          <td>Independent craton; diverse Early Cambrian fauna</td>
+        </tr>
+        <tr>
+          <td><strong>South China</strong></td>
+          <td>~20–35°S, peri-Gondwanan</td>
+          <td>Proto-Tethys</td>
+          <td>Key section for Ediacaran fauna and BACE record</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>THE IAPETUS OCEAN: BALTICA'S WESTERN FRONTIER</h2>
+
+    <p>
+      Of all the vanished oceans that existed in the Ediacaran world, the Iapetus is arguably the most important for understanding Baltica. Named after the Titan father of Atlas in Greek mythology — because it preceded the Atlantic Ocean in approximately the same geographic position — the Iapetus opened by rifting apart Rodinia in the early Ediacaran, sometime around 600–620 Ma.
+    </p>
+
+    <p>
+      By 541 Ma, the Iapetus was a mature, widening ocean, perhaps comparable in size to the modern North Atlantic. Its opening created the passive margins on both the Laurentian and Baltican sides that accumulated the thick sedimentary successions we study today. The Iapetus would eventually close during the Caledonian orogeny in the Ordovician–Silurian, suturing Laurentia, Baltica, and Avalonia together to form Laurussia — the foundation of what would become Europe and North America.
+    </p>
+
+    <div class="pullquote">
+      <p>"The Iapetus Ocean is a ghost. It opened, widened, narrowed, and closed — leaving only the rocks of its former margins as witnesses to its existence."</p>
+      <cite>— PLATE TECTONICS, FIELD NOTES</cite>
+    </div>
+
+    <h2>IMPLICATIONS FOR THE PODOLIAN RECORD</h2>
+
+    <p>
+      Understanding Baltica's paleogeographic position resolves several otherwise puzzling features of the Podolian succession. The subtropical to tropical paleolatitude explains the prevalence of carbonate sedimentation in the upper Vendian — warm, shallow, sunlit waters are carbonate factories, and the platform carbonates of this age are consistent with low-latitude deposition.
+    </p>
+
+    <p>
+      The isolation of Baltica in the Tornquist–Iapetus realm also explains why the Ediacaran fauna of Podolia — while sharing some elements with the White Sea assemblage of the East European Platform — shows differences from the Avalonian assemblages of Newfoundland and the UK, and from the Nama assemblage of Namibia. These are not the same sea, and the organisms that lived in them were not necessarily the same organisms.
+    </p>
+
+    <p>
+      Finally, the orientation of the Baltican passive margin — facing southwest toward the Tornquist Sea — means that the sediment dispersal patterns, sea level signatures, and geochemical signals recorded in Podolia are those of an open, oceanward-facing shelf, not a restricted basin. This is important for interpreting the carbon isotope record: the BACE signal in Podolia reflects open-ocean conditions, not a local diagenetic or restricted-basin artefact.
+    </p>
+
+    <!-- Figure: Baltica margin orientation schematic -->
+    <div class="figure">
+      <div class="figure-img">
+        <svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
+          <rect width="720" height="240" fill="#A8C8D8"/>
+
+          <!-- Tornquist Sea -->
+          <rect width="720" height="240" fill="#90B4CC" opacity="0.5"/>
+          <text x="120" y="200" font-family="monospace" font-size="11" fill="rgba(245,240,232,0.6)" text-anchor="middle" transform="rotate(-10,120,200)">TORNQUIST SEA</text>
+
+          <!-- Baltica block -->
+          <rect x="320" y="32"  width="16" height="16" fill="#D8C8A0"/>
+          <rect x="304" y="48"  width="48" height="16" fill="#D8C8A0"/>
+          <rect x="288" y="64"  width="80" height="16" fill="#D8C8A0"/>
+          <rect x="280" y="80"  width="96" height="16" fill="#D8C8A0"/>
+          <rect x="280" y="96"  width="96" height="16" fill="#D8C8A0"/>
+          <rect x="288" y="112" width="80" height="16" fill="#D8C8A0"/>
+          <rect x="296" y="128" width="64" height="16" fill="#D8C8A0"/>
+          <rect x="304" y="144" width="48" height="8"  fill="#D8C8A0"/>
+          <!-- interior -->
+          <rect x="304" y="80"  width="64" height="48" fill="#C8B888" opacity="0.4"/>
+          <text x="328" y="108" font-family="monospace" font-size="11" fill="#5A4520" text-anchor="middle" font-weight="bold">BALTICA</text>
+
+          <!-- SW margin passive margin zone -->
+          <rect x="264" y="112" width="16" height="16" fill="#D8C8A0" opacity="0.6"/>
+          <rect x="248" y="128" width="16" height="16" fill="#D8C8A0" opacity="0.4"/>
+          <rect x="232" y="144" width="16" height="8"  fill="#D8C8A0" opacity="0.25"/>
+          <!-- Study area box -->
+          <rect x="264" y="112" width="24" height="24" fill="#B85C30" opacity="0.7" stroke="#B85C30" stroke-width="1.5"/>
+          <text x="220" y="110" font-family="monospace" font-size="8" fill="#B85C30">SW Baltica</text>
+          <text x="220" y="122" font-family="monospace" font-size="8" fill="#B85C30">study area</text>
+          <line x1="256" y1="120" x2="240" y2="118" stroke="#B85C30" stroke-width="1"/>
+          <polygon points="240,118 248,114 248,122" fill="#B85C30"/>
+
+          <!-- Shelf edge / margin line -->
+          <line x1="280" y1="32"  x2="248" y2="152" stroke="#1A1A18" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <text x="222" y="74" font-family="monospace" font-size="8" fill="#1A1A18" transform="rotate(-72,222,74)">passive margin</text>
+
+          <!-- Iapetus (top right) -->
+          <text x="580" y="60" font-family="monospace" font-size="10" fill="rgba(245,240,232,0.65)" text-anchor="middle">IAPETUS</text>
+          <text x="580" y="76" font-family="monospace" font-size="10" fill="rgba(245,240,232,0.65)" text-anchor="middle">OCEAN</text>
+
+          <!-- Gondwana (bottom right) -->
+          <rect x="480" y="180" width="240" height="60" fill="#E0D0A8"/>
+          <rect x="440" y="196" width="280" height="44" fill="#E0D0A8"/>
+          <text x="580" y="220" font-family="monospace" font-size="10" fill="#5A4520" text-anchor="middle" font-weight="bold">GONDWANA (fragment)</text>
+
+          <!-- Arrows: sediment transport SW -->
+          <line x1="310" y1="130" x2="270" y2="155" stroke="#8B6914" stroke-width="1.5"/>
+          <polygon points="270,155 274,143 280,150" fill="#8B6914"/>
+          <text x="308" y="162" font-family="monospace" font-size="8" fill="#8B6914">sediment →</text>
+
+          <!-- N arrow -->
+          <rect x="680" y="20" width="6" height="6"  fill="#F5F0E8"/>
+          <rect x="674" y="26" width="18" height="6" fill="#F5F0E8"/>
+          <rect x="680" y="32" width="6" height="12" fill="#F5F0E8"/>
+          <text x="683" y="56" font-family="monospace" font-size="9" fill="#F5F0E8" text-anchor="middle">N</text>
+        </svg>
+      </div>
+      <div class="figure-caption">FIG. 2 — Schematic paleogeographic context of the SW Baltica study area at ~541 Ma. The passive margin faces the Tornquist Sea; sediment is transported southwestward from the cratonic interior onto the subsiding shelf. The dashed line marks the approximate position of the shelf edge.</div>
+    </div>
+
+    <h2>UNCERTAINTY, ONGOING DEBATE, AND THE LIMITS OF RECONSTRUCTION</h2>
+
+    <p>
+      It would be dishonest to present any Ediacaran paleogeographic reconstruction as fully settled. The paleomagnetic database for Baltica at 541 Ma is not as dense as for younger time periods, and individual paleomagnetic poles carry significant uncertainties. Different research groups, using different datasets and assumptions, produce reconstructions that differ by tens of degrees of latitude and longitude.
+    </p>
+
+    <p>
+      Some of the most contentious questions include whether Baltica was in the northern or southern hemisphere at this time (most evidence favours southern, but the issue has been revisited), how fast it was drifting (some models invoke rapid True Polar Wander to explain apparent rapid latitudinal shifts), and what the precise geometry of the Tornquist Sea was during the Ediacaran — whether it was already open as a seaway or still in an early rifting phase.
+    </p>
+
+    <p>
+      The sedimentological and geochemical record of Podolia contributes to resolving some of these questions. By establishing robust environmental interpretations for the Vendian succession — what water depths were involved, what the carbonate mineralogy implies about ocean temperature and chemistry, what trace fossil assemblages suggest about benthic oxygenation — we add independent constraints that paleogeographic models must satisfy.
+    </p>
+
+    <div class="key-terms">
+      <div class="key-terms-header">► KEY TERMS</div>
+      <div class="key-terms-body">
+        <div class="key-term">
+          <span class="key-term-word">Iapetus Ocean</span>
+          <span class="key-term-def">A Neoproterozoic–Palaeozoic ocean that existed between Laurentia, Baltica, and Gondwana. Opened ~600 Ma; closed during the Caledonian orogeny (~440–400 Ma).</span>
+        </div>
+        <div class="key-term">
+          <span class="key-term-word">Tornquist Sea</span>
+          <span class="key-term-def">A seaway separating Baltica from the peri-Gondwanan terranes (including Avalonia) during the late Ediacaran and early Palaeozoic.</span>
+        </div>
+        <div class="key-term">
+          <span class="key-term-word">Paleomagnetism</span>
+          <span class="key-term-def">The study of the remanent magnetisation in ancient rocks, used to reconstruct the position of tectonic plates relative to Earth's magnetic poles through time.</span>
+        </div>
+        <div class="key-term">
+          <span class="key-term-word">Rodinia</span>
+          <span class="key-term-def">A Precambrian supercontinent that assembled ~1.1 Ga and broke apart ~750–600 Ma, initiating the opening of the Iapetus Ocean and setting the stage for the Ediacaran world.</span>
+        </div>
+        <div class="key-term">
+          <span class="key-term-word">True Polar Wander</span>
+          <span class="key-term-def">A rapid reorientation of the entire solid Earth (mantle + crust) relative to the spin axis, proposed to explain apparent rapid paleolatitude shifts that exceed plausible plate velocities.</span>
+        </div>
+        <div class="key-term">
+          <span class="key-term-word">Laurussia</span>
+          <span class="key-term-def">The continental mass formed by the collision of Laurentia, Baltica, and Avalonia during the Caledonian orogeny. The precursor to modern North America and Europe.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Series nav -->
+    <div class="series-box">
+      <div class="series-box-header">► THIS SERIES: THE EDIACARAN–CAMBRIAN TRANSITION</div>
+      <ul class="series-list">
+        <li class="series-item">
+          <span class="series-num">01</span>
+          <a href="vendian-sea-baltica.html">What the Vendian Sea Tells Us About the Edge of Ancient Baltica</a>
+        </li>
+        <li class="series-item">
+          <span class="series-num">02</span>
+          <a href="carbon-isotope-excursion-ediacaran-cambrian.html">The Carbon Isotope Excursion at the Ediacaran–Cambrian Boundary Explained</a>
+        </li>
+        <li class="series-item current">
+          <span class="series-num">03</span>
+          <span>Where Was Baltica 541 Million Years Ago? ← you are here</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</article>
+
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">◄ PREVIOUS</div>
+      <div class="article-footer-box-body">
+        <a href="carbon-isotope-excursion-ediacaran-cambrian.html">The Carbon Isotope Excursion at the Ediacaran–Cambrian Boundary Explained</a>
+      </div>
+    </div>
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">NEXT ►</div>
+      <div class="article-footer-box-body">
+        More articles coming soon. <a href="index.html">← Back to blog</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-txt">
+    © 2025 ION FRANCOVSCHI — PHD EARTH SCIENCES<br>
+    <span class="dim">EDIACARAN · CAMBRIAN · BALTICA · EEP</span>
+  </div>
+  <div class="footer-txt" style="text-align:right;">
+    <span class="dim">STATIC HTML · VERCEL</span>
+  </div>
+</footer>
+
+</body>
+</html>

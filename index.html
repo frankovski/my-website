@@ -181,22 +181,24 @@ h1 .accent { color: var(--rust); }
   display: flex;
   align-items: center;
   border-bottom: var(--border-thin);
-  height: 44px;
+  height: 50px;
 }
 .strat-row:last-child { border-bottom: none; }
 
 .strat-age {
   font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  width: 56px;
-  min-width: 56px;
-  padding: 0 6px;
-  color: var(--ink3);
+  font-size: 6.5px;
+  width: 44px;
+  min-width: 44px;
+  padding: 0 5px;
+  color: var(--paper);
   border-right: var(--border-thin);
   height: 100%;
   display: flex;
   align-items: center;
-  background: var(--paper);
+  justify-content: center;
+  text-align: center;
+  line-height: 1.6;
 }
 
 .strat-fill {
@@ -208,13 +210,16 @@ h1 .accent { color: var(--rust); }
   padding-right: 8px;
 }
 
-.s-cambrian { background: repeating-linear-gradient(0deg,#C8E4F8 0,#C8E4F8 4px,#A8C8E8 4px,#A8C8E8 8px); }
-.s-boundary { background: var(--rust); }
-.s-vendian3 { background: repeating-linear-gradient(0deg,#E8D8B8 0,#E8D8B8 4px,#D4C4A4 4px,#D4C4A4 8px); }
-.s-vendian2 { background: repeating-linear-gradient(0deg,#D8C8A0 0,#D8C8A0 4px,#C4B48C 4px,#C4B48C 8px); }
-.s-vendian1 { background: repeating-linear-gradient(0deg,#C8B888 0,#C8B888 4px,#B4A474 4px,#B4A474 8px); }
-.s-ediacaran { background: repeating-linear-gradient(0deg,#B8A878 0,#B8A878 4px,#A49464 4px,#A49464 8px); }
-.s-basement { background: repeating-linear-gradient(45deg,#888078 0,#888078 4px,#706860 4px,#706860 8px); }
+.s-devonian  { background: repeating-linear-gradient(0deg,#D4B070 0,#D4B070 4px,#C8A060 4px,#C8A060 8px); }
+.s-sil4      { background: repeating-linear-gradient(0deg,#C8D8B0 0,#C8D8B0 4px,#BCCCA4 4px,#BCCCA4 8px); }
+.s-sil3      { background: repeating-linear-gradient(0deg,#BCCCA4 0,#BCCCA4 4px,#B0C498 4px,#B0C498 8px); }
+.s-sil2      { background: repeating-linear-gradient(0deg,#B0C498 0,#B0C498 4px,#A4BC8C 4px,#A4BC8C 8px); }
+.s-sil1      { background: repeating-linear-gradient(0deg,#A4BC8C 0,#A4BC8C 4px,#98B480 4px,#98B480 8px); }
+.s-ord3      { background: repeating-linear-gradient(0deg,#88B898 0,#88B898 4px,#7CAC8C 4px,#7CAC8C 8px); }
+.s-ord2      { background: repeating-linear-gradient(0deg,#7CAC8C 0,#7CAC8C 4px,#70A080 4px,#70A080 8px); }
+.s-cambrian  { background: repeating-linear-gradient(0deg,#C8E4F8 0,#C8E4F8 4px,#A8C8E8 4px,#A8C8E8 8px); }
+.s-ediacaran { background: repeating-linear-gradient(0deg,#D0B8D8 0,#D0B8D8 4px,#C4ACCC 4px,#C4ACCC 8px); }
+.s-basement  { background: repeating-linear-gradient(45deg,#888078 0,#888078 4px,#706860 4px,#706860 8px); }
 
 .strat-name {
   font-family: 'Courier Prime', monospace;
@@ -225,6 +230,17 @@ h1 .accent { color: var(--rust); }
   text-align: right;
 }
 .strat-name.light { color: var(--paper); text-shadow: none; }
+
+.strat-litho {
+  font-family: 'Courier Prime', monospace;
+  font-size: 8px;
+  font-weight: 400;
+  font-style: italic;
+  display: block;
+  margin-top: 1px;
+  opacity: 0.75;
+}
+.strat-name.light .strat-litho { opacity: 0.65; }
 
 @keyframes walk {
   0%   { transform: translateX(-80px); }
@@ -566,33 +582,46 @@ footer {
   <div class="hero-right">
     <div class="hero-strat-label">STRATIGRAPHIC COLUMN — EEP</div>
     <div class="strat-column">
+      <!-- youngest → oldest, top to bottom -->
       <div class="strat-row">
-        <div class="strat-age">Є1</div>
-        <div class="strat-fill s-cambrian"><span class="strat-name">Early Cambrian</span></div>
-      </div>
-      <div class="strat-row" style="height:32px;">
-        <div class="strat-age" style="font-size:6px; color:var(--paper); background:var(--rust);">~~~</div>
-        <div class="strat-fill s-boundary"><span class="strat-name light" style="font-size:9px;">Ed / Cm boundary</span></div>
+        <div class="strat-age" style="background:#A07830;">D1</div>
+        <div class="strat-fill s-devonian"><span class="strat-name">Early Devonian<span class="strat-litho">~120 m limestones & marls</span></span></div>
       </div>
       <div class="strat-row">
-        <div class="strat-age">V3</div>
-        <div class="strat-fill s-vendian3"><span class="strat-name">Vendian III</span></div>
+        <div class="strat-age" style="background:#5A8A60;">S4</div>
+        <div class="strat-fill s-sil4"><span class="strat-name">Silurian 4 (Přídolí)<span class="strat-litho">~60 m carbonates</span></span></div>
       </div>
       <div class="strat-row">
-        <div class="strat-age">V2</div>
-        <div class="strat-fill s-vendian2"><span class="strat-name">Vendian II</span></div>
+        <div class="strat-age" style="background:#4E8058;">S3</div>
+        <div class="strat-fill s-sil3"><span class="strat-name">Silurian 3 (Ludlow)<span class="strat-litho">~90 m carbonates</span></span></div>
       </div>
       <div class="strat-row">
-        <div class="strat-age">V1</div>
-        <div class="strat-fill s-vendian1"><span class="strat-name">Vendian I</span></div>
+        <div class="strat-age" style="background:#427650;">S2</div>
+        <div class="strat-fill s-sil2"><span class="strat-name">Silurian 2 (Wenlock)<span class="strat-litho">~70 m carbonates & siltstones</span></span></div>
       </div>
       <div class="strat-row">
-        <div class="strat-age">Ed</div>
-        <div class="strat-fill s-ediacaran"><span class="strat-name">Ediacaran</span></div>
+        <div class="strat-age" style="background:#366C48;">S1</div>
+        <div class="strat-fill s-sil1"><span class="strat-name">Silurian 1 (Llandovery)<span class="strat-litho">~50 m carbonates</span></span></div>
       </div>
-      <div class="strat-row" style="height:36px;">
-        <div class="strat-age">pЄ</div>
-        <div class="strat-fill s-basement"><span class="strat-name light">Precambrian basement</span></div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#2A6248;">O3</div>
+        <div class="strat-fill s-ord3"><span class="strat-name">Late Ordovician<span class="strat-litho">~5 m limestones</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#1E5840;">O2</div>
+        <div class="strat-fill s-ord2"><span class="strat-name">Middle Ordovician<span class="strat-litho">~3 m sandstones</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#3A7890;">Є1</div>
+        <div class="strat-fill s-cambrian"><span class="strat-name">early Cambrian<span class="strat-litho">~70 m siliciclastics</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#6A5088;">Ed</div>
+        <div class="strat-fill s-ediacaran"><span class="strat-name">late Ediacaran<span class="strat-litho">~500 m siliciclastics</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#504840; font-size:5.5px; line-height:1.5;">Ar, Pr3</div>
+        <div class="strat-fill s-basement"><span class="strat-name light">Precambrian basement<span class="strat-litho">metamorphics & granites</span></span></div>
       </div>
     </div>
 

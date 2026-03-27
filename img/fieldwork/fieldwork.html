@@ -1,1 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Pictures — Ion Francovschi</title>
+<meta name="description" content="Field photographs from geological work in the Volyn–Podolia region and the East European Platform. Outcrop logging, sampling, and life in the field.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+section { position: relative; z-index: 1; }
 
+/* PAGE HEADER */
+.page-header {
+  border-bottom: var(--border);
+  background: var(--paper);
+  padding: 4rem 2rem 3rem;
+}
+.page-header-inner { max-width: 1100px; margin: 0 auto; }
+
+.page-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 6px 10px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(16px, 3vw, 26px);
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.page-desc {
+  font-size: 15px;
+  color: var(--ink3);
+  max-width: 580px;
+  line-height: 1.8;
+}
+
+/* INTRO TEXT */
+.field-intro {
+  padding: 3rem 2rem;
+  border-bottom: var(--border);
+  background: var(--paper);
+}
+.field-intro-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.field-intro p {
+  font-size: 15px;
+  color: var(--ink2);
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
+}
+.field-intro p:last-child { margin-bottom: 0; }
+
+/* GALLERY SECTION */
+.gallery-section {
+  padding: 3rem 2rem 5rem;
+}
+.gallery-inner { max-width: 1100px; margin: 0 auto; }
+
+/* MASONRY GRID — CSS columns */
+.masonry {
+  columns: 3;
+  column-gap: 0;
+  border: var(--border);
+}
+
+.photo-item {
+  break-inside: avoid;
+  border-bottom: var(--border-thin);
+  border-right: var(--border-thin);
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.photo-item:hover { background: var(--cream); }
+.photo-item:hover .photo-overlay { opacity: 1; }
+
+/* Real photo */
+.photo-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: var(--border-thin);
+  filter: grayscale(8%);
+  transition: filter 0.2s;
+}
+.photo-item:hover img { filter: grayscale(0%); }
+
+/* Placeholder (no photo yet) */
+.photo-placeholder {
+  width: 100%;
+  background: var(--cream);
+  border-bottom: var(--border-thin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 2rem 1rem;
+  min-height: 180px;
+}
+
+.placeholder-icon {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 22px;
+  color: var(--stone);
+  line-height: 1;
+}
+
+.placeholder-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6.5px;
+  color: var(--stone);
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* Caption area */
+.photo-caption {
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+.photo-caption-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6.5px;
+  color: var(--rust);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+
+.photo-caption-text {
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.7;
+}
+
+.photo-caption-loc {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: var(--stone);
+  letter-spacing: 0.08em;
+  margin-top: 0.5rem;
+}
+
+/* Overlay on hover */
+.photo-overlay {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6.5px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 4px 8px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26,26,24,0.94);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.lightbox.open { display: flex; }
+
+.lightbox-inner {
+  max-width: 900px;
+  width: 100%;
+  border: var(--border);
+  background: var(--paper);
+  position: relative;
+}
+
+.lightbox-img-wrap {
+  border-bottom: var(--border);
+  overflow: hidden;
+  max-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+}
+
+.lightbox-img-wrap img {
+  display: block;
+  max-width: 100%;
+  max-height: 65vh;
+  width: auto;
+  height: auto;
+}
+
+/* Lightbox placeholder when no image */
+.lightbox-placeholder {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--stone);
+}
+.lightbox-placeholder-icon {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 32px;
+}
+.lightbox-placeholder-txt {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+.lightbox-body {
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.lightbox-caption {
+  flex: 1;
+}
+.lightbox-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--rust);
+  margin-bottom: 0.4rem;
+}
+.lightbox-text {
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+.lightbox-loc {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6.5px;
+  color: var(--stone);
+  margin-top: 0.5rem;
+  letter-spacing: 0.08em;
+}
+
+.lightbox-close {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: var(--ink);
+  background: var(--cream);
+  border: var(--border);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.1s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: center;
+}
+.lightbox-close:hover { background: var(--ink); color: var(--cream); }
+
+/* HOW TO ADD PHOTOS box */
+.how-to {
+  border: var(--border);
+  margin-top: 3rem;
+}
+.how-to-header {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--rust);
+  color: var(--cream);
+  padding: 10px 16px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+.how-to-body {
+  padding: 1.4rem;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.9;
+}
+.how-to-body ol { padding-left: 1.2rem; margin-bottom: 1rem; }
+.how-to-body li { margin-bottom: 0.4rem; }
+.how-to-body code {
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  background: var(--cream);
+  border: var(--border-thin);
+  padding: 1px 6px;
+  color: var(--rust);
+}
+
+@media (max-width: 900px) {
+  .masonry { columns: 2; }
+  .page-header { padding: 3rem 1.2rem 2rem; }
+  .field-intro { padding: 2.5rem 1.2rem; }
+  .gallery-section { padding: 2.5rem 1.2rem 4rem; }
+  .lightbox-body { flex-direction: column; }
+}
+@media (max-width: 560px) {
+  .masonry { columns: 1; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">ION <span>FRANCOVSCHI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">ABOUT</a></li>
+    <li><a href="index.html#research">RESEARCH</a></li>
+    <li><a href="index.html#publications">PAPERS</a></li>
+    <li><a href="blog/index.html">BLOG</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="page-tag">► FIELD PICTURES</span>
+    <h1>From the Field</h1>
+    <p class="page-desc">Outcrops, cores, fieldwork days, and everything in between — from the Dniester valley sections of Podolia to the wider East European Platform.</p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="field-intro">
+  <div class="field-intro-inner">
+    <p>
+      Fieldwork is where geology happens. No matter how sophisticated the laboratory analyses — isotope geochemistry, cathodoluminescence, XRF — everything begins at the outcrop: the hammer, the hand lens, the notebook, and a cliff face that has been waiting 541 million years to be described.
+    </p>
+    <p>
+      The sections along the Dniester river and its tributaries in Podolia are among the most important exposures of the Ediacaran–Cambrian boundary succession in Europe. Working there is a privilege. These photographs are a record of that work — and of the landscape it takes place in.
+    </p>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="gallery-inner">
+    <div class="masonry" id="gallery">
+
+      <!--
+        HOW TO ADD YOUR PHOTOS:
+        1. Create an "img/fieldwork/" folder inside your website folder
+        2. Copy your photos there (e.g. "outcrop-dniester-01.jpg")
+        3. Replace each <div class="photo-placeholder">...</div>
+           with: <img src="img/fieldwork/your-photo.jpg" alt="Description">
+        4. Update the caption text below each photo
+        See the "HOW TO ADD PHOTOS" box at the bottom of this page
+      -->
+
+      <!-- PHOTO 1 -->
+      <div class="photo-item" onclick="openLightbox(0)">
+        <div class="photo-placeholder" style="min-height:280px;">
+          <div class="placeholder-icon">⛏</div>
+          <div class="placeholder-label">ADD PHOTO 1<br>replace with &lt;img&gt; tag</div>
+        </div>
+        <div class="photo-caption">
+          <div class="photo-caption-tag">OUTCROP</div>
+          <div class="photo-caption-text">Upper Vendian siltstones exposed along the Dniester valley. The alternating light and dark laminae record rhythmic deposition on a low-energy shelf.</div>
+          <div class="photo-caption-loc">◉ DNIESTER VALLEY, PODOLIA — 2023</div>
+        </div>
+        <div class="photo-overlay">ENLARGE ↗</div>
+      </div>
+
+      <!-- PHOTO 2 -->
+      <div class="photo-item" onclick="openLightbox(1)">
+        <div class="photo-placeholder" style="min-height:220px;">
+          <div class="placeholder-icon">⛏</div>
+          <div class="placeholder-label">ADD PHOTO 2</div>
+        </div>
+        <div class="photo-caption">
+          <div class="photo-caption-tag">SAMPLING</div>
+          <div class="photo-caption-text">Collecting carbonate samples for stable isotope analysis across the Ediacaran–Cambrian boundary interval. Each sample is logged to centimetre precision.</div>
+          <div class="photo-caption-loc">◉ PODOLIA, UKRAINE — 2023</div>
+        </div>
+        <div class="photo-overlay">ENLARGE ↗</div>
+      </div>
+
+      <!-- PHOTO 3 -->
+      <div class="photo-item" onclick="openLightbox(2)">
+        <div class="photo-placeholder" style="min-height:340px;">
+          <div class="placeholder-icon">⛏</div>
+          <div class="placeholder-label">ADD PHOTO 3<br>(taller format works well here)</div>
+        </div>
+        <div class="photo-caption">
+          <div class="photo-caption-tag">SECTION LOGGING</div>
+          <div class="photo-caption-text">Logging a continuous section through the Vendian succession. The column reaches from the Precambrian basement unconformity up into the lower Cambrian siliciclastics.</div>
+          <div class="photo-caption-loc">◉ EEP, SOUTHWESTERN MARGIN — 2022</div>
+        </div>
+        <div class="photo-overlay">ENLARGE ↗</div>
+      </div>
+
+      <!-- PHOTO 4 -->
+      <div class="photo-item" onclick="openLightbox(3)">
+        <div class="photo-placeholder" style="min-height:240px;">
+          <div class="placeholder-icon">⛏</div>
+          <div class="placeholder-label">ADD PHOTO 4</div>
+        </div>
+        <div class="photo-caption">
+          <div class="photo-caption-tag">TRACE FOSSILS</div>
+          <div class="photo-caption-text">Trace fossil horizon in fine-grained siltstones just above the Ediacaran–Cambrian boundary. The presence of complex traces here is biostratigraphically significant.</div>
+          <div class="photo-caption-loc">◉ PODOLIA — 2023</div>
+        </div>
+        <div class="photo-overlay">ENLARGE ↗</div>
+      </div>
+
+      <!-- PHOTO 5 -->
+      <div class="photo-item" onclick="openLightbox(4)">
+        <div class="photo-placeholder" style="min-height:200px;">
+          <div class="placeholder-icon">⛏</div>
+          <div class="placeholder-label">ADD PHOTO 5</div>
+        </div>
+        <div class="photo-caption">
+          <div class="photo-caption-tag">LANDSCAPE</div>
+          <div class="photo-caption-text">The Dniester canyon near Zalishchyky. The river has incised through the entire Palaeozoic and Vendian succession, providing exceptional natural exposures.</div>
+          <div class="photo-caption-loc">◉ DNIESTER CANYON — 2022</div>
+        </div>
+        <div class="photo-overlay">ENLARGE ↗</div>
+      </div>
+
+      <!-- PHOTO 6 -->
+      <div class="photo-item" onclick="openLightbox(5)">
+        <div class="photo-placeholder" style="min-height:300px;">
+          <div class="placeholder-icon">⛏</div>
+          <div class="placeholder-label">ADD PHOTO 6<br>(portrait format)</div>
+        </div>
+        <div class="photo-caption">
+          <div class="photo-caption-tag">CORE</div>
+          <div class="photo-caption-text">Drill core through the Ediacaran–Cambrian boundary interval. The core preserves primary sedimentary structures that are not visible at outcrop scale.</div>
+          <div class="photo-caption-loc">◉ VOLYN REGION, UKRAINE — 2021</div>
+        </div>
+        <div class="photo-overlay">ENLARGE ↗</div>
+      </div>
+
+      <!-- PHOTO 7 -->
+      <div class="photo-item" onclick="openLightbox(6)">
+        <div class="photo-placeholder" style="min-height:220px;">
+          <div class="placeholder-icon">⛏</div>
+          <div class="placeholder-label">ADD PHOTO 7</div>
+        </div>
+        <div class="photo-caption">
+          <div class="photo-caption-tag">LABORATORY</div>
+          <div class="photo-caption-text">Thin section preparation from Vendian carbonate interbeds. Cathodoluminescence microscopy will assess the degree of diagenetic alteration before geochemical analysis.</div>
+          <div class="photo-caption-loc">◉ LABORATORY — 2023</div>
+        </div>
+        <div class="photo-overlay">ENLARGE ↗</div>
+      </div>
+
+      <!-- PHOTO 8 -->
+      <div class="photo-item" onclick="openLightbox(7)">
+        <div class="photo-placeholder" style="min-height:260px;">
+          <div class="placeholder-icon">⛏</div>
+          <div class="placeholder-label">ADD PHOTO 8</div>
+        </div>
+        <div class="photo-caption">
+          <div class="photo-caption-tag">OUTCROP</div>
+          <div class="photo-caption-text">The unconformity between Precambrian basement and the basal Vendian succession. This erosional surface represents a gap of hundreds of millions of years.</div>
+          <div class="photo-caption-loc">◉ EEP, PODOLIA — 2022</div>
+        </div>
+        <div class="photo-overlay">ENLARGE ↗</div>
+      </div>
+
+      <!-- PHOTO 9 -->
+      <div class="photo-item" onclick="openLightbox(8)">
+        <div class="photo-placeholder" style="min-height:200px;">
+          <div class="placeholder-icon">⛏</div>
+          <div class="placeholder-label">ADD PHOTO 9</div>
+        </div>
+        <div class="photo-caption">
+          <div class="photo-caption-tag">FIELDWORK</div>
+          <div class="photo-caption-text">End of a long day in the field. The Podolian sections demand extended traverses — the best exposures are often only accessible on foot along the canyon walls.</div>
+          <div class="photo-caption-loc">◉ DNIESTER VALLEY — 2023</div>
+        </div>
+        <div class="photo-overlay">ENLARGE ↗</div>
+      </div>
+
+    </div>
+
+    <!-- HOW TO ADD PHOTOS — delete once done -->
+    <div class="how-to" style="margin-top:3rem;">
+      <div class="how-to-header">⚠ HOW TO ADD YOUR PHOTOS — DELETE THIS BOX ONCE DONE</div>
+      <div class="how-to-body">
+        <ol>
+          <li>Inside your <code>my-website</code> folder, create a new folder: <code>img/fieldwork/</code></li>
+          <li>Copy your photos into it — use simple names like <code>outcrop-01.jpg</code>, <code>dniester-cliff.jpg</code></li>
+          <li>In this file, find each <code>&lt;div class="photo-placeholder"&gt;</code> block and replace it with:<br>
+            <code>&lt;img src="img/fieldwork/your-photo.jpg" alt="Brief description"&gt;</code>
+          </li>
+          <li>Update the caption text, tag, and location below each photo to match</li>
+          <li>To <strong>add more photos</strong>, copy any <code>&lt;div class="photo-item"&gt;</code> block and paste it inside the <code>&lt;div class="masonry"&gt;</code> — the grid reflows automatically</li>
+          <li>To <strong>remove a photo slot</strong>, delete the entire <code>&lt;div class="photo-item"&gt;</code> block</li>
+          <li>Photos can be any aspect ratio — portrait, landscape, square all work in the masonry grid</li>
+          <li>Delete this yellow box from the HTML once you've added your photos</li>
+        </ol>
+        <p style="color:var(--ink3); font-style:italic; font-size:12px;">Tip: compress your photos before uploading (use squoosh.app — free, no install needed). Aim for under 300KB per image for fast loading.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <div class="lightbox-img-wrap" id="lightbox-img-wrap">
+      <div class="lightbox-placeholder">
+        <div class="lightbox-placeholder-icon">⛏</div>
+        <div class="lightbox-placeholder-txt">PHOTO PLACEHOLDER</div>
+      </div>
+    </div>
+    <div class="lightbox-body">
+      <div class="lightbox-caption">
+        <div class="lightbox-tag" id="lightbox-tag"></div>
+        <div class="lightbox-text" id="lightbox-text"></div>
+        <div class="lightbox-loc" id="lightbox-loc"></div>
+      </div>
+      <button class="lightbox-close" onclick="closeLightboxBtn()">✕ CLOSE</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-txt">
+    © 2025 ION FRANCOVSCHI — PHD EARTH SCIENCES<br>
+    <span class="dim">EDIACARAN · CAMBRIAN · BALTICA · EEP</span>
+  </div>
+  <div class="footer-txt" style="text-align:right;">
+    <span class="dim">STATIC HTML · VERCEL</span>
+  </div>
+</footer>
+
+<script>
+  // Collect photo data from the DOM at runtime
+  function getPhotos() {
+    return Array.from(document.querySelectorAll('.photo-item')).map(item => {
+      const img = item.querySelector('img');
+      const tag = item.querySelector('.photo-caption-tag')?.textContent || '';
+      const text = item.querySelector('.photo-caption-text')?.textContent || '';
+      const loc = item.querySelector('.photo-caption-loc')?.textContent || '';
+      return { src: img ? img.src : null, alt: img ? img.alt : '', tag, text, loc };
+    });
+  }
+
+  function openLightbox(index) {
+    const photos = getPhotos();
+    const p = photos[index];
+    const wrap = document.getElementById('lightbox-img-wrap');
+
+    if (p.src) {
+      wrap.innerHTML = `<img src="${p.src}" alt="${p.alt}">`;
+    } else {
+      wrap.innerHTML = `<div class="lightbox-placeholder"><div class="lightbox-placeholder-icon">⛏</div><div class="lightbox-placeholder-txt">ADD YOUR PHOTO HERE</div></div>`;
+    }
+
+    document.getElementById('lightbox-tag').textContent = p.tag;
+    document.getElementById('lightbox-text').textContent = p.text;
+    document.getElementById('lightbox-loc').textContent = p.loc;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(e) {
+    if (e.target === document.getElementById('lightbox')) {
+      closeLightboxBtn();
+    }
+  }
+
+  function closeLightboxBtn() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightboxBtn();
+  });
+</script>
+</body>
+</html>

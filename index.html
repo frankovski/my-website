@@ -299,9 +299,65 @@ h2 {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 220px 1fr 1fr;
+  gap: 2.5rem;
   align-items: start;
+}
+
+/* Circular photo */
+.about-photo-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.about-photo-frame {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+}
+
+.about-photo-frame img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border: var(--border);
+  filter: grayscale(10%);
+}
+
+/* pixel corner decorations */
+.about-photo-frame::before,
+.about-photo-frame::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--rust);
+}
+.about-photo-frame::before { top: -4px; left: -4px; }
+.about-photo-frame::after  { bottom: -4px; right: -4px; }
+
+.about-photo-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+.about-photo-title {
+  font-size: 12px;
+  color: var(--ink3);
+  text-align: center;
+  font-style: italic;
+  line-height: 1.6;
 }
 
 .about-box { border: var(--border); background: var(--paper); }
@@ -538,6 +594,7 @@ footer {
   .hero-left { padding: 4rem 1.5rem 3rem; min-height: 80vh; }
   .section-inner { padding: 3.5rem 1.2rem; }
   .about-grid { grid-template-columns: 1fr; }
+  .about-photo-col { flex-direction: row; align-items: center; gap: 1.5rem; justify-content: flex-start; }
   .topics-grid { grid-template-columns: 1fr; }
   .topic { border-right: none; }
   .pub-item { grid-template-columns: 48px 1fr; }
@@ -656,6 +713,17 @@ footer {
       <h2>ABOUT</h2>
     </div>
     <div class="about-grid">
+
+      <!-- PHOTO COLUMN -->
+      <div class="about-photo-col">
+        <div class="about-photo-frame">
+          <img src="img/francovschi.jpg" alt="Ion Francovschi — Geologist">
+        </div>
+        <div class="about-photo-name">ION<br>FRANCOVSCHI</div>
+        <div class="about-photo-title">PhD Geologist<br>Earth Scientist</div>
+      </div>
+
+      <!-- BIO COLUMN -->
       <div>
         <div class="about-box">
           <div class="about-box-header">BIO.TXT</div>

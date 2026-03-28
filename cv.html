@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Ion Francovschi</title>
+<meta name="description" content="Curriculum vitae of Ion Francovschi — PhD geologist, Fulbright Scholar, Ediacaran–Cambrian researcher, East European Platform.">
+<link rel="stylesheet" href="css/style.css">
+<!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VML6X1920W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VML6X1920W');
+</script>
+<style>
+section { position: relative; z-index: 1; }
+
+.page-header {
+  border-bottom: var(--border);
+  background: var(--paper);
+  padding: 4rem 2rem 3rem;
+}
+.page-header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.page-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 6px 10px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(16px, 3vw, 26px);
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 14px;
+  color: var(--ink3);
+  font-style: italic;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--ink);
+  border: var(--border);
+  padding: 12px 18px;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: background 0.1s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.download-btn:hover { background: var(--ink); color: var(--cream); }
+
+/* CV BODY */
+.cv-body {
+  padding: 3rem 2rem 5rem;
+}
+.cv-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* SHARED SECTION STYLES */
+.cv-section { margin-bottom: 3rem; }
+
+.cv-section-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: var(--cream);
+  background: var(--ink);
+  letter-spacing: 0.12em;
+  padding: 8px 14px;
+  margin-bottom: 0;
+  border: var(--border);
+  border-bottom: none;
+}
+
+.cv-block {
+  border: var(--border);
+}
+
+/* ENTRY rows */
+.cv-entry {
+  padding: 1.4rem 1.4rem;
+  border-bottom: var(--border-thin);
+  position: relative;
+}
+.cv-entry:last-child { border-bottom: none; }
+
+.cv-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.3rem;
+}
+
+.cv-entry-title {
+  font-family: 'Courier Prime', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.cv-entry-date {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6.5px;
+  color: var(--rust);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cv-entry-org {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink3);
+  margin-bottom: 0.5rem;
+}
+
+.cv-entry-body {
+  font-size: 13.5px;
+  color: var(--ink2);
+  line-height: 1.75;
+}
+
+.cv-entry-body p { margin-bottom: 0.4rem; }
+.cv-entry-body p:last-child { margin-bottom: 0; }
+
+.cv-entry-tag {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  padding: 3px 7px;
+  border: var(--border-thin);
+  color: var(--rust);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.08em;
+}
+
+/* PUBLICATIONS */
+.pub-entry {
+  padding: 1.2rem 1.4rem;
+  border-bottom: var(--border-thin);
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 1rem;
+  align-items: start;
+  transition: background 0.1s;
+}
+.pub-entry:last-child { border-bottom: none; }
+.pub-entry:hover { background: var(--paper); }
+
+.pub-entry-year {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--rust);
+  padding-top: 3px;
+  text-align: center;
+}
+
+.pub-entry-title {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 3px;
+}
+
+.pub-entry-authors {
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--ink3);
+  margin-bottom: 3px;
+  line-height: 1.5;
+}
+
+/* Bold Francovschi in authors */
+.pub-entry-authors strong { font-style: normal; color: var(--ink2); }
+
+.pub-entry-journal {
+  font-size: 12px;
+  color: var(--sage);
+  font-weight: 700;
+}
+.pub-entry-journal a { color: inherit; text-decoration: underline; }
+.pub-entry-journal a:hover { color: var(--rust); }
+
+/* SIDEBAR */
+.cv-sidebar { position: sticky; top: 72px; }
+
+/* Skills list */
+.skill-list {
+  list-style: none;
+  padding: 0;
+}
+.skill-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 0.55rem 1.2rem;
+  border-bottom: var(--border-thin);
+  font-size: 13px;
+  color: var(--ink2);
+}
+.skill-item:last-child { border-bottom: none; }
+.skill-bullet {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: var(--rust);
+  flex-shrink: 0;
+}
+
+/* Contact sidebar block */
+.sidebar-contact {
+  border: var(--border);
+  margin-top: 0;
+}
+.sidebar-contact-header {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+.sidebar-contact-row {
+  padding: 0.7rem 1.2rem;
+  border-bottom: var(--border-thin);
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.6;
+}
+.sidebar-contact-row:last-child { border-bottom: none; }
+.sidebar-contact-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6.5px;
+  color: var(--rust);
+  display: block;
+  margin-bottom: 2px;
+  letter-spacing: 0.08em;
+}
+.sidebar-contact-row a { color: var(--ink); text-decoration: none; font-weight: 700; }
+.sidebar-contact-row a:hover { color: var(--rust); }
+
+/* Photo in sidebar */
+.sidebar-photo {
+  border: var(--border);
+  border-bottom: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem 1rem;
+  background: var(--paper);
+  gap: 0.8rem;
+}
+.sidebar-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: var(--border);
+}
+.sidebar-photo-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--ink);
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* Print styles */
+@media print {
+  nav, footer, .download-btn { display: none; }
+  .cv-inner { grid-template-columns: 1fr 220px; gap: 1.5rem; }
+  .cv-sidebar { position: static; }
+  body::before { display: none; }
+  .cv-body { padding: 1rem 0; }
+}
+
+@media (max-width: 860px) {
+  .cv-inner { grid-template-columns: 1fr; }
+  .cv-sidebar { position: static; }
+  .page-header-inner { flex-direction: column; align-items: flex-start; }
+  .cv-body { padding: 2.5rem 1.2rem 4rem; }
+  .page-header { padding: 3rem 1.2rem 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">ION <span>FRANCOVSCHI</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">ABOUT</a></li>
+    <li><a href="index.html#research">RESEARCH</a></li>
+    <li><a href="index.html#publications">PAPERS</a></li>
+    <li><a href="blog/index.html">BLOG</a></li>
+    <li><a href="fieldwork.html">FIELD PICS</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <span class="page-tag">► CURRICULUM VITAE</span>
+      <h1>Ion Francovschi</h1>
+      <p class="page-subtitle">PhD Geologist · Earth Scientist · Ediacaran–Cambrian Researcher</p>
+    </div>
+    <!-- Link to a PDF version of your CV once you have one -->
+    <a href="#" class="download-btn">↓ DOWNLOAD PDF</a>
+  </div>
+</div>
+
+<div class="cv-body">
+  <div class="cv-inner">
+
+    <!-- ══════════════════════════════
+         MAIN COLUMN
+    ══════════════════════════════ -->
+    <div>
+
+      <!-- EDUCATION -->
+      <div class="cv-section">
+        <div class="cv-section-title">EDUCATION / RESEARCH</div>
+        <div class="cv-block">
+
+          <div class="cv-entry">
+            <span class="cv-entry-tag">VISITING SCHOLAR</span>
+            <div class="cv-entry-header">
+              <div class="cv-entry-title">Fulbright Visiting Scholar</div>
+              <div class="cv-entry-date">OCT 2023 — JUN 2024</div>
+            </div>
+            <div class="cv-entry-org">Department of Earth &amp; Planetary Sciences, University of California, Riverside, USA</div>
+            <div class="cv-entry-body">
+              <p>Project title: <em>The late Ediacaran from the southwestern part of Baltica: addressing the Kotlin crisis</em></p>
+            </div>
+          </div>
+
+          <div class="cv-entry">
+            <span class="cv-entry-tag">PHD</span>
+            <div class="cv-entry-header">
+              <div class="cv-entry-title">PhD in Geological Sciences</div>
+              <div class="cv-entry-date">OCT 2014 — JUL 2020</div>
+            </div>
+            <div class="cv-entry-org">Faculty of Geology and Geophysics, University of Bucharest, Romania</div>
+            <div class="cv-entry-body">
+              <p>Thesis: <em>The Ediacaran from the Moldavian sector of Baltica</em></p>
+            </div>
+          </div>
+
+          <div class="cv-entry">
+            <span class="cv-entry-tag">MSC</span>
+            <div class="cv-entry-header">
+              <div class="cv-entry-title">MSc in Geological Sciences</div>
+              <div class="cv-entry-date">OCT 2012 — JUN 2014</div>
+            </div>
+            <div class="cv-entry-org">Faculty of Geology and Geophysics, University of Bucharest, Romania</div>
+          </div>
+
+          <div class="cv-entry">
+            <span class="cv-entry-tag">BSC</span>
+            <div class="cv-entry-header">
+              <div class="cv-entry-title">BSc in Geological Sciences</div>
+              <div class="cv-entry-date">OCT 2008 — JUN 2012</div>
+            </div>
+            <div class="cv-entry-org">Faculty of Geology and Geophysics, University of Bucharest, Romania</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- WORK EXPERIENCE -->
+      <div class="cv-section">
+        <div class="cv-section-title">PROFESSIONAL EXPERIENCE</div>
+        <div class="cv-block">
+
+          <div class="cv-entry">
+            <span class="cv-entry-tag">INDUSTRY</span>
+            <div class="cv-entry-header">
+              <div class="cv-entry-title">Geologist / Geochemistry Specialist</div>
+              <div class="cv-entry-date">MAR 2013 — MAY 2021</div>
+            </div>
+            <div class="cv-entry-org">GEOLOG International (geolog.com)</div>
+            <div class="cv-entry-body">
+              <p>Surface logging operations — Onshore (HP/HT), Offshore (shallow water, deepwater, ultra deepwater, extended reach).</p>
+              <p>Onshore: Romania (OMV Petrom, Stratum Energy, Expert Petroleum), Russia (Gazprom Neft, Shell)</p>
+              <p>Offshore: Sakhalin/Russia (SEIC), Romania (ExxonMobil, OMV Petrom, Petroceltic International), Cyprus (ENI), Morocco (ENI), Mozambique (ENI)</p>
+            </div>
+          </div>
+
+          <div class="cv-entry">
+            <span class="cv-entry-tag">INTERNSHIP</span>
+            <div class="cv-entry-header">
+              <div class="cv-entry-title">Intern Geological Engineer</div>
+              <div class="cv-entry-date">JUL 2012 — SEP 2012</div>
+            </div>
+            <div class="cv-entry-org">Heidelberg Materials Romania</div>
+            <div class="cv-entry-body">
+              <p>Open-pit mining operations. XRF analyses.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PUBLICATIONS -->
+      <div class="cv-section">
+        <div class="cv-section-title">PUBLICATIONS</div>
+        <div class="cv-block">
+
+          <div class="pub-entry">
+            <div class="pub-entry-year">2026</div>
+            <div>
+              <div class="pub-entry-title">The late Ediacaran Dzhurzhivka Beds phosphorite conglomerates record an early stage of the phosphogenesis event in SW Baltica</div>
+              <div class="pub-entry-authors"><strong>Francovschi, I.</strong>, Goto, K.T., Budzyn, B., Nagao, R., Shumlyanskyy, L., Roban, R.D., Hirata, T., Bekker, A.</div>
+              <div class="pub-entry-journal"><a href="https://www.sciencedirect.com/science/article/pii/S0301926826000641" target="_blank">Precambrian Research 438, 108076</a></div>
+            </div>
+          </div>
+
+          <div class="pub-entry">
+            <div class="pub-entry-year">2026</div>
+            <div>
+              <div class="pub-entry-title">Spatial analysis of <em>Beltanelliformis (Nemiana)</em> in Baltica</div>
+              <div class="pub-entry-authors">Mitchell, E.G., <strong>Francovschi, I.</strong>, Agic, H., Bekker, A.</div>
+              <div class="pub-entry-journal"><a href="https://www.sciencedirect.com/science/article/pii/S0301926826000203" target="_blank">Precambrian Research 436, 108032</a></div>
+            </div>
+          </div>
+
+          <div class="pub-entry">
+            <div class="pub-entry-year">2024</div>
+            <div>
+              <div class="pub-entry-title">U–Pb geochronology and Hf isotope systematics of detrital zircon from the basal part of the late Ediacaran sedimentary succession of the Moldova-Podillya basin (SW Baltica): implications for glacial vs. alluvial origin</div>
+              <div class="pub-entry-authors"><strong>Francovschi, I.</strong>, Shumlyanskyy, L., Grytsenko, V., Hoffmann, A., Wilde, S.A., Bekker, A.</div>
+              <div class="pub-entry-journal"><a href="https://www.sciencedirect.com/science/article/pii/S0301926824002857" target="_blank">Precambrian Research 413, 107572</a></div>
+            </div>
+          </div>
+
+          <div class="pub-entry">
+            <div class="pub-entry-year">2023</div>
+            <div>
+              <div class="pub-entry-title">U–Pb geochronology of detrital zircon from the Ediacaran and Cambrian sedimentary successions of NE Estonia and Volyn region of Ukraine: implications for the provenance and comparison with other areas within Baltica</div>
+              <div class="pub-entry-authors"><strong>Francovschi, I.</strong>, Shumlyanskyy, L., Soesoo, A., Tarasko, I., Melnychuk, V., Hoffmann, A., Kovalick, A., Love, G., Bekker, A.</div>
+              <div class="pub-entry-journal"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0301926823001274" target="_blank">Precambrian Research 392, 107087</a></div>
+            </div>
+          </div>
+
+          <div class="pub-entry">
+            <div class="pub-entry-year">2023</div>
+            <div>
+              <div class="pub-entry-title">Detrital Zircon Geochronology of the Volyn-Orsha Sedimentary Basin in Western Ukraine: Implications for the Meso-Neoproterozoic History of Baltica and Possible Link to Amazonia and the Grenvillian-Sveconorwegian-Sunsas Orogenic Belts</div>
+              <div class="pub-entry-authors">Shumlyanskyy, L., Bekker, A., Tarasko, I., <strong>Francovschi, I.</strong>, Wilde, S.A., Melnychuk, V.</div>
+              <div class="pub-entry-journal"><a href="https://www.mdpi.com/2076-3263/13/5/152" target="_blank">Geosciences MDPI 13, 152</a></div>
+            </div>
+          </div>
+
+          <div class="pub-entry">
+            <div class="pub-entry-year">2022</div>
+            <div>
+              <div class="pub-entry-title">Symbiosis in corals and stromatoporoids from the Silurian of Baltica</div>
+              <div class="pub-entry-authors">Borisenko, T., Vinn, O., Grytsenko, V., <strong>Francovschi, I.</strong>, Zaika, Y.</div>
+              <div class="pub-entry-journal"><a href="https://palaeo-electronica.org/content/2022/3618-symbiosis-in-the-silurian" target="_blank">Palaeontologia Electronica 25(2):a17</a></div>
+            </div>
+          </div>
+
+          <div class="pub-entry">
+            <div class="pub-entry-year">2021</div>
+            <div>
+              <div class="pub-entry-title">U–Pb geochronology and Hf isotope systematics of detrital zircon from the late Ediacaran Kalyus Beds (East European Platform): palaeogeographic evolution of southwestern Baltica and constraints on the Ediacaran biota</div>
+              <div class="pub-entry-authors"><strong>Francovschi, I.</strong>, Grădinaru, E., Li, H., Shumlyanskyy, L., Ciobotaru, V.</div>
+              <div class="pub-entry-journal"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0301926820306513" target="_blank">Precambrian Research 355, 106062</a></div>
+            </div>
+          </div>
+
+          <div class="pub-entry">
+            <div class="pub-entry-year">2020</div>
+            <div>
+              <div class="pub-entry-title">Rare earth element (REE) enrichment of the late Ediacaran Kalyus Beds (East European Platform) through diagenetic uptake</div>
+              <div class="pub-entry-authors"><strong>Francovschi, I.</strong>, Grădinaru, E., Roban, R.D., Ducea, M.N., Ciobotaru, V., Shumlyanskyy, L.</div>
+              <div class="pub-entry-journal"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0009281920300131" target="_blank">Geochemistry 80, 125612</a></div>
+            </div>
+          </div>
+
+          <div class="pub-entry">
+            <div class="pub-entry-year">2020</div>
+            <div>
+              <div class="pub-entry-title">Lower Cretaceous provenance and sedimentary deposition in the Eastern Carpathians: Inferences for the evolution of the subducted oceanic domain and its European passive continental margin</div>
+              <div class="pub-entry-authors">Roban, R.D., Ducea, M.N., Mațenco, L., Panaiotu, G.C., Profeta, L., Krezsek, C., Melinte-Dobrinescu, M.C., Anastasiu, N., Dimofte, D., Apostrosoaei, V., <strong>Francovschi, I.</strong></div>
+              <div class="pub-entry-journal"><a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2019TC005780" target="_blank">Tectonics 39/7, 1–28</a></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- end main column -->
+
+    <!-- ══════════════════════════════
+         SIDEBAR
+    ══════════════════════════════ -->
+    <div class="cv-sidebar">
+
+      <!-- Photo -->
+      <div class="sidebar-photo" style="border:var(--border); border-bottom:var(--border-thin);">
+        <img src="img/francovschi.jpg" alt="Ion Francovschi">
+        <div class="sidebar-photo-name">ION FRANCOVSCHI<br>PhD GEOLOGIST</div>
+      </div>
+
+      <!-- Contact -->
+      <div class="sidebar-contact" style="border-top:none;">
+        <div class="sidebar-contact-header">CONTACT</div>
+        <div class="sidebar-contact-row">
+          <span class="sidebar-contact-label">EMAIL</span>
+          <a href="mailto:your@email.com">your@email.com</a>
+        </div>
+        <div class="sidebar-contact-row">
+          <span class="sidebar-contact-label">ORCID</span>
+          <a href="https://orcid.org/YOUR-ORCID" target="_blank">YOUR-ORCID</a>
+        </div>
+        <div class="sidebar-contact-row">
+          <span class="sidebar-contact-label">GOOGLE SCHOLAR</span>
+          <a href="https://scholar.google.com" target="_blank">View profile →</a>
+        </div>
+        <div class="sidebar-contact-row">
+          <span class="sidebar-contact-label">WEBSITE</span>
+          <a href="https://francovschi.vercel.app" target="_blank">francovschi.vercel.app</a>
+        </div>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="cv-section" style="margin-top:1.5rem; margin-bottom:1.5rem;">
+        <div class="cv-section-title">TECHNICAL SKILLS</div>
+        <div class="cv-block">
+          <ul class="skill-list">
+            <li class="skill-item"><span class="skill-bullet">►</span>X-ray fluorescence (XRF)</li>
+            <li class="skill-item"><span class="skill-bullet">►</span>X-ray diffraction (XRD)</li>
+            <li class="skill-item"><span class="skill-bullet">►</span>TOC, S1/S2 pyrolysis</li>
+            <li class="skill-item"><span class="skill-bullet">►</span>Heavy minerals separation</li>
+            <li class="skill-item"><span class="skill-bullet">►</span>Laser ablation ICP-MS</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- IT Skills -->
+      <div class="cv-section" style="margin-bottom:1.5rem;">
+        <div class="cv-section-title">IT SKILLS</div>
+        <div class="cv-block">
+          <ul class="skill-list">
+            <li class="skill-item"><span class="skill-bullet">►</span>Adobe Illustrator &amp; Photoshop</li>
+            <li class="skill-item"><span class="skill-bullet">►</span>Power BI, SQL, Python</li>
+            <li class="skill-item"><span class="skill-bullet">►</span>MS Office</li>
+            <li class="skill-item"><span class="skill-bullet">►</span>Rockworks, Surfer, Petrel</li>
+            <li class="skill-item"><span class="skill-bullet">►</span>OriginPro</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- end sidebar -->
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-txt">
+    © 2025 ION FRANCOVSCHI — PHD EARTH SCIENCES<br>
+    <span class="dim">EDIACARAN · CAMBRIAN · BALTICA · EEP</span>
+  </div>
+  <div class="footer-txt" style="text-align:right;">
+    <span class="dim">STATIC HTML · VERCEL</span>
+  </div>
+</footer>
+
+</body>
+</html>

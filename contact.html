@@ -281,6 +281,14 @@ h1 {
   .setup-box { margin: 0 1.2rem 2rem; }
 }
 </style>
+<!-- Google Analytics: replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VML6X1920W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VML6X1920W');
+</script>
 </head>
 <body>
 
@@ -290,7 +298,9 @@ h1 {
     <li><a href="index.html#about">ABOUT</a></li>
     <li><a href="index.html#research">RESEARCH</a></li>
     <li><a href="index.html#publications">PAPERS</a></li>
+    <li><a href="fieldwork.html">FIELD PICS</a></li>
     <li><a href="blog/index.html">BLOG</a></li>
+    <li><a href="cv.html">CV</a></li>
     <li><a href="contact.html" class="active">CONTACT</a></li>
   </ul>
 </nav>
@@ -318,7 +328,7 @@ h1 {
       -->
       <form
         id="contact-form"
-        action="https://formspree.io/f/mqegaaoa"
+        action="https://formspree.io/f/YOUR_FORM_ID"
         method="POST"
         class="form-body"
       >
@@ -382,42 +392,57 @@ h1 {
       <div class="contact-sidebar">
         <div class="sidebar-block">
           <div class="sidebar-block-label">EMAIL</div>
-          <div class="sidebar-block-value"><a href="mailto:frankovski.ww@gmail.com">frankovski.ww@gmail.com</a></div>
+          <div class="sidebar-block-value"><a href="/cdn-cgi/l/email-protection#0a73657f784a6f676b636624696567"><span class="__cf_email__" data-cfemail="21584e545361444c40484d0f424e4c">[email&#160;protected]</span></a></div>
         </div>
         <div class="sidebar-block">
           <div class="sidebar-block-label">INSTITUTION</div>
-          <div class="sidebar-block-value">Moldova State University<br>Institute of Geology and Seismology<br>Chisinau, Moldova</div>
+          <div class="sidebar-block-value">Your University / Institute<br>Department of Geology<br>City, Country</div>
         </div>
         <div class="sidebar-block">
           <div class="sidebar-block-label">RESEARCH INTERESTS</div>
-          <div class="sidebar-block-value">Ediacaran–Cambrian transition · Stratigraphy · Geochemistry · Geochronology · Baltica</div>
+          <div class="sidebar-block-value">Ediacaran–Cambrian transition · Vendian stratigraphy · Chemostratigraphy · East European Platform · Paleogeography</div>
         </div>
         <div class="sidebar-block">
           <div class="sidebar-block-label">RESPONSE TIME</div>
-          <div class="sidebar-block-value">Usually within 1–2 working days. Fieldwork periods may cause delays.</div>
+          <div class="sidebar-block-value">Usually within 3–5 working days. Fieldwork periods may cause delays.</div>
         </div>
       </div>
 
       <div class="ext-links">
-        <a href="https://orcid.org/0000-0002-5766-8023" target="_blank" class="ext-link">
-          🔬 ORCID PROFILE
+        <a href="https://orcid.org/YOUR-ORCID" target="_blank" class="ext-link">
+          ◉ ORCID PROFILE
           <span class="ext-link-arrow">↗</span>
         </a>
-        <a href="https://scholar.google.com/citations?user=jPq_h78AAAAJ&hl=en" target="_blank" class="ext-link">
-          👨🏻‍🔬 GOOGLE SCHOLAR
+        <a href="https://scholar.google.com" target="_blank" class="ext-link">
+          ▣ GOOGLE SCHOLAR
           <span class="ext-link-arrow">↗</span>
         </a>
         <a href="https://researchgate.net" target="_blank" class="ext-link">
-          🕵🏻‍♂️ RESEARCHGATE
+          ◈ RESEARCHGATE
           <span class="ext-link-arrow">↗</span>
         </a>
-        <a href="https://www.linkedin.com/in/francovschi/" target="_blank" class="ext-link">
-          💼 LINKEDIN
+        <a href="https://linkedin.com" target="_blank" class="ext-link">
+          ▤ LINKEDIN
           <span class="ext-link-arrow">↗</span>
         </a>
       </div>
     </div>
 
+  </div>
+
+  <!-- SETUP INSTRUCTIONS — delete this block once Formspree is configured -->
+  <div class="setup-box" style="margin-top:3rem;">
+    <div class="setup-box-header">⚠ SETUP NEEDED — DELETE THIS BOX ONCE DONE</div>
+    <div class="setup-box-body">
+      <ol>
+        <li>Go to <strong>formspree.io</strong> → create a free account → click <strong>+ New Form</strong></li>
+        <li>Give it a name (e.g. "Website contact"), copy the form ID — it looks like <code>xpwzgkqb</code></li>
+        <li>Open <code>contact.html</code> in a text editor, find <code>YOUR_FORM_ID</code> and replace it with your ID</li>
+        <li>The form action should look like: <code>https://formspree.io/f/xpwzgkqb</code></li>
+        <li>Test it by sending a message — Formspree will ask you to confirm your email the first time</li>
+        <li>Delete this yellow box from the HTML file</li>
+      </ol>
+    </div>
   </div>
 
 </section>
@@ -432,7 +457,7 @@ h1 {
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const form = document.getElementById('contact-form');
   const success = document.getElementById('form-success');
 
@@ -456,14 +481,4 @@ h1 {
       } else {
         btn.textContent = '► TRY AGAIN';
         btn.disabled = false;
-        alert('Something went wrong. Please email me directly.');
-      }
-    } catch {
-      btn.textContent = '► TRY AGAIN';
-      btn.disabled = false;
-      alert('Network error. Please email me directly.');
-    }
-  });
-</script>
-</body>
-</html>
+        alert('Some

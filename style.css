@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ── LIGHT MODE (default) ── */
+:root {
+  --cream: #F5F0E8;
+  --paper: #FDFAF5;
+  --ink: #1A1A18;
+  --ink2: #3D3D38;
+  --ink3: #7A7A72;
+  --rust: #B85C30;
+  --sage: #5A7A5A;
+  --stone: #8A8278;
+  --border: 2px solid #1A1A18;
+  --border-thin: 1px solid #1A1A18;
+}
+
+/* ── DARK MODE ── */
+html.dark {
+  --cream: #1C1F24;
+  --paper: #22262D;
+  --ink: #E4DED2;
+  --ink2: #C0BAB0;
+  --ink3: #8A8478;
+  --rust: #D4784A;
+  --sage: #7AAA7A;
+  --stone: #6A6460;
+  --border: 2px solid #5A5450;
+  --border-thin: 1px solid #4A4440;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  transition: background 0.2s, color 0.2s;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,26,24,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,26,24,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+}
+
+.nav-logo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--rust); }
+
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links a {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink2);
+  text-decoration: none;
+  padding: 0 1rem;
+  border-left: var(--border-thin);
+  height: 56px;
+  line-height: 56px;
+  transition: background 0.1s, color 0.1s;
+}
+.nav-links a:hover,
+.nav-links a.active { background: var(--ink); color: var(--cream); }
+
+/* Dark mode toggle button */
+#theme-toggle {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding: 0 14px;
+  height: 56px;
+  border: none;
+  border-left: var(--border-thin);
+  background: transparent;
+  color: var(--ink3);
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+#theme-toggle:hover { background: var(--ink); color: var(--cream); }
+
+/* FOOTER */
+footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: var(--ink);
+  color: var(--cream);
+}
+.footer-txt {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+}
+.footer-txt .dim { color: var(--stone); }
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  padding: 12px 18px;
+  text-decoration: none;
+  border: var(--border);
+  cursor: pointer;
+  transition: all 0.08s;
+  letter-spacing: 0.05em;
+}
+.btn:active { transform: translate(2px,2px); }
+.btn-primary { background: var(--ink); color: var(--cream); }
+.btn-primary:hover { background: var(--rust); border-color: var(--rust); }
+.btn-ghost { background: var(--cream); color: var(--ink); }
+.btn-ghost:hover { background: var(--ink); color: var(--cream); }
+
+/* When two buttons sit side-by-side, collapse the shared border */
+.btn + .btn { border-left: none; }
+
+/* SECTION NUMS */
+.section-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: var(--rust);
+  border: var(--border);
+  padding: 5px 8px;
+}
+
+/* ── HAMBURGER BUTTON (mobile only) ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: var(--border);
+  padding: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 860px) {
+  nav {
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 56px;
+    position: relative;
+  }
+
+  .nav-hamburger { display: flex; }
+
+  /* Hide theme toggle text on very small screens, keep button */
+  #theme-toggle {
+    font-size: 6px;
+    padding: 0 10px;
+    border-left: var(--border-thin);
+  }
+
+  /* Mobile nav drawer — slides down from nav */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    border-top: var(--border);
+    background: var(--paper);
+    order: 3;
+  }
+  .nav-links.open { display: flex; }
+
+  .nav-links a {
+    height: auto;
+    line-height: 1;
+    padding: 14px 1rem;
+    border-left: none;
+    border-bottom: var(--border-thin);
+    font-size: 12px;
+  }
+  .nav-links li:last-child a { border-bottom: none; }
+
+  /* Sections & layout fixes */
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 4rem 1.2rem 3rem; min-height: 80vh; }
+  .section-inner { padding: 3.5rem 1.2rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo-col { flex-direction: row; align-items: center; gap: 1.5rem; justify-content: flex-start; }
+  .topics-grid { grid-template-columns: 1fr; }
+  .topic { border-right: none; }
+  .pub-item { grid-template-columns: 48px 1fr; }
+  .pub-badge { display: none; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-card { border-right: none; border-bottom: var(--border-thin); }
+  .blog-card:last-child { border-bottom: none; }
+  .timeline { overflow-x: auto; }
+  .tl-proterozoic { display: none; }
+  footer { flex-direction: column; gap: 0.8rem; text-align: center; padding: 1.2rem 1rem; }
+
+  /* Prevent any element from causing horizontal scroll */
+  section, .section-inner, .about-grid, .pub-list, .blog-grid, .research-topics { max-width: 100%; }
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page Not Found · Ion Francovschi</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+.error-page {
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 56px - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+
+.error-inner {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.error-strat {
+  border: var(--border);
+  margin: 0 auto 2.5rem;
+  width: 200px;
+  overflow: hidden;
+}
+
+.error-strat-row {
+  height: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+.error-strat-row:last-child { border-bottom: none; }
+
+.error-strat-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: var(--paper);
+  text-shadow: none;
+  opacity: 0.8;
+}
+
+.error-code {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(48px, 12vw, 80px);
+  color: var(--rust);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.error-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(11px, 2vw, 15px);
+  color: var(--ink);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.error-desc {
+  font-size: 15px;
+  color: var(--ink3);
+  line-height: 1.9;
+  max-width: 420px;
+  margin: 0 auto 2.5rem;
+}
+
+.error-links {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.error-link {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  padding: 13px 18px;
+  border: var(--border);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: background 0.1s, color 0.1s;
+}
+.error-link:first-child { background: var(--ink); color: var(--cream); }
+.error-link:first-child:hover { background: var(--rust); border-color: var(--rust); }
+.error-link + .error-link { border-left: none; background: var(--cream); color: var(--ink); }
+.error-link + .error-link:hover { background: var(--ink); color: var(--cream); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/index.html" class="nav-logo">ION <span>FRANCOVSCHI</span></a>
+  <ul class="nav-links">
+    <li><a href="/index.html#about">ABOUT</a></li>
+    <li><a href="/index.html#research">RESEARCH</a></li>
+    <li><a href="/index.html#publications">PAPERS</a></li>
+    <li><a href="/blog/index.html">BLOG</a></li>
+    <li><a href="/fieldwork.html">FIELD PICS</a></li>
+    <li><a href="/cv.html">CV</a></li>
+    <li><a href="/contact.html">CONTACT</a></li>
+  </ul>
+  <button id="theme-toggle" aria-label="Toggle dark mode">☾ DARK</button>
+  <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="error-page">
+  <div class="error-inner">
+
+    <!-- Mini strat column as visual gag — the page is "missing" like a lost layer -->
+    <div class="error-strat">
+      <div class="error-strat-row" style="background:repeating-linear-gradient(0deg,#C8E4F8 0,#C8E4F8 4px,#A8C8E8 4px,#A8C8E8 8px);">
+        <span class="error-strat-label" style="color:var(--ink);">Є1</span>
+      </div>
+      <div class="error-strat-row" style="background:var(--rust);">
+        <span class="error-strat-label">~~~</span>
+      </div>
+      <div class="error-strat-row" style="background:repeating-linear-gradient(0deg,#D0B8D8 0,#D0B8D8 4px,#C4ACCC 4px,#C4ACCC 8px);">
+        <span class="error-strat-label" style="color:var(--ink);">Ed</span>
+      </div>
+      <!-- THE MISSING LAYER -->
+      <div class="error-strat-row" style="background:var(--cream); border: 2px dashed var(--rust); height:28px;">
+        <span style="font-family:'Press Start 2P',monospace; font-size:6px; color:var(--rust); padding-right:6px;">? MISSING</span>
+      </div>
+      <div class="error-strat-row" style="background:repeating-linear-gradient(45deg,#888078 0,#888078 4px,#706860 4px,#706860 8px);">
+        <span class="error-strat-label">pЄ</span>
+      </div>
+    </div>
+
+    <div class="error-code">404</div>
+    <div class="error-title">STRATIGRAPHIC GAP DETECTED</div>
+    <p class="error-desc">
+      This layer is missing from the succession — either eroded, never deposited, or you followed a broken link. Either way, it's an unconformity.
+    </p>
+
+    <div class="error-links">
+      <a href="/index.html" class="error-link">► BACK TO HOME</a>
+      <a href="/blog/index.html" class="error-link">▷ READ THE BLOG</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-txt">
+    © 2025 ION FRANCOVSCHI — PHD EARTH SCIENCES<br>
+    <span class="dim">EDIACARAN · CAMBRIAN · BALTICA · EEP</span>
+  </div>
+  <div class="footer-txt" style="text-align:right;">
+    <span class="dim">STATIC HTML · VERCEL</span>
+  </div>
+</footer>
+
+<script src="/js/theme.js"></script>
+</body>
+</html>

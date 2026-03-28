@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- background -->
+  <rect width="32" height="32" rx="4" fill="#F5F0E8"/>
+  <!-- pixel geological hammer / pick -->
+  <!-- handle -->
+  <rect x="17" y="16" width="3" height="3" fill="#5A3E10"/>
+  <rect x="20" y="19" width="3" height="3" fill="#5A3E10"/>
+  <rect x="23" y="22" width="3" height="3" fill="#5A3E10"/>
+  <!-- head horizontal bar -->
+  <rect x="5"  y="10" width="3" height="3" fill="#B85C30"/>
+  <rect x="8"  y="10" width="3" height="3" fill="#B85C30"/>
+  <rect x="11" y="10" width="3" height="3" fill="#B85C30"/>
+  <rect x="14" y="10" width="3" height="3" fill="#B85C30"/>
+  <rect x="17" y="10" width="3" height="3" fill="#B85C30"/>
+  <!-- pick point (left) -->
+  <rect x="5"  y="13" width="3" height="3" fill="#B85C30"/>
+  <!-- pick point (right/top) -->
+  <rect x="17" y="7"  width="3" height="3" fill="#B85C30"/>
+  <!-- neck connecting head to handle -->
+  <rect x="14" y="13" width="3" height="3" fill="#8B6914"/>
+</svg>

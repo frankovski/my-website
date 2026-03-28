@@ -5,16 +5,118 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CV — Ion Francovschi</title>
 <meta name="description" content="Curriculum vitae of Ion Francovschi — PhD geologist, Fulbright Scholar, Ediacaran–Cambrian researcher, East European Platform.">
-<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VML6X1920W"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script> -->
+  gtag('config', 'G-VML6X1920W');
+</script> 
 <style>
+/* ── LIGHT MODE ── */
+:root {
+  --cream: #F5F0E8;
+  --paper: #FDFAF5;
+  --ink: #1A1A18;
+  --ink2: #3D3D38;
+  --ink3: #7A7A72;
+  --rust: #B85C30;
+  --rust-lt: #E8956A;
+  --sage: #5A7A5A;
+  --stone: #8A8278;
+  --border: 2px solid #1A1A18;
+  --border-thin: 1px solid #1A1A18;
+}
+
+/* ── DARK MODE ── */
+html.dark {
+  --cream: #1C1F24;
+  --paper: #22262D;
+  --ink: #E4DED2;
+  --ink2: #C0BAB0;
+  --ink3: #8A8478;
+  --rust: #D4784A;
+  --rust-lt: #E8956A;
+  --sage: #7AAA7A;
+  --stone: #6A6460;
+  --border: 2px solid #5A5450;
+  --border-thin: 1px solid #4A4440;
+}
+
+/* Base */
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Courier Prime', monospace;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+}
+
+.nav-logo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--rust); }
+
+/* CENTER NAV LINKS */
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0 auto;   /* 🔥 THIS centers the menu */
+}
+
+.nav-links a {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink2);
+  text-decoration: none;
+  padding: 0 1rem;
+  border-left: var(--border-thin);
+  height: 56px;
+  line-height: 56px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+#theme-toggle {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  height: 56px;
+  padding: 0 14px;
+  border: none;
+  border-left: var(--border-thin);
+  background: transparent;
+  color: var(--ink3);
+  cursor: pointer;
+}
+#theme-toggle:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
 section { position: relative; z-index: 1; }
 
 .page-header {

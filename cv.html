@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CV — Ion FRANCOVSCHI</title>
 <meta name="description" content="Curriculum vitae of Ion Francovschi — PhD geologist, Fulbright Scholar, Ediacaran–Cambrian researcher, East European Platform.">
-<link rel="stylesheet" href="css/style.css">
-<!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VML6X1920W"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -146,12 +147,16 @@ nav {
 .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── CV SPECIFIC STYLES ── */
 section { position: relative; z-index: 1; }
 
 .page-header {
   border-bottom: var(--border);
   background: var(--paper);
   padding: 4rem 2rem 3rem;
+  position: relative;
+  z-index: 1;
 }
 .page-header-inner {
   max-width: 1000px;
@@ -204,247 +209,82 @@ h1 {
 }
 .download-btn:hover { background: var(--ink); color: var(--cream); }
 
-/* CV BODY */
-.cv-body {
-  padding: 3rem 2rem 5rem;
-}
-.cv-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 3rem;
-  align-items: start;
-}
+.cv-body { padding: 3rem 2rem 5rem; position: relative; z-index: 1; }
+.cv-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 300px; gap: 3rem; align-items: start; }
 
-/* SHARED SECTION STYLES */
 .cv-section { margin-bottom: 3rem; }
+.cv-section-title { font-family: 'Press Start 2P', monospace; font-size: 8px; color: var(--cream); background: var(--ink); letter-spacing: 0.12em; padding: 8px 14px; margin-bottom: 0; border: var(--border); border-bottom: none; }
+.cv-block { border: var(--border); background: var(--paper); }
 
-.cv-section-title {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 8px;
-  color: var(--cream);
-  background: var(--ink);
-  letter-spacing: 0.12em;
-  padding: 8px 14px;
-  margin-bottom: 0;
-  border: var(--border);
-  border-bottom: none;
-}
-
-.cv-block {
-  border: var(--border);
-}
-
-/* ENTRY rows */
-.cv-entry {
-  padding: 1.4rem 1.4rem;
-  border-bottom: var(--border-thin);
-  position: relative;
-}
+.cv-entry { padding: 1.4rem 1.4rem; border-bottom: var(--border-thin); position: relative; }
 .cv-entry:last-child { border-bottom: none; }
-
-.cv-entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.3rem;
-}
-
-.cv-entry-title {
-  font-family: 'Courier Prime', monospace;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.4;
-}
-
-.cv-entry-date {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 6.5px;
-  color: var(--rust);
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.cv-entry-org {
-  font-size: 13px;
-  font-style: italic;
-  color: var(--ink3);
-  margin-bottom: 0.5rem;
-}
-
-.cv-entry-body {
-  font-size: 13.5px;
-  color: var(--ink2);
-  line-height: 1.75;
-}
-
+.cv-entry-header { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.3rem; }
+.cv-entry-title { font-family: 'Courier Prime', monospace; font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+.cv-entry-date { font-family: 'Press Start 2P', monospace; font-size: 6.5px; color: var(--rust); white-space: nowrap; flex-shrink: 0; }
+.cv-entry-org { font-size: 13px; font-style: italic; color: var(--ink3); margin-bottom: 0.5rem; }
+.cv-entry-body { font-size: 13.5px; color: var(--ink2); line-height: 1.75; }
 .cv-entry-body p { margin-bottom: 0.4rem; }
 .cv-entry-body p:last-child { margin-bottom: 0; }
+.cv-entry-tag { display: inline-block; font-family: 'Press Start 2P', monospace; font-size: 6px; padding: 3px 7px; border: var(--border-thin); color: var(--rust); margin-bottom: 0.6rem; letter-spacing: 0.08em; }
 
-.cv-entry-tag {
-  display: inline-block;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 6px;
-  padding: 3px 7px;
-  border: var(--border-thin);
-  color: var(--rust);
-  margin-bottom: 0.6rem;
-  letter-spacing: 0.08em;
-}
-
-/* PUBLICATIONS */
-.pub-entry {
-  padding: 1.2rem 1.4rem;
-  border-bottom: var(--border-thin);
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 1rem;
-  align-items: start;
-  transition: background 0.1s;
-}
+.pub-entry { padding: 1.2rem 1.4rem; border-bottom: var(--border-thin); display: grid; grid-template-columns: 44px 1fr; gap: 1rem; align-items: start; transition: background 0.1s; }
 .pub-entry:last-child { border-bottom: none; }
-.pub-entry:hover { background: var(--paper); }
-
-.pub-entry-year {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  color: var(--rust);
-  padding-top: 3px;
-  text-align: center;
-}
-
-.pub-entry-title {
-  font-weight: 700;
-  font-size: 13.5px;
-  color: var(--ink);
-  line-height: 1.5;
-  margin-bottom: 3px;
-}
-
-.pub-entry-authors {
-  font-size: 12.5px;
-  font-style: italic;
-  color: var(--ink3);
-  margin-bottom: 3px;
-  line-height: 1.5;
-}
-
-/* Bold Francovschi in authors */
+.pub-entry:hover { background: var(--cream); }
+.pub-entry-year { font-family: 'Press Start 2P', monospace; font-size: 7px; color: var(--rust); padding-top: 3px; text-align: center; }
+.pub-entry-title { font-weight: 700; font-size: 13.5px; color: var(--ink); line-height: 1.5; margin-bottom: 3px; }
+.pub-entry-authors { font-size: 12.5px; font-style: italic; color: var(--ink3); margin-bottom: 3px; line-height: 1.5; }
 .pub-entry-authors strong { font-style: normal; color: var(--ink2); }
-
-.pub-entry-journal {
-  font-size: 12px;
-  color: var(--sage);
-  font-weight: 700;
-}
+.pub-entry-journal { font-size: 12px; color: var(--sage); font-weight: 700; }
 .pub-entry-journal a { color: inherit; text-decoration: underline; }
 .pub-entry-journal a:hover { color: var(--rust); }
 
-/* SIDEBAR */
 .cv-sidebar { position: sticky; top: 72px; }
 
-/* Skills list */
-.skill-list {
-  list-style: none;
-  padding: 0;
-}
-.skill-item {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  padding: 0.55rem 1.2rem;
-  border-bottom: var(--border-thin);
-  font-size: 13px;
-  color: var(--ink2);
-}
+.skill-list { list-style: none; padding: 0; }
+.skill-item { display: flex; align-items: baseline; gap: 8px; padding: 0.55rem 1.2rem; border-bottom: var(--border-thin); font-size: 13px; color: var(--ink2); }
 .skill-item:last-child { border-bottom: none; }
-.skill-bullet {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 6px;
-  color: var(--rust);
-  flex-shrink: 0;
-}
+.skill-bullet { font-family: 'Press Start 2P', monospace; font-size: 6px; color: var(--rust); flex-shrink: 0; }
 
-/* Contact sidebar block */
-.sidebar-contact {
-  border: var(--border);
-  margin-top: 0;
-}
-.sidebar-contact-header {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  background: var(--ink);
-  color: var(--cream);
-  padding: 8px 14px;
-  border-bottom: var(--border);
-  letter-spacing: 0.1em;
-}
-.sidebar-contact-row {
-  padding: 0.7rem 1.2rem;
-  border-bottom: var(--border-thin);
-  font-size: 13px;
-  color: var(--ink2);
-  line-height: 1.6;
-}
+.sidebar-contact { border: var(--border); margin-top: 0; background: var(--paper); }
+.sidebar-contact-header { font-family: 'Press Start 2P', monospace; font-size: 7px; background: var(--ink); color: var(--cream); padding: 8px 14px; border-bottom: var(--border); letter-spacing: 0.1em; }
+.sidebar-contact-row { padding: 0.7rem 1.2rem; border-bottom: var(--border-thin); font-size: 13px; color: var(--ink2); line-height: 1.6; }
 .sidebar-contact-row:last-child { border-bottom: none; }
-.sidebar-contact-label {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 6.5px;
-  color: var(--rust);
-  display: block;
-  margin-bottom: 2px;
-  letter-spacing: 0.08em;
-}
+.sidebar-contact-label { font-family: 'Press Start 2P', monospace; font-size: 6.5px; color: var(--rust); display: block; margin-bottom: 2px; letter-spacing: 0.08em; }
 .sidebar-contact-row a { color: var(--ink); text-decoration: none; font-weight: 700; }
 .sidebar-contact-row a:hover { color: var(--rust); }
 
-/* Photo in sidebar */
-.sidebar-photo {
-  border: var(--border);
-  border-bottom: none;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1.5rem 1rem 1rem;
-  background: var(--paper);
-  gap: 0.8rem;
-}
-.sidebar-photo img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
-  border: var(--border);
-}
-.sidebar-photo-name {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 7px;
-  color: var(--ink);
-  text-align: center;
-  line-height: 1.8;
+.sidebar-photo { border: var(--border); border-bottom: none; overflow: hidden; display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem 1rem; background: var(--paper); gap: 0.8rem; }
+.sidebar-photo img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: center top; border: var(--border); filter: grayscale(10%); }
+.sidebar-photo-name { font-family: 'Press Start 2P', monospace; font-size: 7px; color: var(--ink); text-align: center; line-height: 1.8; }
+
+footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; background: var(--ink); color: var(--cream); }
+.footer-txt { font-family: 'Press Start 2P', monospace; font-size: 7px; letter-spacing: 0.08em; line-height: 1.8; }
+.footer-txt .dim { color: var(--stone); }
+
+/* ── MOBILE RESPONSIVENESS ── */
+@media (max-width: 860px) {
+  nav { padding: 0 1rem; flex-wrap: wrap; height: auto; min-height: 56px; }
+  .nav-hamburger { display: flex; }
+  #theme-toggle { font-size: 6px; padding: 0 10px; border-left: var(--border-thin); }
+  .nav-links { display: none; flex-direction: column; width: 100%; border-top: var(--border); background: var(--paper); order: 3; }
+  .nav-links.open { display: flex; }
+  .nav-links a { height: auto; padding: 14px 1rem; border-left: none; border-bottom: var(--border-thin); }
+  .nav-links li:last-child a { border-bottom: none; }
+  
+  .cv-inner { grid-template-columns: 1fr; }
+  .cv-sidebar { position: static; }
+  .page-header-inner { flex-direction: column; align-items: flex-start; }
+  .cv-body { padding: 2.5rem 1.2rem 4rem; }
+  .page-header { padding: 3rem 1.2rem 2rem; }
+  footer { flex-direction: column; gap: 0.8rem; text-align: center; }
 }
 
-/* Print styles */
 @media print {
   nav, footer, .download-btn { display: none; }
   .cv-inner { grid-template-columns: 1fr 220px; gap: 1.5rem; }
   .cv-sidebar { position: static; }
   body::before { display: none; }
   .cv-body { padding: 1rem 0; }
-}
-
-@media (max-width: 860px) {
-  .cv-inner { grid-template-columns: 1fr; }
-  .cv-sidebar { position: static; }
-  .page-header-inner { flex-direction: column; align-items: flex-start; }
-  .cv-body { padding: 2.5rem 1.2rem 4rem; }
-  .page-header { padding: 3rem 1.2rem 2rem; }
 }
 </style>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -474,7 +314,6 @@ h1 {
       <h1>Ion FRANCOVSCHI</h1>
       <p class="page-subtitle">(Petroleum) Geologist · Earth Scientist</p>
     </div>
-    <!-- Link to a PDF version of your CV once you have one -->
     <a href="#" class="download-btn">↓ DOWNLOAD PDF</a>
   </div>
 </div>
@@ -482,9 +321,7 @@ h1 {
 <div class="cv-body">
   <div class="cv-inner">
 
-    <!-- ══════════════════════════════
-         MAIN COLUMN
-    ══════════════════════════════ -->
+    <!-- MAIN COLUMN -->
     <div>
 
       <!-- EDUCATION -->
@@ -662,27 +499,23 @@ h1 {
 
     </div><!-- end main column -->
 
-    <!-- ══════════════════════════════
-         SIDEBAR
-    ══════════════════════════════ -->
+    <!-- SIDEBAR -->
     <div class="cv-sidebar">
 
-      <!-- Photo -->
       <div class="sidebar-photo" style="border:var(--border); border-bottom:var(--border-thin);">
         <img src="img/francovschi.jpg" alt="Ion Francovschi">
         <div class="sidebar-photo-name">ION FRANCOVSCHI<br>PhD GEOLOGIST</div>
       </div>
 
-      <!-- Contact -->
       <div class="sidebar-contact" style="border-top:none;">
         <div class="sidebar-contact-header">CONTACT</div>
         <div class="sidebar-contact-row">
           <span class="sidebar-contact-label">EMAIL</span>
-          <a href="/cdn-cgi/l/email-protection#a4ddcbd1d6e4c1c9c5cdc88ac7cbc9"><span class="__cf_email__" data-cfemail="bbc2d4cec9fbded6dad2d795d8d4d6">[email&#160;protected]</span></a>
+          <a href="mailto:your@email.com">Email Me</a>
         </div>
         <div class="sidebar-contact-row">
           <span class="sidebar-contact-label">ORCID</span>
-          <a href="https://orcid.org/0000-0002-5766-8023" target="_blank">View profile →</a>
+          <a href="https://orcid.org/0000-0002-5766-8023" target="_blank">0000-0002-5766-8023</a>
         </div>
         <div class="sidebar-contact-row">
           <span class="sidebar-contact-label">GOOGLE SCHOLAR</span>
@@ -690,7 +523,7 @@ h1 {
         </div>
         <div class="sidebar-contact-row">
           <span class="sidebar-contact-label">WEBSITE</span>
-          <a href="www.flickr.com/photos/francovschi/" target="_blank">View photos →</a>
+          <a href="https://francovschi.vercel.app" target="_blank">francovschi.vercel.app</a>
         </div>
       </div>
 
@@ -737,7 +570,6 @@ h1 {
   </div>
 </footer>
 
-<!-- This connects the Dark Theme button -->
 <script src="js/theme.js"></script>
 
 </body>

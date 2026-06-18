@@ -1,138 +1,1213 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Publicații | Geomagnetism</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ion Francovschi — Geologist</title>
+<meta name="description" content="PhD geologist studying the late Ediacaran and early Cambrian sedimentary successions of southwestern Baltica. Research, publications, and geological writing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VML6X1920W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VML6X1920W');
+</script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --cream: #F5F0E8;
+  --paper: #FDFAF5;
+  --ink: #1A1A18;
+  --ink2: #3D3D38;
+  --ink3: #7A7A72;
+  --rust: #B85C30;
+  --rust-lt: #E8956A;
+  --sage: #5A7A5A;
+  --stone: #8A8278;
+  --border: 2px solid #1A1A18;
+  --border-thin: 1px solid #1A1A18;
+}
+
+html.dark {
+  --cream: #1C1F24;
+  --paper: #22262D;
+  --ink: #E4DED2;
+  --ink2: #C0BAB0;
+  --ink3: #8A8478;
+  --rust: #D4784A;
+  --rust-lt: #E8956A;
+  --sage: #7AAA7A;
+  --stone: #6A6460;
+  --border: 2px solid #5A5450;
+  --border-thin: 1px solid #4A4440;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  transition: background 0.2s, color 0.2s;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,26,24,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,26,24,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+}
+
+.nav-logo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-logo span { color: var(--rust); }
+
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links a {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink2);
+  text-decoration: none;
+  padding: 0 1rem;
+  border-left: var(--border-thin);
+  height: 56px;
+  line-height: 56px;
+  transition: background 0.1s, color 0.1s;
+}
+.nav-links a:hover { background: var(--ink); color: var(--cream); }
+
+#theme-toggle {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding: 0 14px;
+  height: 56px;
+  border: none;
+  border-left: var(--border-thin);
+  background: transparent;
+  color: var(--ink3);
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+#theme-toggle:hover { background: var(--ink); color: var(--cream); }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: var(--border);
+  padding: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* HERO */
+.hero {
+  position: relative;
+  z-index: 1;
+  border-bottom: var(--border);
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  min-height: 88vh;
+}
+
+.hero-left {
+  padding: 5rem 3rem 4rem;
+  border-right: var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 6px 10px;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.05em;
+}
+
+h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(18px, 3vw, 30px);
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+h1 .accent { color: var(--rust); }
+
+.hero-desc {
+  font-size: 16px;
+  color: var(--ink2);
+  max-width: 520px;
+  line-height: 1.9;
+  margin-bottom: 3rem;
+  border-left: 3px solid var(--rust);
+  padding-left: 1.2rem;
+}
+
+.hero-actions { display: flex; gap: 0; }
+
+.btn {
+  display: inline-block;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  padding: 14px 20px;
+  text-decoration: none;
+  border: var(--border);
+  cursor: pointer;
+  transition: all 0.08s;
+  letter-spacing: 0.05em;
+}
+.btn:active { transform: translate(2px,2px); }
+.btn-primary { background: var(--ink); color: var(--cream); }
+.btn-primary:hover { background: var(--rust); border-color: var(--rust); }
+.btn-secondary { background: var(--cream); color: var(--ink); }
+.btn-secondary:hover { background: var(--ink); color: var(--cream); }
+.btn + .btn { border-left: none; }
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2rem 1.5rem 0;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.hero-strat-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.strat-column {
+  width: 100%;
+  max-width: 280px;
+  border: var(--border);
+  overflow: hidden;
+}
+
+.strat-row {
+  display: flex;
+  align-items: center;
+  border-bottom: var(--border-thin);
+  height: 50px;
+}
+.strat-row:last-child { border-bottom: none; }
+
+.strat-age {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6.5px;
+  width: 44px;
+  min-width: 44px;
+  padding: 0 5px;
+  color: var(--paper);
+  border-right: var(--border-thin);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.strat-fill {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+}
+
+.s-devonian  { background: repeating-linear-gradient(0deg,#D4B070 0,#D4B070 4px,#C8A060 4px,#C8A060 8px); }
+.s-sil4      { background: repeating-linear-gradient(0deg,#C8D8B0 0,#C8D8B0 4px,#BCCCA4 4px,#BCCCA4 8px); }
+.s-sil3      { background: repeating-linear-gradient(0deg,#BCCCA4 0,#BCCCA4 4px,#B0C498 4px,#B0C498 8px); }
+.s-sil2      { background: repeating-linear-gradient(0deg,#B0C498 0,#B0C498 4px,#A4BC8C 4px,#A4BC8C 8px); }
+.s-sil1      { background: repeating-linear-gradient(0deg,#A4BC8C 0,#A4BC8C 4px,#98B480 4px,#98B480 8px); }
+.s-ord3      { background: repeating-linear-gradient(0deg,#88B898 0,#88B898 4px,#7CAC8C 4px,#7CAC8C 8px); }
+.s-ord2      { background: repeating-linear-gradient(0deg,#7CAC8C 0,#7CAC8C 4px,#70A080 4px,#70A080 8px); }
+.s-cambrian  { background: repeating-linear-gradient(0deg,#C8E4F8 0,#C8E4F8 4px,#A8C8E8 4px,#A8C8E8 8px); }
+.s-ediacaran { background: repeating-linear-gradient(0deg,#D0B8D8 0,#D0B8D8 4px,#C4ACCC 4px,#C4ACCC 8px); }
+.s-basement  { background: repeating-linear-gradient(45deg,#888078 0,#888078 4px,#706860 4px,#706860 8px); }
+
+.strat-name {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink);
+  text-shadow: 0 0 4px rgba(245,240,232,0.9);
+  text-align: right;
+}
+.strat-name.light { color: var(--paper); text-shadow: none; }
+
+.strat-litho {
+  font-family: 'Courier Prime', monospace;
+  font-size: 8px;
+  font-weight: 400;
+  font-style: italic;
+  display: block;
+  margin-top: 1px;
+  opacity: 0.75;
+}
+.strat-name.light .strat-litho { opacity: 0.65; }
+
+@keyframes walk {
+  0%   { transform: translateX(-80px); }
+  100% { transform: translateX(380px); }
+}
+
+.walker-wrap {
+  width: 100%;
+  overflow: hidden;
+  height: 72px;
+  border-top: var(--border);
+  position: relative;
+  background: var(--cream);
+  margin-top: 1.5rem;
+}
+
+.walker {
+  position: absolute;
+  bottom: 8px;
+  animation: walk 7s linear infinite;
+}
+
+section { position: relative; z-index: 1; }
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.section-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: var(--rust);
+  background: var(--cream);
+  border: var(--border);
+  padding: 5px 8px;
+}
+
+h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(13px, 2vw, 18px);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* ABOUT */
+.about { border-bottom: var(--border); overflow: hidden; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  min-width: 0;
+}
+.about-grid > * { min-width: 0; max-width: 100%; }
+
+/* Circular photo */
+.about-photo-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.about-photo-frame {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+}
+
+.about-photo-frame img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border: var(--border);
+  filter: grayscale(10%);
+}
+
+/* pixel corner decorations */
+.about-photo-frame::before,
+.about-photo-frame::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--rust);
+}
+.about-photo-frame::before { top: -4px; left: -4px; }
+.about-photo-frame::after  { bottom: -4px; right: -4px; }
+
+.about-photo-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+.about-photo-title {
+  font-size: 12px;
+  color: var(--ink3);
+  text-align: center;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.about-box { border: var(--border); background: var(--paper); }
+
+.about-box-header {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding: 10px 14px;
+  border-bottom: var(--border);
+  background: var(--ink);
+  color: var(--cream);
+  letter-spacing: 0.1em;
+}
+
+.about-box-body { padding: 1.5rem; }
+.about-box p { color: var(--ink2); font-size: 14px; margin-bottom: 1.2rem; }
+.about-box p:last-child { margin-bottom: 0; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 0;
+  border: var(--border);
+  margin-top: 1.5rem;
+}
+
+.stat {
+  padding: 1.2rem 1rem;
+  border-right: var(--border-thin);
+  border-bottom: var(--border-thin);
+  text-align: center;
+}
+.stat:nth-child(2n) { border-right: none; }
+.stat:nth-last-child(-n+2) { border-bottom: none; }
+
+.stat-n {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 13px;
+  color: var(--rust);
+  display: block;
+  margin-bottom: 6px;
+}
+.stat-l { font-size: 11px; color: var(--ink3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.pixel-map-box { border: var(--border); background: var(--paper); overflow: hidden; }
+
+/* RESEARCH */
+.research { border-bottom: var(--border); background: var(--paper); }
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 0;
+  border: var(--border);
+  margin-top: 1rem;
+}
+
+.topic {
+  padding: 2rem 1.5rem;
+  border-right: var(--border-thin);
+  border-bottom: var(--border-thin);
+  transition: background 0.1s;
+}
+.topic:nth-child(2n) { border-right: none; }
+.topic:nth-last-child(-n+2) { border-bottom: none; }
+.topic:hover { background: var(--cream); }
+
+.topic-icon-px {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.topic h3 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+  line-height: 1.8;
+}
+
+.topic p { font-size: 13px; color: var(--ink2); line-height: 1.8; }
+
+.timeline {
+  display: flex;
+  border: var(--border);
+  margin-top: 3rem;
+  overflow: hidden;
+}
+
+.tl-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  text-align: center;
+  border-right: var(--border-thin);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  line-height: 1.8;
+}
+.tl-block:last-child { border-right: none; }
+.tl-proterozoic { flex: 3; background: #E8E0D0; color: var(--ink3); }
+.tl-ediacaran { flex: 2; background: #D8C8A0; color: var(--ink2); }
+.tl-focus { flex: 1.5; background: var(--rust); color: var(--paper); }
+.tl-cambrian { flex: 1.5; background: #A8C8E8; color: var(--ink2); }
+.tl-rest { flex: 2; background: #C8D8C0; color: var(--ink3); }
+
+/* PUBLICATIONS */
+.publications { border-bottom: var(--border); }
+.pub-list { border: var(--border); }
+
+.pub-item {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: var(--border-thin);
+  transition: background 0.1s;
+}
+.pub-item:last-child { border-bottom: none; }
+.pub-item:hover { background: var(--paper); }
+
+.pub-yr { font-family: 'Press Start 2P', monospace; font-size: 8px; color: var(--rust); text-align: center; }
+.pub-title { font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 4px; line-height: 1.5; }
+.pub-authors { font-style: italic; font-size: 13px; color: var(--ink3); margin-bottom: 4px; }
+.pub-journal { font-size: 12px; color: var(--sage); font-weight: 700; letter-spacing: 0.04em; }
+
+.pub-badge {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  padding: 5px 8px;
+  border: var(--border-thin);
+  color: var(--ink3);
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* BLOG */
+.blog { border-bottom: var(--border); background: var(--paper); }
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0;
+  border: var(--border);
+}
+
+.blog-card {
+  border-right: var(--border-thin);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.1s;
+}
+.blog-card:last-child { border-right: none; }
+.blog-card:hover { background: var(--cream); }
+
+.blog-card-img { border-bottom: var(--border-thin); overflow: hidden; }
+
+.blog-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+
+.blog-tag { font-family: 'Press Start 2P', monospace; font-size: 7px; color: var(--rust); margin-bottom: 0.8rem; }
+.blog-title { font-weight: 700; font-size: 14px; color: var(--ink); line-height: 1.5; margin-bottom: 0.8rem; flex: 1; }
+.blog-excerpt { font-size: 12.5px; color: var(--ink3); line-height: 1.7; margin-bottom: 1rem; }
+.blog-meta {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6.5px;
+  color: var(--stone);
+  display: flex;
+  justify-content: space-between;
+  border-top: var(--border-thin);
+  padding-top: 0.8rem;
+}
+
+/* CONTACT */
+.contact { border-bottom: var(--border); }
+
+.contact-inner { max-width: 640px; }
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border: var(--border);
+  margin-top: 2.5rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 16px 20px;
+  border-right: var(--border-thin);
+  border-bottom: var(--border-thin);
+  transition: all 0.08s;
+}
+.contact-link:hover { background: var(--ink); color: var(--cream); }
+.contact-link:last-child { border-right: none; }
+
+footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.footer-txt {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+}
+.footer-txt .dim { color: var(--stone); }
+
+@media (max-width: 860px) {
+  nav { padding: 0 1rem; flex-wrap: wrap; height: auto; min-height: 56px; }
+  .nav-hamburger { display: flex; }
+  #theme-toggle { font-size: 6px; padding: 0 10px; border-left: var(--border-thin); }
+  .nav-links { display: none; flex-direction: column; width: 100%; border-top: var(--border); background: var(--paper); order: 3; }
+  .nav-links.open { display: flex; }
+  .nav-links a { height: auto; padding: 14px 1rem; border-left: none; border-bottom: var(--border-thin); }
+  .nav-links li:last-child a { border-bottom: none; }
+
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 4rem 1.5rem 3rem; min-height: 80vh; }
+  .section-inner { padding: 3.5rem 1.2rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-photo-col { flex-direction: row; align-items: center; gap: 1.5rem; justify-content: flex-start; }
+  .stats-grid { width: 100%; }
+  .pixel-map-box { width: 100%; }
+  .topics-grid { grid-template-columns: 1fr; }
+  .topic { border-right: none; }
+  .pub-item { grid-template-columns: 48px 1fr; }
+  .pub-badge { display: none; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-card { border-right: none; border-bottom: var(--border-thin); }
+  .blog-card:last-child { border-bottom: none; }
+  .timeline { overflow-x: auto; }
+  .tl-proterozoic { display: none; }
+  footer { flex-direction: column; gap: 0.8rem; text-align: center; }
+}
+</style>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="inner">
-    <div class="site-title"><a href="index.html">Geomagnetism</a></div>
-    <div class="contract-info"><strong>Contract nr. 34/16.01.2023</strong></div>
-    <div class="project-title">Proiectul: PN 23 39 04 01 — Geomagnetismul, instrument modern în prognoza vremii spațiale și în reacția rapidă la hazardele naturale asociate pentru protecția infrastructurilor critice și securitatea traficului aerian național</div>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="2023-1.html">2023/1</a></li>
-        <li><a href="2023-2.html">2023/2</a></li>
-        <li><a href="2024-1.html">2024/1</a></li>
-        <li><a href="2024-2.html">2024/2</a></li>
-        <li><a href="2025-1.html">2025/1</a></li>
-        <li><a href="2025-2.html">2025/2</a></li>
-        <li><a href="2026-1.html">2026/1</a></li>
-        <li><a href="2026-2.html">2026/2</a></li>
-        <li><a href="index.html" class="active">Publicații</a></li>
-        <li><a href="observatory.html">Observator</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<nav>
+  <a href="#" class="nav-logo">ION <span>FRANCOVSCHI</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#research">RESEARCH</a></li>
+    <li><a href="#publications">PAPERS</a></li>
+    <li><a href="blog/index.html">BLOG</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="fieldwork.html">FIELD PICS</a></li>
+    <li><a href="oilgas.html">O&amp;G PICS</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+  <button id="theme-toggle" aria-label="Toggle dark mode">☾ DARK</button>
+  <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
 
-<!-- ── Hero Section ── -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-label">Institutul Geologic al României</div>
-      <h2 class="hero-title">Geomagnetism &amp; Vremea Spațială</h2>
-      <p class="hero-desc">Proiect național de cercetare pentru studiul câmpului geomagnetic ca instrument modern în prognoza fenomenelor de vreme spațială și protecția infrastructurilor critice.</p>
-      <a href="#publications" class="hero-btn">Explorează publicațiile →</a>
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-value">2023–2026</div>
-          <div class="hero-stat-label">Perioadă proiect</div>
-        </div>
-        <div>
-          <div class="hero-stat-value">OGNS</div>
-          <div class="hero-stat-label">Observator Surlari</div>
-        </div>
-        <div>
-          <div class="hero-stat-value">IGR</div>
-          <div class="hero-stat-label">Institutul Geologic</div>
-        </div>
+  <div class="hero-left">
+    <div>
+      <span class="hero-tag">► GEOLOGIST / EARTH SCIENTIST</span>
+      <h1>Reading<br><span class="accent">Deep Time</span><br>in Ancient<br>Rocks</h1>
+      <p class="hero-desc">
+        Researching the late Ediacaran and early Cambrian sedimentary successions of southwestern Baltica in Moldova, Ukraine, and Romania using outcrop and drill core samples.
+      </p>
+    </div>
+    <div class="hero-actions">
+      <a href="#research" class="btn btn-primary">► RESEARCH</a>
+      <a href="#blog" class="btn btn-secondary">▷ BLOG</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-strat-label">STRATIGRAPHIC COLUMN — EEP</div>
+    <div class="strat-column">
+      <!-- youngest → oldest, top to bottom -->
+      <div class="strat-row">
+        <div class="strat-age" style="background:#A07830;">D1</div>
+        <div class="strat-fill s-devonian"><span class="strat-name">Early Devonian<span class="strat-litho">~120 m limestones & marls</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#5A8A60;">S4</div>
+        <div class="strat-fill s-sil4"><span class="strat-name">Silurian 4 (Přídolí)<span class="strat-litho">~60 m carbonates</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#4E8058;">S3</div>
+        <div class="strat-fill s-sil3"><span class="strat-name">Silurian 3 (Ludlow)<span class="strat-litho">~90 m carbonates</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#427650;">S2</div>
+        <div class="strat-fill s-sil2"><span class="strat-name">Silurian 2 (Wenlock)<span class="strat-litho">~70 m carbonates & siltstones</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#366C48;">S1</div>
+        <div class="strat-fill s-sil1"><span class="strat-name">Silurian 1 (Llandovery)<span class="strat-litho">~50 m carbonates</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#2A6248;">O3</div>
+        <div class="strat-fill s-ord3"><span class="strat-name">Ordovician 3<span class="strat-litho">~30 m limestones</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#1E5840;">O2</div>
+        <div class="strat-fill s-ord2"><span class="strat-name">Ordovician 2<span class="strat-litho">~20 m limestones & sands</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#3A7890;">Є1</div>
+        <div class="strat-fill s-cambrian"><span class="strat-name">Early Cambrian<span class="strat-litho">~68 m siliciclastics</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#6A5088;">Ed</div>
+        <div class="strat-fill s-ediacaran"><span class="strat-name">Late Ediacaran<span class="strat-litho">~600 m siliciclastics</span></span></div>
+      </div>
+      <div class="strat-row">
+        <div class="strat-age" style="background:#504840; font-size:5.5px; line-height:1.5;">Ar Pr3</div>
+        <div class="strat-fill s-basement"><span class="strat-name light">Precambrian basement<span class="strat-litho">metamorphics & granites</span></span></div>
       </div>
     </div>
-    <div class="hero-image">
-      <img src="https://static.wixstatic.com/media/b22cf8_f8dbd99f75b24678a224e92e77d41828~mv2.png/v1/fill/w_454,h_255,fp_0.50_0.50,q_95,enc_avif,quality_auto/b22cf8_f8dbd99f75b24678a224e92e77d41828~mv2.webp"
-           alt="Câmpul magnetic al Pământului" />
+
+    <div class="walker-wrap">
+      <div class="walker">
+        <svg width="48" height="64" viewBox="0 0 8 11" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated; width:48px; height:64px;">
+          <rect x="2" y="0" width="4" height="1" fill="#5A3E10"/>
+          <rect x="1" y="1" width="6" height="1" fill="#7A5820"/>
+          <rect x="2" y="2" width="4" height="3" fill="#F0C880"/>
+          <rect x="3" y="3" width="1" height="1" fill="#1A1A18"/>
+          <rect x="5" y="3" width="1" height="1" fill="#1A1A18"/>
+          <rect x="1" y="5" width="6" height="3" fill="#3A5A8A"/>
+          <rect x="7" y="4" width="1" height="3" fill="#5A3E10"/>
+          <rect x="6" y="3" width="2" height="1" fill="#8A8278"/>
+          <rect x="0" y="6" width="2" height="2" fill="#8B6914"/>
+          <rect x="2" y="8" width="2" height="3" fill="#3A3A38"/>
+          <rect x="5" y="8" width="2" height="3" fill="#3A3A38"/>
+          <rect x="2" y="10" width="2" height="1" fill="#2A1A08"/>
+          <rect x="5" y="10" width="2" height="1" fill="#2A1A08"/>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── Publications Grid ── -->
-<div class="container" id="publications">
-  <div class="publications-header">
-    <h2>Publicații</h2>
-    <p>Toate articolele proiectului</p>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="section-title">
+      <span class="section-num">01</span>
+      <h2>ABOUT</h2>
+    </div>
+    <div class="about-grid">
+
+      <!-- PHOTO COLUMN -->
+      <div class="about-photo-col">
+        <div class="about-photo-frame">
+          <img src="img/francovschi.jpg" alt="Ion Francovschi — Geologist">
+        </div>
+        <div class="about-photo-name">ION<br>FRANCOVSCHI</div>
+        <div class="about-photo-title">PhD Geologist<br>Earth Scientist</div>
+      </div>
+
+      <!-- BIO COLUMN -->
+      <div>
+        <div class="about-box">
+          <div class="about-box-header">BIO.TXT</div>
+          <div class="about-box-body">
+            <p>I am a (petroleum) geologist and earth scientist with a PhD, specializing in Precambrian and early Paleozoic geology of the East European Platform.</p>
+            <p>My research focuses on the late Ediacaran and early Cambrian sedimentary successions of southwestern Baltica — decoding the ancient passive margin through sedimentology, stratigraphy, and geochemistry.</p>
+            <p>Published in <em>Precambrian Research</em> and other Elsevier journals. Fieldwork across the Volyn–Podolia region and related outcrops of the EEP.</p>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat"><span class="stat-n">538.8</span><span class="stat-l">Ma boundary</span></div>
+          <div class="stat"><span class="stat-n">PhD</span><span class="stat-l">Earth Sciences</span></div>
+          <div class="stat"><span class="stat-n">EEP</span><span class="stat-l">Study region</span></div>
+          <div class="stat"><span class="stat-n">Ed/Cm</span><span class="stat-l">Interval focus</span></div>
+        </div>
+      </div>
+
+      <div class="pixel-map-box">
+        <div style="font-family:'Press Start 2P',monospace;font-size:7px;padding:10px 14px;border-bottom:var(--border);background:var(--ink);color:var(--cream);letter-spacing:0.1em;">MAP.SVG — ~545 MA · MERDITH ET AL. (2021)</div>
+        <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;image-rendering:pixelated;">
+
+          <!-- Ocean -->
+          <rect width="320" height="280" fill="#A8C8D8"/>
+
+          <!-- Latitude lines -->
+          <line x1="0" y1="108" x2="320" y2="108" stroke="#F5F0E8" stroke-width="0.8" stroke-dasharray="5,3" opacity="0.55"/>
+          <line x1="0" y1="152" x2="320" y2="152" stroke="#F5F0E8" stroke-width="0.5" stroke-dasharray="4,3" opacity="0.3"/>
+          <line x1="0" y1="196" x2="320" y2="196" stroke="#F5F0E8" stroke-width="0.5" stroke-dasharray="4,3" opacity="0.2"/>
+
+          <!-- ═══ SIBERIA (upper-left, ~10–20°S paleolatitude) ═══ -->
+          <rect x="72"  y="64"  width="24" height="8"  fill="#D0C8A8"/>
+          <rect x="64"  y="72"  width="40" height="8"  fill="#D0C8A8"/>
+          <rect x="60"  y="80"  width="48" height="8"  fill="#D0C8A8"/>
+          <rect x="60"  y="88"  width="48" height="8"  fill="#D0C8A8"/>
+          <rect x="64"  y="96"  width="40" height="8"  fill="#D0C8A8"/>
+          <rect x="68"  y="104" width="24" height="8"  fill="#D0C8A8"/>
+          <rect x="68"  y="80"  width="28" height="20" fill="#C4BC9C" opacity="0.45"/>
+
+          <!-- ═══ LAURENTIA (left, equatorial–30°S) ═══ -->
+          <rect x="20"  y="96"  width="40" height="8"  fill="#C8D8B0"/>
+          <rect x="12"  y="104" width="56" height="8"  fill="#C8D8B0"/>
+          <rect x="8"   y="112" width="64" height="8"  fill="#C8D8B0"/>
+          <rect x="8"   y="120" width="64" height="8"  fill="#C8D8B0"/>
+          <rect x="12"  y="128" width="56" height="8"  fill="#C8D8B0"/>
+          <rect x="16"  y="136" width="48" height="8"  fill="#C8D8B0"/>
+          <rect x="20"  y="144" width="40" height="8"  fill="#C8D8B0"/>
+          <rect x="24"  y="152" width="24" height="8"  fill="#C8D8B0"/>
+          <rect x="16"  y="112" width="40" height="32" fill="#B8C8A0" opacity="0.4"/>
+
+          <!-- ═══ BALTICA (center, ~15–35°S) ═══ -->
+          <rect x="172" y="116" width="32" height="8"  fill="#D8C8A0"/>
+          <rect x="164" y="124" width="48" height="8"  fill="#D8C8A0"/>
+          <rect x="160" y="132" width="56" height="8"  fill="#D8C8A0"/>
+          <rect x="160" y="140" width="56" height="8"  fill="#D8C8A0"/>
+          <rect x="164" y="148" width="48" height="8"  fill="#D8C8A0"/>
+          <rect x="168" y="156" width="32" height="8"  fill="#D8C8A0"/>
+          <rect x="172" y="164" width="16" height="8"  fill="#D8C8A0"/>
+          <rect x="168" y="132" width="36" height="24" fill="#C8B888" opacity="0.4"/>
+
+          <!-- SW BALTICA / Moldova-Podolia study area (SE corner of Baltica) -->
+          <rect x="204" y="148" width="8"  height="8"  fill="#B85C30" opacity="0.9"/>
+          <rect x="200" y="156" width="8"  height="8"  fill="#B85C30" opacity="0.65"/>
+
+          <!-- ═══ GONDWANA (large southern mass) ═══ -->
+          <!-- Irregular, fragmented top edge -->
+          <rect x="56"  y="196" width="32" height="8"  fill="#E0D0A8"/>
+          <rect x="112" y="196" width="40" height="8"  fill="#E0D0A8"/>
+          <rect x="176" y="196" width="32" height="8"  fill="#E0D0A8"/>
+          <rect x="232" y="196" width="32" height="8"  fill="#E0D0A8"/>
+          <rect x="48"  y="204" width="48" height="8"  fill="#E0D0A8"/>
+          <rect x="104" y="204" width="56" height="8"  fill="#E0D0A8"/>
+          <rect x="168" y="204" width="56" height="8"  fill="#E0D0A8"/>
+          <rect x="228" y="204" width="40" height="8"  fill="#E0D0A8"/>
+          <rect x="40"  y="212" width="240" height="8" fill="#E0D0A8"/>
+          <rect x="32"  y="220" width="256" height="8" fill="#E0D0A8"/>
+          <rect x="32"  y="228" width="256" height="8" fill="#E0D0A8"/>
+          <rect x="40"  y="236" width="240" height="8" fill="#E0D0A8"/>
+          <rect x="48"  y="244" width="224" height="8" fill="#E0D0A8"/>
+          <rect x="56"  y="252" width="208" height="8" fill="#E0D0A8"/>
+          <rect x="64"  y="260" width="192" height="20" fill="#E0D0A8"/>
+          <rect x="80"  y="220" width="160" height="28" fill="#D4C498" opacity="0.35"/>
+
+          <!-- ═══ OCEAN LABELS ═══ -->
+          <text x="248" y="52"  font-family="monospace" font-size="7" fill="rgba(245,240,232,0.5)" text-anchor="middle" letter-spacing="1">PANTHALASSA</text>
+          <text x="96"  y="178" font-family="monospace" font-size="7" fill="rgba(245,240,232,0.55)" text-anchor="middle" transform="rotate(-6,96,178)">IAPETUS OCEAN</text>
+          <text x="220" y="186" font-family="monospace" font-size="6" fill="rgba(245,240,232,0.4)" text-anchor="middle" transform="rotate(-4,220,186)">TORNQUIST SEA</text>
+
+          <!-- ═══ CONTINENT LABELS ═══ -->
+          <text x="84"  y="88"  font-family="monospace" font-size="7"  fill="#5A4520" text-anchor="middle" font-weight="bold">SIBERIA</text>
+          <text x="26"  y="124" font-family="monospace" font-size="6"  fill="#3A5A3A" text-anchor="middle" font-weight="bold">LAUR-</text>
+          <text x="26"  y="133" font-family="monospace" font-size="6"  fill="#3A5A3A" text-anchor="middle" font-weight="bold">ENTIA</text>
+          <text x="188" y="143" font-family="monospace" font-size="8"  fill="#5A4520" text-anchor="middle" font-weight="bold">BALTICA</text>
+          <text x="160" y="244" font-family="monospace" font-size="9"  fill="#5A4520" text-anchor="middle" font-weight="bold">GONDWANA</text>
+          <text x="75"  y="232" font-family="monospace" font-size="6"  fill="#8A7848" text-anchor="middle">Amazonia</text>
+          <text x="215" y="232" font-family="monospace" font-size="6"  fill="#8A7848" text-anchor="middle">W. Africa</text>
+
+          <!-- SW BALTICA arrow + label -->
+          <text x="236" y="148" font-family="monospace" font-size="7" fill="#B85C30">SW BALTICA</text>
+          <text x="236" y="158" font-family="monospace" font-size="6" fill="#B85C30">(MP / study area)</text>
+          <line x1="232" y1="152" x2="216" y2="152" stroke="#B85C30" stroke-width="1"/>
+          <polygon points="216,152 222,148 222,156" fill="#B85C30"/>
+
+          <!-- ═══ LAT LABELS ═══ -->
+          <text x="4" y="105" font-family="monospace" font-size="6" fill="rgba(245,240,232,0.7)">EQ</text>
+          <text x="4" y="149" font-family="monospace" font-size="5" fill="rgba(245,240,232,0.45)">30°S</text>
+          <text x="4" y="193" font-family="monospace" font-size="5" fill="rgba(245,240,232,0.3)">60°S</text>
+
+          <!-- ═══ N ARROW (pixel) ═══ -->
+          <rect x="291" y="20" width="6" height="6"  fill="#F5F0E8"/>
+          <rect x="285" y="26" width="18" height="6" fill="#F5F0E8"/>
+          <rect x="291" y="32" width="6" height="12" fill="#F5F0E8"/>
+          <text x="294" y="54" font-family="monospace" font-size="9" fill="#F5F0E8" text-anchor="middle" font-weight="bold">N</text>
+
+          <!-- ═══ LEGEND ═══ -->
+          <rect x="4" y="4" width="96" height="36" fill="rgba(253,250,245,0.9)" stroke="#1A1A18" stroke-width="1"/>
+          <rect x="8" y="10" width="10" height="10" fill="#D8C8A0" stroke="#1A1A18" stroke-width="0.5"/>
+          <text x="22" y="19" font-family="monospace" font-size="7" fill="#1A1A18">continent</text>
+          <rect x="8" y="24" width="10" height="10" fill="#B85C30" stroke="#1A1A18" stroke-width="0.5"/>
+          <text x="22" y="33" font-family="monospace" font-size="7" fill="#1A1A18">study area</text>
+
+          <!-- credit -->
+          <text x="316" y="276" font-family="monospace" font-size="5" fill="rgba(245,240,232,0.35)" text-anchor="end">Merdith et al. 2021</text>
+
+        </svg>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="blog-grid">
-
-    <div class="post-card">
-      <div class="post-card-image">
-        <a href="posts/role-of-geomagnetism.html">
-          <img src="https://static.wixstatic.com/media/b22cf8_f8dbd99f75b24678a224e92e77d41828~mv2.png/v1/fill/w_454,h_255,fp_0.50_0.50,q_95,enc_avif,quality_auto/b22cf8_f8dbd99f75b24678a224e92e77d41828~mv2.webp"
-               alt="The Role of Geomagnetism in Earth's Climate Changes" />
-        </a>
+<!-- RESEARCH -->
+<section class="research" id="research">
+  <div class="section-inner">
+    <div class="section-title">
+      <span class="section-num">02</span>
+      <h2>RESEARCH</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-block tl-proterozoic">PROTEROZOIC<br>2500–538.8 Ma</div>
+      <div class="tl-block tl-ediacaran">EDIACARAN<br>635–538.8 Ma</div>
+      <div class="tl-block tl-focus">★ Ed/Cm<br>~538.8 Ma<br>FOCUS</div>
+      <div class="tl-block tl-cambrian">CAMBRIAN<br>538.8–485 Ma</div>
+      <div class="tl-block tl-rest">PHANEROZOIC<br>485–0 Ma</div>
+    </div>
+    <div class="topics-grid">
+      <div class="topic">
+        <div class="topic-icon-px" style="clip-path:polygon(0 100%,50% 0,100% 100%);"></div>
+        <h3>LITHOSTRATIGRAPHY &amp; SEDIMENTOLOGY</h3>
+        <p>Detailed logging and facies analysis of the Vendian–Cambrian succession, reconstructing depositional environments along the EEP passive margin.</p>
       </div>
-      <div class="post-card-body">
-        <h3><a href="posts/role-of-geomagnetism.html">The Role of Geomagnetism in Earth's Climate Changes</a></h3>
-        <p>Earth's climate is shaped by many factors, from solar radiation to atmospheric composition. One lesser-known but significant influence is geomagnetism, the magnetic field generated by Earth's core.</p>
-        <div class="post-meta">asimopolos &nbsp;·&nbsp; 10 Nov 2025 &nbsp;·&nbsp; 4 min read</div>
+      <div class="topic">
+        <div class="topic-icon-px" style="clip-path:polygon(0 0,100% 50%,0 100%);"></div>
+        <h3>CHEMOSTRATIGRAPHY</h3>
+        <p>Carbon and strontium isotope stratigraphy across the Ediacaran–Cambrian boundary, correlating excursions with global events and extinction horizons.</p>
+      </div>
+      <div class="topic">
+        <div class="topic-icon-px" style="border-radius:50%;width:24px;height:24px;"></div>
+        <h3>PALEOENVIRONMENTAL RECONSTRUCTION</h3>
+        <p>Integrating trace fossils, body fossils, and geochemical proxies to reconstruct paleo-oceanographic conditions during the Cambrian Explosion.</p>
+      </div>
+      <div class="topic">
+        <div class="topic-icon-px" style="transform:rotate(45deg);"></div>
+        <h3>BIOSTRATIGRAPHY &amp; CORRELATION</h3>
+        <p>Calibrating the Vendian–Cambrian succession of the EEP against global Ediacaran fossil assemblages to constrain boundary ages.</p>
       </div>
     </div>
-
-    <div class="post-card">
-      <div class="post-card-image">
-        <a href="posts/geomagnetic-anomalies.html">
-          <img src="https://static.wixstatic.com/media/b22cf8_75d854a202f9448f9cd40e9989b76629~mv2.png/v1/fill/w_454,h_255,fp_0.50_0.50,q_95,enc_avif,quality_auto/b22cf8_75d854a202f9448f9cd40e9989b76629~mv2.webp"
-               alt="Exploring Geomagnetic Anomalies and Their Effects" />
-        </a>
-      </div>
-      <div class="post-card-body">
-        <h3><a href="posts/geomagnetic-anomalies.html">Exploring Geomagnetic Anomalies and Their Effects</a></h3>
-        <p>Geomagnetic anomalies are fascinating disruptions in Earth's magnetic field that can have significant impacts on technology, navigation, and even natural phenomena.</p>
-        <div class="post-meta">asimopolos &nbsp;·&nbsp; 10 Nov 2025 &nbsp;·&nbsp; 4 min read</div>
-      </div>
-    </div>
-
-    <div class="post-card">
-      <div class="post-card-image">
-        <a href="posts/understanding-geomagnetism.html">
-          <img src="https://static.wixstatic.com/media/b22cf8_7964a553b21840008e7d7565fc0486a0~mv2.png/v1/fill/w_454,h_255,fp_0.50_0.50,q_95,enc_avif,quality_auto/b22cf8_7964a553b21840008e7d7565fc0486a0~mv2.webp"
-               alt="Understanding Geomagnetism: Basics and Significance" />
-        </a>
-      </div>
-      <div class="post-card-body">
-        <h3><a href="posts/understanding-geomagnetism.html">Understanding Geomagnetism: Basics and Significance</a></h3>
-        <p>Geomagnetism shapes many aspects of life on Earth, yet it often goes unnoticed. From guiding migratory animals to protecting our planet from solar radiation, Earth's magnetic field plays a crucial role.</p>
-        <div class="post-meta">asimopolos &nbsp;·&nbsp; 10 Nov 2025 &nbsp;·&nbsp; 3 min read</div>
-      </div>
-    </div>
-
   </div>
-</div>
+</section>
+
+
+<!-- PUBLICATIONS -->
+<section class="publications" id="publications">
+  <div class="section-inner">
+    <div class="section-title" style="justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div style="display:flex;align-items:baseline;gap:1.5rem;">
+        <span class="section-num">03</span>
+        <h2>PUBLICATIONS</h2>
+      </div>
+      <a href="https://scholar.google.com/citations?user=jPq_h78AAAAJ&hl=en" target="_blank" class="btn btn-secondary" style="font-size:7px;padding:10px 16px;">↗ GOOGLE SCHOLAR</a>
+    </div>
+    
+    <!-- You were missing this wrapper div! -->
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-yr">2026</div>
+        <div>
+          <div class="pub-title">The late Ediacaran Dzhurzhivka Beds phosphorite conglomerates record an early stage of the phosphogenesis event in SW Baltica</div>
+          <div class="pub-authors"><strong>Francovschi, I.</strong>, Goto, K.T., Budzyn, B., Nagao, R., Shumlyanskyy, L., Roban, R.D., Hirata, T., Bekker, A.</div>
+          <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/pii/S0301926826000641" target="_blank" style="color: inherit; text-decoration: underline;">Precambrian Research 438, 108076</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-yr">2026</div>
+        <div>
+          <div class="pub-title">Spatial analysis of <em>Beltanelliformis (Nemiana)</em> in Baltica</div>
+          <div class="pub-authors">Mitchell, E.G., <strong>Francovschi, I.</strong>, Agic, H., Bekker, A.</div>
+          <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/pii/S0301926826000203" target="_blank" style="color: inherit; text-decoration: underline;">Precambrian Research 436, 108032</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-yr">2024</div>
+        <div>
+          <div class="pub-title">U–Pb geochronology and Hf isotope systematics of detrital zircon from the basal part of the late Ediacaran sedimentary succession of the Moldova-Podillya basin (SW Baltica): implications for glacial vs. alluvial origin</div>
+          <div class="pub-authors"><strong>Francovschi, I.</strong>, Shumlyanskyy, L., Grytsenko, V., Hoffmann, A., Wilde, S.A., Bekker, A.</div>
+          <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/pii/S0301926824002857" target="_blank" style="color: inherit; text-decoration: underline;">Precambrian Research 413, 107572</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-yr">2023</div>
+        <div>
+          <div class="pub-title">U–Pb geochronology of detrital zircon from the Ediacaran and Cambrian sedimentary successions of NE Estonia and Volyn region of Ukraine: implications for the provenance and comparison with other areas within Baltica</div>
+          <div class="pub-authors"><strong>Francovschi, I.</strong>, Shumlyanskyy, L., Soesoo, A., Tarasko, I., Melnychuk, V., Hoffmann, A., Kovalick, A., Love, G., Bekker, A.</div>
+          <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0301926823001274" target="_blank" style="color: inherit; text-decoration: underline;">Precambrian Research 392, 107087</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-yr">2023</div>
+        <div>
+          <div class="pub-title">Detrital Zircon Geochronology of the Volyn-Orsha Sedimentary Basin in Western Ukraine: Implications for the Meso-Neoproterozoic History of Baltica and Possible Link to Amazonia and the Grenvillian-Sveconorwegian-Sunsas Orogenic Belts</div>
+          <div class="pub-authors">Shumlyanskyy, L., Bekker, A., Tarasko, I., <strong>Francovschi, I.</strong>, Wilde, S.A., Melnychuk, V.</div>
+          <div class="pub-journal"><a href="https://www.mdpi.com/2076-3263/13/5/152" target="_blank" style="color: inherit; text-decoration: underline;">Geosciences MDPI 13, 152</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-yr">2022</div>
+        <div>
+          <div class="pub-title">Symbiosis in corals and stromatoporoids from the Silurian of Baltica</div>
+          <div class="pub-authors">Borisenko, T., Vinn, O., Grytsenko, V., <strong>Francovschi, I.</strong>, Zaika, Y.</div>
+          <div class="pub-journal"><a href="https://palaeo-electronica.org/content/2022/3618-symbiosis-in-the-silurian" target="_blank" style="color: inherit; text-decoration: underline;">Palaeontologia Electronica 25(2):a17</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-yr">2021</div>
+        <div>
+          <div class="pub-title">U–Pb geochronology and Hf isotope systematics of detrital zircon from the late Ediacaran Kalyus Beds (East European Platform): palaeogeographic evolution of southwestern Baltica and constraints on the Ediacaran biota</div>
+          <div class="pub-authors"><strong>Francovschi, I.</strong>, Grădinaru, E., Li, H., Shumlyanskyy, L., Ciobotaru, V.</div>
+          <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0301926820306513" target="_blank" style="color: inherit; text-decoration: underline;">Precambrian Research 355, 106062</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-yr">2020</div>
+        <div>
+          <div class="pub-title">Rare earth element (REE) enrichment of the late Ediacaran Kalyus Beds (East European Platform) through diagenetic uptake</div>
+          <div class="pub-authors"><strong>Francovschi, I.</strong>, Grădinaru, E., Roban, R.D., Ducea, M.N., Ciobotaru, V., Shumlyanskyy, L.</div>
+          <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0009281920300131" target="_blank" style="color: inherit; text-decoration: underline;">Geochemistry 80, 125612</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-yr">2020</div>
+        <div>
+          <div class="pub-title">Lower Cretaceous provenance and sedimentary deposition in the Eastern Carpathians: Inferences for the evolution of the subducted oceanic domain and its European passive continental margin</div>
+          <div class="pub-authors">Roban, R.D., Ducea, M.N., Mațenco, L., Panaiotu, G.C., Profeta, L., Krezsek, C., Melinte-Dobrinescu, M.C., Anastasiu, N., Dimofte, D., Apostrosoaei, V., <strong>Francovschi, I.</strong></div>
+          <div class="pub-journal"><a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2019TC005780" target="_blank" style="color: inherit; text-decoration: underline;">Tectonics 39/7, 1–28</a></div>
+        </div>
+      </div>
+   
+    </div> <!-- This closes the pub-list -->
+  </div> <!-- This closes the section-inner -->
+</section>
+
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="section-inner">
+    <div class="section-title" style="justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <div style="display:flex;align-items:baseline;gap:1.5rem;">
+        <span class="section-num">04</span>
+        <h2>BLOG</h2>
+      </div>
+      <a href="#" class="btn btn-secondary" style="font-size:7px;padding:10px 16px;">ALL ARTICLES →</a>
+    </div>
+    <div class="blog-grid">
+      <a href="blog/vendian-sea-baltica.html" class="blog-card">
+        <div class="blog-card-img">
+          <svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;image-rendering:pixelated;">
+            <rect width="320" height="140" fill="#C8DDE8"/>
+            <rect x="0" y="72" width="320" height="8" fill="#D8C8A0"/>
+            <rect x="0" y="80" width="320" height="8" fill="#C8B888"/>
+            <rect x="0" y="88" width="320" height="8" fill="#B8A878"/>
+            <rect x="0" y="96" width="320" height="8" fill="#A89868"/>
+            <rect x="0" y="104" width="320" height="36" fill="#887848"/>
+            <rect x="0" y="68" width="40" height="4" fill="#D8C8A0"/>
+            <rect x="40" y="64" width="40" height="4" fill="#D8C8A0"/>
+            <rect x="80" y="68" width="40" height="4" fill="#D8C8A0"/>
+            <rect x="120" y="64" width="40" height="4" fill="#D8C8A0"/>
+            <rect x="160" y="68" width="40" height="4" fill="#D8C8A0"/>
+            <rect x="200" y="64" width="40" height="4" fill="#D8C8A0"/>
+            <rect x="240" y="68" width="40" height="4" fill="#D8C8A0"/>
+            <rect x="280" y="64" width="40" height="4" fill="#D8C8A0"/>
+            <rect x="120" y="82" width="4" height="4" fill="#8A7848" opacity="0.7"/>
+            <rect x="124" y="78" width="8" height="4" fill="#8A7848" opacity="0.7"/>
+            <rect x="132" y="82" width="4" height="4" fill="#8A7848" opacity="0.7"/>
+            <rect x="124" y="86" width="8" height="4" fill="#8A7848" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-tag">STRATIGRAPHY</div>
+          <div class="blog-title">What the Vendian Sea Tells Us About the Edge of Ancient Baltica</div>
+          <div class="blog-excerpt">The sedimentary rocks of Podolia record a remarkable story — a passive margin slowly drowning under a warm Ediacaran sea.</div>
+          <div class="blog-meta"><span>JAN 2025</span><span>8 MIN</span></div>
+        </div>
+      </a>
+
+      <a href="blog/carbon-isotope-excursion-ediacaran-cambrian.html" class="blog-card">
+        <div class="blog-card-img">
+          <svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;image-rendering:pixelated;">
+            <rect width="320" height="140" fill="#F0ECD8"/>
+            <rect x="30" y="10" width="1" height="120" fill="#C0B898"/>
+            <rect x="30" y="129" width="280" height="1" fill="#C0B898"/>
+            <rect x="30" y="70" width="280" height="2" fill="#8A8278" opacity="0.5"/>
+            <rect x="40" y="50" width="8" height="20" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="56" y="45" width="8" height="25" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="72" y="40" width="8" height="30" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="88" y="36" width="8" height="34" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="104" y="33" width="8" height="37" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="120" y="72" width="8" height="32" fill="#B85C30" opacity="0.8"/>
+            <rect x="136" y="72" width="8" height="46" fill="#B85C30" opacity="0.8"/>
+            <rect x="152" y="72" width="8" height="50" fill="#B85C30" opacity="0.8"/>
+            <rect x="168" y="72" width="8" height="40" fill="#B85C30" opacity="0.8"/>
+            <rect x="184" y="72" width="8" height="24" fill="#B85C30" opacity="0.8"/>
+            <rect x="200" y="50" width="8" height="20" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="216" y="48" width="8" height="22" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="232" y="52" width="8" height="18" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="248" y="50" width="8" height="20" fill="#5A7A5A" opacity="0.8"/>
+            <rect x="162" y="10" width="2" height="118" fill="#B85C30" opacity="0.4"/>
+            <text x="167" y="22" font-family="monospace" font-size="7" fill="#B85C30">Ed/Cm</text>
+            <text x="80" y="140" font-family="monospace" font-size="7" fill="#8A8278">δ¹³C ‰ vs. stratigraphic height</text>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-tag">GEOCHEMISTRY</div>
+          <div class="blog-title">The Carbon Isotope Excursion at the Ediacaran–Cambrian Boundary Explained</div>
+          <div class="blog-excerpt">A dramatic negative δ¹³C excursion marks one of the most debated events in Earth history, recorded across every continent.</div>
+          <div class="blog-meta"><span>MAR 2025</span><span>12 MIN</span></div>
+        </div>
+      </a>
+
+      <a href="blog/baltica-538.8-million-years-ago.html" class="blog-card">
+        <div class="blog-card-img">
+          <svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;image-rendering:pixelated;">
+            <rect width="320" height="140" fill="#A8C8D8"/>
+            <rect x="140" y="20" width="8" height="8" fill="#D8C8A0"/>
+            <rect x="132" y="28" width="24" height="8" fill="#D8C8A0"/>
+            <rect x="128" y="36" width="32" height="8" fill="#D8C8A0"/>
+            <rect x="128" y="44" width="32" height="8" fill="#D8C8A0"/>
+            <rect x="132" y="52" width="24" height="8" fill="#D8C8A0"/>
+            <rect x="128" y="56" width="8" height="8" fill="#B85C30"/>
+            <rect x="220" y="24" width="32" height="8" fill="#B8C8A8"/>
+            <rect x="216" y="32" width="40" height="8" fill="#B8C8A8"/>
+            <rect x="220" y="40" width="32" height="8" fill="#B8C8A8"/>
+            <rect x="40" y="100" width="240" height="8" fill="#C8D8A0"/>
+            <rect x="16" y="108" width="288" height="32" fill="#C8D8A0"/>
+            <text x="152" y="50" font-family="monospace" font-size="8" fill="#5A4520" font-weight="bold">BALTICA</text>
+            <text x="120" y="78" font-family="monospace" font-size="7" fill="#B85C30">● SW Baltica</text>
+            <text x="160" y="128" font-family="monospace" font-size="8" fill="#5A4520" text-anchor="middle" font-weight="bold">GONDWANA</text>
+            <text x="75" y="85" font-family="monospace" font-size="7" fill="#3A6A8A">IAPETUS</text>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-tag">PALEOGEOGRAPHY</div>
+          <div class="blog-title">Where Was Baltica 538.8 Million Years Ago?</div>
+          <div class="blog-excerpt">Reconstructing ancient plate positions is detective work on a planetary scale. What we know about Baltica at the dawn of animal life.</div>
+          <div class="blog-meta"><span>MAY 2025</span><span>10 MIN</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="section-title">
+      <span class="section-num">05</span>
+      <h2>CONTACT</h2>
+    </div>
+    <div class="contact-inner">
+      <p style="font-size:15px;color:var(--ink2);max-width:500px;">Open to correspondence from fellow researchers, students, and anyone curious about the Precambrian world.</p>
+      <div class="contact-links">
+        <a href="/cdn-cgi/l/email-protection#a1d8ced4d3e1c4ccc0c8cd8fc2cecc" class="contact-link">📧 EMAIL</a>
+        <a href="https://orcid.org/0000-0002-5766-8023" target="_blank" class="contact-link">🔬 ORCID</a>
+        <a href="https://scholar.google.com" target="_blank" class="contact-link">👨🏻‍🔬 SCHOLAR</a>
+        <a href="https://researchgate.net" target="_blank" class="contact-link">🕵🏻‍♂️ RESEARCHGATE</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
-  <div class="footer-inner">
-    <p>Contact: <strong>Institutul Geologic al României</strong></p>
-    <p>Telefon: —</p>
-    <div class="social-links">
-      <a href="http://www.facebook.com/" target="_blank" rel="noopener">
-        <img src="https://static.wixstatic.com/media/4057345bcf57474b96976284050c00df.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4057345bcf57474b96976284050c00df.png" alt="Facebook" />
-      </a>
-      <a href="http://www.twitter.com/" target="_blank" rel="noopener">
-        <img src="https://static.wixstatic.com/media/870f97661ed14a5bb2d96ecbddec0aed.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/870f97661ed14a5bb2d96ecbddec0aed.png" alt="Twitter" />
-      </a>
-      <a href="http://instagram.com/" target="_blank" rel="noopener">
-        <img src="https://static.wixstatic.com/media/e1aa082f7c0747168d9cf43e77046142.png/v1/fill/w_30,h_30,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e1aa082f7c0747168d9cf43e77046142.png" alt="Instagram" />
-      </a>
-    </div>
-    <div class="copyright">© 2025 Geomagnetism — Institutul Geologic al României</div>
+  <div class="footer-txt">
+    © 2025 ION FRANCOVSCHI — PHD EARTH SCIENCES<br>
+    <span class="dim">EDIACARAN · CAMBRIAN · BALTICA</span>
+  </div>
+  <div class="footer-txt" style="text-align:right;">
+    <span class="dim">STATIC HTML · VERCEL</span>
   </div>
 </footer>
 
-<script src="scripts.js"></script>
+<!-- This links your dark theme JavaScript file -->
+<script src="js/theme.js"></script>
+
 </body>
 </html>

@@ -508,8 +508,10 @@ h2 {
 }
 
 .topic h3 {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 9px;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
   color: var(--ink);
   margin-bottom: 0.8rem;
   line-height: 1.8;
@@ -574,6 +576,16 @@ h2 {
   align-self: flex-start;
 }
 
+.pub-authors strong { color: var(--ink); font-style: normal; }
+.pub-links { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.pub-links a, .pub-cite {
+  font-family: 'Press Start 2P', monospace; font-size: 7px; letter-spacing: 0.05em;
+  padding: 6px 9px; border: var(--border-thin); background: transparent; color: var(--ink2);
+  text-decoration: none; cursor: pointer; line-height: 1.4;
+}
+.pub-links a:hover, .pub-cite:hover { background: var(--ink); color: var(--cream); }
+.pub-cite.copied { background: var(--sage); color: var(--paper); }
+
 /* BLOG */
 .blog { border-bottom: var(--border); background: var(--paper); }
 
@@ -604,7 +616,7 @@ h2 {
 .blog-excerpt { font-size: 12.5px; color: var(--ink3); line-height: 1.7; margin-bottom: 1rem; }
 .blog-meta {
   font-family: 'Press Start 2P', monospace;
-  font-size: 6.5px;
+  font-size: 7.5px;
   color: var(--stone);
   display: flex;
   justify-content: space-between;
@@ -670,8 +682,11 @@ footer {
   .nav-links li:last-child a { border-bottom: none; }
 
   .hero { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-  .hero-left { padding: 4rem 1.5rem 3rem; min-height: 80vh; }
+  .hero-right { padding: 2rem 1.2rem 2.5rem; border-top: var(--border); justify-content: flex-start; }
+  .strat-column { max-width: 100%; }
+  .strat-row { height: 32px; }
+  .strat-litho { display: none; }
+  .hero-left { padding: 4rem 1.5rem 3rem; min-height: auto; }
   .section-inner { padding: 3.5rem 1.2rem; }
   .about-grid { grid-template-columns: 1fr; }
   .about-photo-col { flex-direction: row; align-items: center; gap: 1.5rem; justify-content: flex-start; }
@@ -1000,6 +1015,19 @@ footer {
           <div class="pub-title">The late Ediacaran Dzhurzhivka Beds phosphorite conglomerates record an early stage of the phosphogenesis event in SW Baltica</div>
           <div class="pub-authors"><strong>Francovschi, I.</strong>, Goto, K.T., Budzyn, B., Nagao, R., Shumlyanskyy, L., Roban, R.D., Hirata, T., Bekker, A.</div>
           <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/pii/S0301926826000641" target="_blank" style="color: inherit; text-decoration: underline;">Precambrian Research 438, 108076</a></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.precamres.2026.108076" target="_blank" rel="noopener">DOI ↗</a><button type="button" class="pub-cite" data-bib="@article{Francovschi_2026,
+  title={The late Ediacaran Dzhurzhivka Beds phosphorite conglomerates record an early stage of phosphogenesis in SW Baltica},
+  volume={438},
+  ISSN={0301-9268},
+  url={http://dx.doi.org/10.1016/j.precamres.2026.108076},
+  DOI={10.1016/j.precamres.2026.108076},
+  journal={Precambrian Research},
+  publisher={Elsevier BV},
+  author={Francovschi, Ion and Goto, Kosuke T. and Budzyń, Bartosz and Nagao, Ryosuke and Shumlyanskyy, Leonid and Roban, Relu D. and Hirata, Takafumi and Bekker, Andrey},
+  year={2026},
+  month=June,
+  pages={108076}
+}">CITE · BibTeX</button></div>
         </div>
       </div>
 
@@ -1009,6 +1037,19 @@ footer {
           <div class="pub-title">Spatial analysis of <em>Beltanelliformis (Nemiana)</em> in Baltica</div>
           <div class="pub-authors">Mitchell, E.G., <strong>Francovschi, I.</strong>, Agic, H., Bekker, A.</div>
           <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/pii/S0301926826000203" target="_blank" style="color: inherit; text-decoration: underline;">Precambrian Research 436, 108032</a></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.precamres.2026.108032" target="_blank" rel="noopener">DOI ↗</a><button type="button" class="pub-cite" data-bib="@article{Mitchell_2026,
+  title={Spatial analysis of Beltanelliformis (Nemiana) in Baltica},
+  volume={436},
+  ISSN={0301-9268},
+  url={http://dx.doi.org/10.1016/j.precamres.2026.108032},
+  DOI={10.1016/j.precamres.2026.108032},
+  journal={Precambrian Research},
+  publisher={Elsevier BV},
+  author={Mitchell, Emily G. and Francovschi, Ion and Agić, Heda and Bekker, Andrey},
+  year={2026},
+  month=May,
+  pages={108032}
+}">CITE · BibTeX</button></div>
         </div>
       </div>
 
@@ -1018,6 +1059,19 @@ footer {
           <div class="pub-title">U–Pb geochronology and Hf isotope systematics of detrital zircon from the basal part of the late Ediacaran sedimentary succession of the Moldova-Podillya basin (SW Baltica): implications for glacial vs. alluvial origin</div>
           <div class="pub-authors"><strong>Francovschi, I.</strong>, Shumlyanskyy, L., Grytsenko, V., Hoffmann, A., Wilde, S.A., Bekker, A.</div>
           <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/pii/S0301926824002857" target="_blank" style="color: inherit; text-decoration: underline;">Precambrian Research 413, 107572</a></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.precamres.2024.107572" target="_blank" rel="noopener">DOI ↗</a><button type="button" class="pub-cite" data-bib="@article{Francovschi_2024,
+  title={U–Pb geochronology and Hf isotope systematics of detrital zircon from the basal part of the late Ediacaran sedimentary succession of the Moldova-Podillya basin (SW Baltica): Implications for glacial vs. alluvial origin},
+  volume={413},
+  ISSN={0301-9268},
+  url={http://dx.doi.org/10.1016/j.precamres.2024.107572},
+  DOI={10.1016/j.precamres.2024.107572},
+  journal={Precambrian Research},
+  publisher={Elsevier BV},
+  author={Francovschi, Ion and Shumlyanskyy, Leonid and Grytsenko, Volodymyr and Hoffmann, Adam and Wilde, Simon A. and Bekker, Andrey},
+  year={2024},
+  month=Oct,
+  pages={107572}
+}">CITE · BibTeX</button></div>
         </div>
       </div>
 
@@ -1027,6 +1081,19 @@ footer {
           <div class="pub-title">U–Pb geochronology of detrital zircon from the Ediacaran and Cambrian sedimentary successions of NE Estonia and Volyn region of Ukraine: implications for the provenance and comparison with other areas within Baltica</div>
           <div class="pub-authors"><strong>Francovschi, I.</strong>, Shumlyanskyy, L., Soesoo, A., Tarasko, I., Melnychuk, V., Hoffmann, A., Kovalick, A., Love, G., Bekker, A.</div>
           <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0301926823001274" target="_blank" style="color: inherit; text-decoration: underline;">Precambrian Research 392, 107087</a></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.precamres.2023.107087" target="_blank" rel="noopener">DOI ↗</a><button type="button" class="pub-cite" data-bib="@article{Francovschi_2023,
+  title={U–Pb geochronology of detrital zircon from the Ediacaran and Cambrian sedimentary successions of NE Estonia and Volyn region of Ukraine: Implications for the provenance and comparison with other areas within Baltica},
+  volume={392},
+  ISSN={0301-9268},
+  url={http://dx.doi.org/10.1016/j.precamres.2023.107087},
+  DOI={10.1016/j.precamres.2023.107087},
+  journal={Precambrian Research},
+  publisher={Elsevier BV},
+  author={Francovschi, Ion and Shumlyanskyy, Leonid and Soesoo, Alvar and Tarasko, Iryna and Melnychuk, Viktor and Hoffmann, Adam and Kovalick, Alex and Love, Gordon and Bekker, Andrey},
+  year={2023},
+  month=July,
+  pages={107087}
+}">CITE · BibTeX</button></div>
         </div>
       </div>
 
@@ -1036,6 +1103,20 @@ footer {
           <div class="pub-title">Detrital Zircon Geochronology of the Volyn-Orsha Sedimentary Basin in Western Ukraine: Implications for the Meso-Neoproterozoic History of Baltica and Possible Link to Amazonia and the Grenvillian-Sveconorwegian-Sunsas Orogenic Belts</div>
           <div class="pub-authors">Shumlyanskyy, L., Bekker, A., Tarasko, I., <strong>Francovschi, I.</strong>, Wilde, S.A., Melnychuk, V.</div>
           <div class="pub-journal"><a href="https://www.mdpi.com/2076-3263/13/5/152" target="_blank" style="color: inherit; text-decoration: underline;">Geosciences MDPI 13, 152</a></div>
+          <div class="pub-links"><a href="https://doi.org/10.3390/geosciences13050152" target="_blank" rel="noopener">DOI ↗</a><button type="button" class="pub-cite" data-bib="@article{Shumlyanskyy_2023,
+  title={Detrital Zircon Geochronology of the Volyn-Orsha Sedimentary Basin in Western Ukraine: Implications for the Meso-Neoproterozoic History of Baltica and Possible Link to Amazonia and the Grenvillian—Sveconorwegian—Sunsas Orogenic Belts},
+  volume={13},
+  ISSN={2076-3263},
+  url={http://dx.doi.org/10.3390/geosciences13050152},
+  DOI={10.3390/geosciences13050152},
+  number={5},
+  journal={Geosciences},
+  publisher={MDPI AG},
+  author={Shumlyanskyy, Leonid and Bekker, Andrey and Tarasko, Iryna and Francovschi, Ion and Wilde, Simon A. and Melnychuk, Viktor},
+  year={2023},
+  month=May,
+  pages={152}
+}">CITE · BibTeX</button></div>
         </div>
       </div>
 
@@ -1045,6 +1126,16 @@ footer {
           <div class="pub-title">Symbiosis in corals and stromatoporoids from the Silurian of Baltica</div>
           <div class="pub-authors">Borisenko, T., Vinn, O., Grytsenko, V., <strong>Francovschi, I.</strong>, Zaika, Y.</div>
           <div class="pub-journal"><a href="https://palaeo-electronica.org/content/2022/3618-symbiosis-in-the-silurian" target="_blank" style="color: inherit; text-decoration: underline;">Palaeontologia Electronica 25(2):a17</a></div>
+          <div class="pub-links"><a href="https://doi.org/10.26879/1206" target="_blank" rel="noopener">DOI ↗</a><button type="button" class="pub-cite" data-bib="@article{Borisenko_2022,
+  title={Symbiosis in corals and stromatoporoids from the Silurian of Baltica},
+  ISSN={1094-8074},
+  url={http://dx.doi.org/10.26879/1206},
+  DOI={10.26879/1206},
+  journal={Palaeontologia Electronica},
+  publisher={Coquina Press},
+  author={Borisenko, Tamara and Vinn, Olev and Grytsenko, Volodymyr and Francovschi, Ion and Zaika, Yury},
+  year={2022}
+}">CITE · BibTeX</button></div>
         </div>
       </div>
 
@@ -1054,6 +1145,19 @@ footer {
           <div class="pub-title">U–Pb geochronology and Hf isotope systematics of detrital zircon from the late Ediacaran Kalyus Beds (East European Platform): palaeogeographic evolution of southwestern Baltica and constraints on the Ediacaran biota</div>
           <div class="pub-authors"><strong>Francovschi, I.</strong>, Grădinaru, E., Li, H., Shumlyanskyy, L., Ciobotaru, V.</div>
           <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0301926820306513" target="_blank" style="color: inherit; text-decoration: underline;">Precambrian Research 355, 106062</a></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.precamres.2020.106062" target="_blank" rel="noopener">DOI ↗</a><button type="button" class="pub-cite" data-bib="@article{Francovschi_2021,
+  title={U–Pb geochronology and Hf isotope systematics of detrital zircon from the late Ediacaran Kalyus Beds (East European Platform): palaeogeographic evolution of southwestern Baltica and constraints on the Ediacaran biota},
+  volume={355},
+  ISSN={0301-9268},
+  url={http://dx.doi.org/10.1016/j.precamres.2020.106062},
+  DOI={10.1016/j.precamres.2020.106062},
+  journal={Precambrian Research},
+  publisher={Elsevier BV},
+  author={Francovschi, Ion and Grădinaru, Eugen and Li, Huan and Shumlyanskyy, Leonid and Ciobotaru, Valerian},
+  year={2021},
+  month=Apr,
+  pages={106062}
+}">CITE · BibTeX</button></div>
         </div>
       </div>
 
@@ -1063,6 +1167,20 @@ footer {
           <div class="pub-title">Rare earth element (REE) enrichment of the late Ediacaran Kalyus Beds (East European Platform) through diagenetic uptake</div>
           <div class="pub-authors"><strong>Francovschi, I.</strong>, Grădinaru, E., Roban, R.D., Ducea, M.N., Ciobotaru, V., Shumlyanskyy, L.</div>
           <div class="pub-journal"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0009281920300131" target="_blank" style="color: inherit; text-decoration: underline;">Geochemistry 80, 125612</a></div>
+          <div class="pub-links"><a href="https://doi.org/10.1016/j.chemer.2020.125612" target="_blank" rel="noopener">DOI ↗</a><button type="button" class="pub-cite" data-bib="@article{Francovschi_2020,
+  title={Rare earth element (REE) enrichment of the late Ediacaran Kalyus Beds (East European Platform) through diagenetic uptake},
+  volume={80},
+  ISSN={0009-2819},
+  url={http://dx.doi.org/10.1016/j.chemer.2020.125612},
+  DOI={10.1016/j.chemer.2020.125612},
+  number={2},
+  journal={Geochemistry},
+  publisher={Elsevier BV},
+  author={Francovschi, Ion and Grădinaru, Eugen and Roban, Relu-Dumitru and Ducea, Mihai N. and Ciobotaru, Valerian and Shumlyanskyy, Leonid},
+  year={2020},
+  month=May,
+  pages={125612}
+}">CITE · BibTeX</button></div>
         </div>
       </div>
 
@@ -1072,6 +1190,19 @@ footer {
           <div class="pub-title">Lower Cretaceous provenance and sedimentary deposition in the Eastern Carpathians: Inferences for the evolution of the subducted oceanic domain and its European passive continental margin</div>
           <div class="pub-authors">Roban, R.D., Ducea, M.N., Mațenco, L., Panaiotu, G.C., Profeta, L., Krezsek, C., Melinte-Dobrinescu, M.C., Anastasiu, N., Dimofte, D., Apostrosoaei, V., <strong>Francovschi, I.</strong></div>
           <div class="pub-journal"><a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2019TC005780" target="_blank" style="color: inherit; text-decoration: underline;">Tectonics 39/7, 1–28</a></div>
+          <div class="pub-links"><a href="https://doi.org/10.1029/2019TC005780" target="_blank" rel="noopener">DOI ↗</a><button type="button" class="pub-cite" data-bib="@article{Roban_2020,
+  title={Lower Cretaceous Provenance and Sedimentary Deposition in the Eastern Carpathians: Inferences for the Evolution of the Subducted Oceanic Domain and its European Passive Continental Margin},
+  volume={39},
+  ISSN={1944-9194},
+  url={http://dx.doi.org/10.1029/2019TC005780},
+  DOI={10.1029/2019tc005780},
+  number={7},
+  journal={Tectonics},
+  publisher={American Geophysical Union (AGU)},
+  author={Roban, R. D. and Ducea, M. N. and Mațenco, L. and Panaiotu, G. C. and Profeta, L. and Krézsek, C. and Melinte‐Dobrinescu, M. C. and Anastasiu, N. and Dimofte, D. and Apotrosoaei, V. and Francovschi, I.},
+  year={2020},
+  month=July
+}">CITE · BibTeX</button></div>
         </div>
       </div>
    
@@ -1198,7 +1329,7 @@ footer {
     <div class="contact-inner">
       <p style="font-size:15px;color:var(--ink2);max-width:500px;">Open to correspondence from fellow researchers, students, and anyone curious about the Precambrian world.</p>
       <div class="contact-links">
-        <a href="mailto:francovschi.ion@gmail.com" class="contact-link">📧 EMAIL</a>
+        <a href="mailto:frankovski.ww@gmail.com" class="contact-link">📧 EMAIL</a>
         <a href="https://orcid.org/0000-0002-5766-8023" target="_blank" class="contact-link">🔬 ORCID</a>
         <a href="https://scholar.google.com/citations?user=jPq_h78AAAAJ&hl=en" target="_blank" rel="noopener" class="contact-link">👨🏻‍🔬 SCHOLAR</a>
         <a href="https://www.researchgate.net/profile/Ion-Francovschi-2" target="_blank" rel="noopener" class="contact-link">🕵🏻‍♂️ RESEARCHGATE</a>
@@ -1219,6 +1350,17 @@ footer {
 
 <!-- This links your dark theme JavaScript file -->
 <script src="js/theme.js"></script>
+<script>
+document.querySelectorAll('.pub-cite').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var label = b.textContent;
+    var done = function () { b.textContent = 'COPIED ✓'; b.classList.add('copied');
+      setTimeout(function () { b.textContent = label; b.classList.remove('copied'); }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.bib).then(done, function () { window.prompt('Copy citation:', b.dataset.bib); });
+    else window.prompt('Copy citation:', b.dataset.bib);
+  });
+});
+</script>
 
 </body>
 </html>

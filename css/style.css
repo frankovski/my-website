@@ -129,3 +129,19 @@ footer {
   .nav-links { display: none; }
   footer { flex-direction: column; gap: 0.8rem; text-align: center; }
 }
+
+/* theme toggle (404 and pages without their own nav styles) */
+#theme-toggle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  padding: 0 14px;
+  height: 56px;
+  border: none;
+  border-left: var(--border-thin);
+  background: transparent;
+  color: var(--ink3);
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+#theme-toggle:hover { background: var(--ink); color: var(--cream); }

@@ -1,0 +1,137 @@
+/* =========================================================
+   FIELD NOTEBOOK — shared type & finish layer
+   Loaded last on every page. Serif headings (Fraunces),
+   technical mono labels (IBM Plex Mono), typewriter body
+   (Courier Prime, unchanged). Colours come from each page's
+   existing :root / html.dark tokens.
+   ========================================================= */
+
+:root {
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+  --rule: #D9D1C3;
+  --border: 1px solid #1A1A18;
+  --border-thin: 1px solid #1A1A18;
+}
+html.dark {
+  --rule: #3A3D44;
+  --border: 1px solid #5A5450;
+  --border-thin: 1px solid #4A4440;
+}
+
+/* ---------- serif headings ---------- */
+h1, h2,
+.nav-logo,
+.topic h3,
+.pub-title,
+.blog-title,
+.article-row-title,
+.article-body h2,
+.cv-section-title,
+.stat-n,
+.error-code,
+.error-title,
+.success-title {
+  font-family: var(--serif) !important;
+  font-weight: 560;
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+  text-transform: none;
+}
+
+h1 { font-size: clamp(34px, 4.8vw, 62px) !important; line-height: 1.06 !important; }
+.hero h1 { font-size: clamp(44px, 6.2vw, 80px) !important; }
+h1 .accent { font-style: italic; }
+
+h2 { font-size: clamp(28px, 3.4vw, 42px) !important; line-height: 1.1 !important; }
+.article-body h2 { font-size: clamp(22px, 2.4vw, 28px) !important; line-height: 1.2 !important; margin-top: 2.4rem; }
+
+.nav-logo { font-size: 20px !important; letter-spacing: -0.01em !important; }
+
+.topic h3 { font-size: 21px !important; line-height: 1.2 !important; }
+.pub-title { font-size: 18px !important; line-height: 1.32 !important; font-weight: 520 !important; }
+.blog-title { font-size: 21px !important; line-height: 1.22 !important; }
+.article-row-title { font-size: clamp(18px, 2vw, 22px) !important; line-height: 1.25 !important; }
+.cv-section-title { font-size: 24px !important; text-transform: lowercase !important; }
+.cv-section-title::first-letter { text-transform: uppercase; }
+.stat-n { font-size: 28px !important; line-height: 1.1 !important; }
+.error-code { font-size: clamp(80px, 14vw, 140px) !important; line-height: 1 !important; }
+.error-title, .success-title { font-size: 24px !important; line-height: 1.25 !important; }
+
+/* ---------- mono labels (everything that used the pixel font) ---------- */
+.hero-tag, .page-tag, .section-num, .hero-strat-label, .about-box-header, .about-photo-name,
+.blog-tag, .blog-meta, .article-tag, .article-meta-item, .article-breadcrumb, .article-read-more,
+.article-row-date, .article-row-tag, .article-footer-box-header, .series-box-header, .series-num,
+.key-terms-header, .how-to-header, .figure-caption, .pullquote cite, .data-table th, .strat-table th,
+.cv-entry-date, .cv-entry-tag, .skill-bullet, .pub-entry-year, .pub-yr, .pub-badge,
+.sidebar-block-label, .sidebar-contact-header, .sidebar-contact-label, .sidebar-photo-name,
+.form-box-header, .form-label, .footer-txt, .tl-block, .strat-age, .error-strat-label,
+.photo-caption-tag, .photo-caption-loc, .photo-overlay, .placeholder-label,
+.lightbox-tag, .lightbox-loc, .lightbox-placeholder-txt, .lightbox-close {
+  font-family: var(--mono) !important;
+  font-weight: 500;
+  font-size: 11px !important;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+}
+
+.btn, .btn-submit, .contact-link, .error-link, .ext-link, .download-btn, .filter-btn,
+#theme-toggle, .pub-links a, .pub-cite {
+  font-family: var(--mono) !important;
+  font-weight: 600;
+  font-size: 12px !important;
+  letter-spacing: 0.1em;
+}
+.pub-links a, .pub-cite { font-size: 11px !important; }
+
+.hero-tag, .page-tag { font-size: 12px !important; }
+.pub-yr, .section-num { font-size: 13px !important; font-weight: 600; }
+.figure-caption { text-transform: none; letter-spacing: 0.02em; font-weight: 400; }
+.strat-age { font-size: 10px !important; letter-spacing: 0.04em; }
+.tl-block { font-size: 10.5px !important; letter-spacing: 0.06em; }
+.cv-entry-tag, .skill-bullet { font-size: 10.5px !important; }
+.placeholder-icon, .lightbox-placeholder-icon, .success-icon { font-family: var(--mono) !important; }
+
+/* nav links: quieter technical caps */
+.nav-links a { font-family: var(--mono) !important; font-weight: 500; font-size: 12px; letter-spacing: 0.1em; }
+
+/* italic accents read better in the serif than in rust caps */
+.pub-authors strong { font-weight: 700; }
+
+/* ---------- core-log figure (homepage hero) ---------- */
+.corelog {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto 2rem;
+  background: var(--paper);
+  border: var(--border);
+  padding: 18px 18px 14px;
+  color: var(--ink);
+}
+.corelog-head {
+  display: flex; justify-content: space-between; gap: 12px;
+  font: 500 11px/1.4 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink3);
+  border-bottom: 1px solid var(--rule); padding-bottom: 10px; margin-bottom: 12px;
+}
+.corelog svg { display: block; width: 100%; height: auto; }
+.corelog .t-ink { fill: var(--ink); }
+.corelog .t-dim { fill: var(--ink3); }
+.corelog .t-rust { fill: var(--rust); }
+.corelog .s-rust { stroke: var(--rust); }
+.corelog .s-ink { stroke: var(--ink); }
+.corelog figcaption {
+  font: 400 12px/1.5 var(--mono); color: var(--ink3);
+  border-top: 1px solid var(--rule); margin-top: 10px; padding-top: 10px;
+}
+.corelog figcaption b { color: var(--ink); font-weight: 600; }
+.hero-right { justify-content: center !important; }
+
+
+@media (max-width: 860px) {
+  .corelog { max-width: 420px; margin-bottom: 0; }
+  .cv-section-title { font-size: 21px !important; }
+}
+
+.hero-tag, .page-tag { text-transform: uppercase; }
+.error-title { text-transform: lowercase !important; }
+.error-title::first-letter { text-transform: uppercase; }

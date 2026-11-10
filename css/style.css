@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -51,7 +51,7 @@ nav {
 }
 
 .nav-logo {
-  font-family: 'Press Start 2P', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 9px;
   color: var(--ink);
   text-decoration: none;
@@ -87,7 +87,7 @@ footer {
   color: var(--cream);
 }
 .footer-txt {
-  font-family: 'Press Start 2P', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 7px;
   letter-spacing: 0.08em;
   line-height: 1.8;
@@ -97,7 +97,7 @@ footer {
 /* BUTTONS */
 .btn {
   display: inline-block;
-  font-family: 'Press Start 2P', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 8px;
   padding: 12px 18px;
   text-decoration: none;
@@ -117,7 +117,7 @@ footer {
 
 /* SECTION NUMS */
 .section-num {
-  font-family: 'Press Start 2P', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 8px;
   color: var(--rust);
   border: var(--border);

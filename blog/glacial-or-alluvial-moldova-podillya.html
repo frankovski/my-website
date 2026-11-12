@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ice or rivers? Testing a disputed Ediacaran glacial deposit with zircon — Ion Francovschi</title>
+<meta name="description" content="Were the Bakhtyn Beds diamictites left by glaciers? Detrital zircon ages say the sediment came from the local basement — pointing to rivers, not ice.">
+<link rel="canonical" href="https://francovschi.vercel.app/blog/glacial-or-alluvial-moldova-podillya.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ion Francovschi">
+<meta property="og:title" content="Ice or rivers? Testing a disputed Ediacaran glacial deposit with zircon — Ion Francovschi">
+<meta property="og:description" content="Were the Bakhtyn Beds diamictites left by glaciers? Detrital zircon ages say the sediment came from the local basement — pointing to rivers, not ice.">
+<meta property="og:url" content="https://francovschi.vercel.app/blog/glacial-or-alluvial-moldova-podillya.html">
+<meta property="og:image" content="https://francovschi.vercel.app/img/francovschi.jpg">
+<meta property="og:image:alt" content="Portrait of Ion Francovschi">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f5f0e8">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ── LIGHT MODE ── */
+:root {
+  --cream: #F5F0E8;
+  --paper: #FDFAF5;
+  --ink: #1A1A18;
+  --ink2: #3D3D38;
+  --ink3: #7A7A72;
+  --rust: #B85C30;
+  --rust-lt: #E8956A;
+  --sage: #5A7A5A;
+  --stone: #8A8278;
+  --border: 2px solid #1A1A18;
+  --border-thin: 1px solid #1A1A18;
+}
+
+/* ── DARK MODE ── */
+html.dark {
+  --cream: #1C1F24;
+  --paper: #22262D;
+  --ink: #E4DED2;
+  --ink2: #C0BAB0;
+  --ink3: #8A8478;
+  --rust: #D4784A;
+  --rust-lt: #E8956A;
+  --sage: #7AAA7A;
+  --stone: #6A6460;
+  --border: 2px solid #5A5450;
+  --border-thin: 1px solid #4A4440;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  transition: background 0.2s, color 0.2s;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,26,24,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,26,24,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+}
+
+.nav-logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-logo span { color: var(--rust); }
+
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links a {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink2);
+  text-decoration: none;
+  padding: 0 1rem;
+  border-left: var(--border-thin);
+  height: 56px;
+  line-height: 56px;
+  transition: background 0.1s, color 0.1s;
+}
+.nav-links a:hover, .nav-links a.active { background: var(--ink); color: var(--cream); }
+
+#theme-toggle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  padding: 0 14px;
+  height: 56px;
+  border: none;
+  border-left: var(--border-thin);
+  background: transparent;
+  color: var(--ink3);
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+#theme-toggle:hover { background: var(--ink); color: var(--cream); }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: var(--border);
+  padding: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+section { position: relative; z-index: 1; }
+
+/* ARTICLE HEADER */
+.article-header {
+  border-bottom: var(--border);
+  background: var(--paper);
+  padding: 4rem 2rem 0;
+}
+
+.article-header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.article-breadcrumb {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.article-breadcrumb a { color: var(--rust); text-decoration: none; }
+.article-breadcrumb a:hover { text-decoration: underline; }
+
+.article-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 5px 10px;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(14px, 2.5vw, 22px);
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.article-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.2rem 0;
+  border-top: var(--border-thin);
+  margin-top: 1rem;
+}
+
+.article-meta-item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--stone);
+  line-height: 1.8;
+}
+
+.article-meta-item span { color: var(--ink2); display: block; }
+
+/* HERO IMAGE */
+.article-hero-img {
+  border-bottom: var(--border);
+  overflow: hidden;
+  max-height: 380px;
+}
+.article-hero-img svg { display: block; width: 100%; }
+
+/* ARTICLE BODY */
+.article-body {
+  padding: 4rem 2rem;
+}
+
+.article-body-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Typography */
+.article-body p {
+  font-size: 16px;
+  color: var(--ink2);
+  line-height: 1.95;
+  margin-bottom: 1.6rem;
+}
+
+.article-body h2 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(11px, 1.6vw, 14px);
+  color: var(--ink);
+  line-height: 1.8;
+  margin: 3rem 0 1.2rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--rust);
+}
+
+.article-body h3 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 2.2rem 0 0.8rem;
+}
+
+/* Pullquote */
+.pullquote {
+  border: var(--border);
+  padding: 2rem 2rem 2rem 1.6rem;
+  border-left: 6px solid var(--rust);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+
+.pullquote p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px !important;
+  font-style: italic;
+  color: var(--ink) !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.7 !important;
+}
+
+.pullquote cite {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--rust);
+  font-style: normal;
+}
+
+/* Inline figure with SVG diagram */
+.figure {
+  border: var(--border);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+
+.figure-img { border-bottom: var(--border-thin); overflow: hidden; }
+.figure-img svg { display: block; width: 100%; }
+
+.figure-caption {
+  padding: 0.8rem 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+/* Key terms box */
+.key-terms {
+  border: var(--border);
+  margin: 2.5rem 0;
+}
+
+.key-terms-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+
+.key-terms-body { padding: 1.2rem 1.4rem; }
+
+.key-term {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: var(--border-thin);
+  font-size: 14px;
+}
+.key-term:last-child { border-bottom: none; }
+
+.key-term-word {
+  font-weight: 700;
+  color: var(--rust);
+  font-style: italic;
+}
+
+.key-term-def { color: var(--ink2); }
+
+/* Strat table */
+.strat-table {
+  border: var(--border);
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 13px;
+}
+
+.strat-table th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 10px 12px;
+  text-align: left;
+  border-right: var(--border-thin);
+  letter-spacing: 0.08em;
+}
+
+.strat-table td {
+  padding: 10px 12px;
+  border-bottom: var(--border-thin);
+  border-right: var(--border-thin);
+  color: var(--ink2);
+  vertical-align: top;
+}
+
+.strat-table tr:last-child td { border-bottom: none; }
+.strat-table td:last-child,
+.strat-table th:last-child { border-right: none; }
+
+.strat-table tr:hover td { background: var(--paper); }
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #1A1A18;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Article footer / next steps */
+.article-footer {
+  border-top: var(--border);
+  padding: 3rem 2rem;
+  background: var(--paper);
+}
+
+.article-footer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.article-footer-box {
+  border: var(--border);
+}
+
+.article-footer-box-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+
+.article-footer-box-body {
+  padding: 1.2rem;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+
+.article-footer-box-body a {
+  color: var(--rust);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .article-body { padding: 2.5rem 1.2rem; }
+  .article-header { padding: 3rem 1.2rem 0; }
+  .article-footer { padding: 2rem 1.2rem; }
+  .article-footer-inner { grid-template-columns: 1fr; }
+  .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .key-term { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+</style>
+<!-- Google Analytics: replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VML6X1920W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VML6X1920W');
+</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../css/notebook.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Ice or rivers? Testing a disputed Ediacaran glacial deposit with zircon", "url": "https://francovschi.vercel.app/blog/glacial-or-alluvial-moldova-podillya.html", "author": {"@type": "Person", "name": "Ion Francovschi", "url": "https://francovschi.vercel.app/"}, "about": {"@type": "ScholarlyArticle", "sameAs": "https://doi.org/10.1016/j.precamres.2024.107572", "datePublished": "2024", "isPartOf": {"@type": "Periodical", "name": "Precambrian Research"}}}</script>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Ion <span>Francovschi</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">ABOUT</a></li>
+    <li><a href="../index.html#research">RESEARCH</a></li>
+    <li><a href="../index.html#publications">PAPERS</a></li>
+	<li><a href="index.html" class="active">BLOG</a></li>
+	<li><a href="../cv.html">CV</a></li>
+    <li><a href="../fieldwork.html">FIELD PICS</a></li>
+    <li><a href="../oilgas.html">O&amp;G PICS</a></li>
+    <li><a href="../index.html#contact">CONTACT</a></li>
+  </ul>
+  <button id="theme-toggle" aria-label="Toggle dark mode">☾ DARK</button>
+  <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="index.html">◄ BLOG</a>
+      <span>/</span>
+      <span>GEOCHRONOLOGY</span>
+    </div>
+    <span class="article-tag">GEOCHRONOLOGY</span>
+    <h1>Ice or rivers?<br>Testing a disputed<br>glacial deposit with zircon</h1>
+    <div class="article-meta-bar">
+      <div class="article-meta-item">PAPER<span>2024 · PRECAMBRIAN RESEARCH</span></div>
+      <div class="article-meta-item">MY ROLE<span>LEAD AUTHOR</span></div>
+      <div class="article-meta-item">READ TIME<span>~3 MINUTES</span></div>
+      <div class="article-meta-item">FORMAT<span>PLAIN-LANGUAGE SUMMARY</span></div>
+    </div>
+  </div>
+</div>
+
+<article class="article-body">
+  <div class="article-body-inner">
+
+    <p class="article-lede">Were the Bakhtyn Beds diamictites left by glaciers? Detrital zircon ages say the sediment came from the local basement — pointing to rivers, not ice.</p>
+
+    <p>The Neoproterozoic is famous for its “Snowball Earth” glaciations: the Sturtian (ca. 715–660 Ma) and the Marinoan (ca. 639–635 Ma), followed by the shorter and possibly regional Gaskiers glaciation at ca. 580–579 Ma. The rest of the Ediacaran and the early Cambrian are usually seen as warm, without glaciers reaching sea level at low latitudes.</p>
+
+<p>Yet around the world, a number of local or regional sedimentary units from this warm interval have been interpreted as glacial deposits. Many of them crop out poorly, have been deformed or metamorphosed, lack diagnostic sedimentary structures, and are poorly dated. That makes it very hard to decide whether they really record ice.</p>
+
+<h2>The Bakhtyn Beds problem</h2>
+
+<p>In the Moldova-Podillya basin, the <strong>Bakhtyn Beds</strong> of the Hrushka Formation (Volyn Group) contain thin, poorly exposed <em>diamictites</em>: massive, poorly sorted coarse sandstones, conglomerates and breccias, with poorly rounded clasts in a fine-grained matrix. Rocks like this can form under a glacier — or in alluvial fans and rivers. Without conclusive glacial features, the debate has continued for a long time.</p>
+
+<h2>A provenance test</h2>
+
+<p>Our approach was to ask <em>where the sediment came from</em>. Glaciers scrape and mix debris from large, heterogeneous areas, so glacial deposits tend to contain zircons of many different ages. Rivers and alluvial fans usually carry more homogeneous, local material.</p>
+
+<div class="figure">
+      <div class="figure-img">
+        <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two scenarios: a glacier would deliver many mixed zircon ages; a local river system delivers ages matching the underlying granite. The Bakhtyn Beds match the local pattern."><rect width="720" height="300" fill="#F2ECE0"/><rect x="16" y="16" width="336" height="268" rx="4" fill="#FDFAF5" stroke="#1A1A18" stroke-opacity=".25"/><text x="32" y="42" font-family="Fraunces, Georgia, serif" font-size="15" fill="#1A1A18" text-anchor="start" font-weight="600">If it were glacial</text><text x="32" y="60" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="start">ice gathers debris from far and wide</text><path d="M40 150 C80 110 150 100 210 112 C260 122 300 140 330 160 L330 176 L40 176 Z" fill="#E8EEF2" stroke="#3A6A8A" stroke-opacity=".6"/><circle cx="60" cy="196" r="9" fill="#5A7A5A" fill-opacity=".55"/><circle cx="110" cy="204" r="9" fill="#B85C30" fill-opacity=".55"/><circle cx="160" cy="196" r="9" fill="#3A6A8A" fill-opacity=".55"/><circle cx="210" cy="204" r="9" fill="#8A7848" fill-opacity=".55"/><circle cx="260" cy="196" r="9" fill="#5A7A5A" fill-opacity=".55"/><circle cx="300" cy="204" r="9" fill="#B85C30" fill-opacity=".55"/><text x="186" y="128" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#3A6A8A" text-anchor="middle">GLACIER</text><rect x="110" y="250" width="10" height="18" rx="2" fill="#6F6F67" fill-opacity=".8"/><rect x="123" y="234" width="10" height="34" rx="2" fill="#6F6F67" fill-opacity=".8"/><rect x="136" y="246" width="10" height="22" rx="2" fill="#6F6F67" fill-opacity=".8"/><rect x="149" y="228" width="10" height="40" rx="2" fill="#6F6F67" fill-opacity=".8"/><rect x="162" y="242" width="10" height="26" rx="2" fill="#6F6F67" fill-opacity=".8"/><rect x="175" y="238" width="10" height="30" rx="2" fill="#6F6F67" fill-opacity=".8"/><rect x="188" y="248" width="10" height="20" rx="2" fill="#6F6F67" fill-opacity=".8"/><rect x="201" y="232" width="10" height="36" rx="2" fill="#6F6F67" fill-opacity=".8"/><rect x="214" y="244" width="10" height="24" rx="2" fill="#6F6F67" fill-opacity=".8"/><rect x="227" y="240" width="10" height="28" rx="2" fill="#6F6F67" fill-opacity=".8"/><rect x="240" y="252" width="10" height="16" rx="2" fill="#6F6F67" fill-opacity=".8"/><text x="184" y="282" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6F6F67" text-anchor="middle">many, mixed zircon ages</text><rect x="368" y="16" width="336" height="268" rx="4" fill="#FDFAF5" stroke="#B85C30" stroke-width="1.5"/><text x="384" y="42" font-family="Fraunces, Georgia, serif" font-size="15" fill="#1A1A18" text-anchor="start" font-weight="600">If it were alluvial</text><text x="384" y="60" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="start">rivers rework the local basement</text><path d="M384 196 C430 186 470 176 520 178 C580 180 640 188 690 198 L690 212 L384 212 Z" fill="#D9C7A0"/><path d="M400 150 C450 158 500 168 548 172 S640 186 688 190" fill="none" stroke="#3A6A8A" stroke-width="3" stroke-linecap="round" stroke-opacity=".7"/><path d="M392 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><path d="M418 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><path d="M444 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><path d="M470 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><path d="M496 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><path d="M522 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><path d="M548 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><path d="M574 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><path d="M600 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><path d="M626 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><path d="M652 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><path d="M678 222 l6 8 l6 -8" fill="none" stroke="#C0544E" stroke-opacity=".5"/><text x="384" y="248" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#8E3F1C" text-anchor="start">local granite</text><text x="384" y="260" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#8E3F1C" text-anchor="start">basement</text><rect x="520" y="268" width="10" height="6" rx="2" fill="#B85C30" fill-opacity=".8"/><rect x="533" y="262" width="10" height="12" rx="2" fill="#B85C30" fill-opacity=".8"/><rect x="546" y="234" width="10" height="40" rx="2" fill="#B85C30" fill-opacity=".8"/><rect x="559" y="230" width="10" height="44" rx="2" fill="#B85C30" fill-opacity=".8"/><rect x="572" y="260" width="10" height="14" rx="2" fill="#B85C30" fill-opacity=".8"/><rect x="585" y="268" width="10" height="6" rx="2" fill="#B85C30" fill-opacity=".8"/><text x="560" y="284" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6F6F67" text-anchor="middle">few, local ages</text><path d="M640 74 l10 10 l20 -22" fill="none" stroke="#B85C30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><text x="690" y="100" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#B85C30" text-anchor="end" font-weight="600">MATCHES</text><text x="690" y="112" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#B85C30" text-anchor="end" font-weight="600">BAKHTYN BEDS</text></svg>
+      </div>
+      <div class="figure-caption">FIG. 1 — The logic of the test. A glacier gathers debris from a wide and varied area, producing a broad mix of zircon ages; a local river system delivers zircons mostly from the basement it cuts into. The Bakhtyn Beds match the local pattern. Schematic.</div>
+    </div>
+
+<p>We dated detrital zircons by U–Pb LA-ICP-MS from two sandstones and one conglomerate of the Bakhtyn Beds, and from two sandstones of the unconformably overlying Lomoziv Beds (Mohyliv Formation). We compared them with published data for the overlying Cosaui (Yampil) and Bernashivka beds, and with new dates from the Palaeoproterozoic granites directly underneath, exposed in the Vyshcheolchedaiv and Novodnistrovsk open pits. Drill-core data helped map how far the Volyn Group sediments extend.</p>
+
+<h2>What the zircons say</h2>
+
+<ul>
+  <li>The Bakhtyn, Lomoziv and Cosaui/Yampil samples are dominated by <strong>Palaeoproterozoic and Meso- to Neoarchean</strong> zircon ages — a uniform provenance from the Precambrian basement.</li>
+  <li>Multidimensional scaling with Kolmogorov–Smirnov statistics shows these units are <strong>statistically very similar</strong> to one another.</li>
+  <li>U–Pb ages and hafnium isotopes of the Bakhtyn zircons match the <strong>granites immediately below</strong>.</li>
+  <li>The zircons are euhedral to subhedral and <strong>not rounded</strong> — they have not travelled far.</li>
+</ul>
+
+<p>A minor contribution from more regional basement sources is likely, given the spread of Archean ages. But overall the evidence is consistent with an <strong>alluvial, not glacial, origin</strong> for the Bakhtyn Beds, deposited under passive-margin conditions that lasted until the lower Bernashivka Beds.</p>
+
+<h2>Why it matters</h2>
+
+<p>Deciding whether a diamictite is glacial changes how we read past climate. Detrital zircon geochronology offers a largely untapped way to test glacial interpretations for units that are poorly exposed or poorly dated — especially where they sit on a uniform igneous or meta-igneous basement. The same approach can be applied to other disputed “glacial” units worldwide.</p>
+
+    <div class="key-terms">
+      <div class="key-terms-header">KEY TERMS</div>
+      <div class="key-terms-body">
+        <div class="key-term"><span class="key-term-word">Diamictite</span><span class="key-term-def">A poorly sorted rock with large clasts scattered in a fine matrix; can be glacial or non-glacial.</span></div>
+        <div class="key-term"><span class="key-term-word">Detrital zircon</span><span class="key-term-def">Durable zircon grains eroded from older rocks; their ages fingerprint where sediment came from.</span></div>
+        <div class="key-term"><span class="key-term-word">U–Pb LA-ICP-MS</span><span class="key-term-def">Laser-ablation mass spectrometry used to date individual zircon grains by uranium–lead decay.</span></div>
+        <div class="key-term"><span class="key-term-word">Provenance</span><span class="key-term-def">The source area of a sediment.</span></div>
+        <div class="key-term"><span class="key-term-word">Alluvial</span><span class="key-term-def">Deposited by rivers and alluvial fans rather than by ice or the sea.</span></div>
+      </div>
+    </div>
+
+    <div class="paper-box">
+      <div class="paper-box-header">THE PAPER</div>
+      <div class="paper-box-body">
+        <p class="paper-cite">Francovschi, I., Shumlyanskyy, L., Grytsenko, V., Hoffmann, A., Wilde, S.A., Bekker, A. (2024). U–Pb geochronology and Hf isotope systematics of detrital zircon from the basal part of the late Ediacaran sedimentary succession of the Moldova-Podillya basin (SW Baltica): implications for glacial vs. alluvial origin. <em>Precambrian Research</em> 413, 107572.</p>
+        <div class="pub-links"><a href="https://doi.org/10.1016/j.precamres.2024.107572" target="_blank" rel="noopener">READ THE PAPER ↗</a><button type="button" class="pub-cite" data-bib="@article{Francovschi_2024,
+  title={U–Pb geochronology and Hf isotope systematics of detrital zircon from the basal part of the late Ediacaran sedimentary succession of the Moldova-Podillya basin (SW Baltica): Implications for glacial vs. alluvial origin},
+  volume={413},
+  ISSN={0301-9268},
+  url={http://dx.doi.org/10.1016/j.precamres.2024.107572},
+  DOI={10.1016/j.precamres.2024.107572},
+  journal={Precambrian Research},
+  publisher={Elsevier BV},
+  author={Francovschi, Ion and Shumlyanskyy, Leonid and Grytsenko, Volodymyr and Hoffmann, Adam and Wilde, Simon A. and Bekker, Andrey},
+  year={2024},
+  month=Oct,
+  pages={107572}
+}">CITE · BibTeX</button></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<!-- ARTICLE FOOTER -->
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">◄ NEWER</div>
+      <div class="article-footer-box-body"><a href="beltanelliformis-communities-baltica.html">Reading an Ediacaran seafloor from the spacing of its fossils</a></div>
+    </div>
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">OLDER →</div>
+      <div class="article-footer-box-body"><a href="detrital-zircon-estonia-volyn.html">Following the sand: how sediment sources across Baltica changed from the Ediacaran to the Cambrian</a></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-txt">
+    © 2026 ION FRANCOVSCHI — PHD EARTH SCIENCES<br>
+    <span class="dim">EDIACARAN · CAMBRIAN · BALTICA · EEP</span>
+  </div>
+  <div class="footer-txt" style="text-align:right;">
+    <span class="dim">STATIC HTML · VERCEL</span>
+  </div>
+</footer>
+
+<script src="../js/theme.js"></script>
+<script>
+document.querySelectorAll('.pub-cite').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var label = b.textContent;
+    var done = function () { b.textContent = 'COPIED ✓'; b.classList.add('copied');
+      setTimeout(function () { b.textContent = label; b.classList.remove('copied'); }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.bib).then(done, function () { window.prompt('Copy citation:', b.dataset.bib); });
+    else window.prompt('Copy citation:', b.dataset.bib);
+  });
+});
+</script>
+</body>
+</html>

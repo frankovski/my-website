@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rare earth elements in the Kalyus Beds: where they came from and why they matter — Ion Francovschi</title>
+<meta name="description" content="Phosphorites and black argillites of the Kalyus Beds hold 793–1735 ppm rare earth elements — taken up during diagenesis, and potentially of economic interest.">
+<link rel="canonical" href="https://francovschi.vercel.app/blog/rare-earth-elements-kalyus-beds.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ion Francovschi">
+<meta property="og:title" content="Rare earth elements in the Kalyus Beds: where they came from and why they matter — Ion Francovschi">
+<meta property="og:description" content="Phosphorites and black argillites of the Kalyus Beds hold 793–1735 ppm rare earth elements — taken up during diagenesis, and potentially of economic interest.">
+<meta property="og:url" content="https://francovschi.vercel.app/blog/rare-earth-elements-kalyus-beds.html">
+<meta property="og:image" content="https://francovschi.vercel.app/img/francovschi.jpg">
+<meta property="og:image:alt" content="Portrait of Ion Francovschi">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f5f0e8">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ── LIGHT MODE ── */
+:root {
+  --cream: #F5F0E8;
+  --paper: #FDFAF5;
+  --ink: #1A1A18;
+  --ink2: #3D3D38;
+  --ink3: #7A7A72;
+  --rust: #B85C30;
+  --rust-lt: #E8956A;
+  --sage: #5A7A5A;
+  --stone: #8A8278;
+  --border: 2px solid #1A1A18;
+  --border-thin: 1px solid #1A1A18;
+}
+
+/* ── DARK MODE ── */
+html.dark {
+  --cream: #1C1F24;
+  --paper: #22262D;
+  --ink: #E4DED2;
+  --ink2: #C0BAB0;
+  --ink3: #8A8478;
+  --rust: #D4784A;
+  --rust-lt: #E8956A;
+  --sage: #7AAA7A;
+  --stone: #6A6460;
+  --border: 2px solid #5A5450;
+  --border-thin: 1px solid #4A4440;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  transition: background 0.2s, color 0.2s;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,26,24,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,26,24,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+}
+
+.nav-logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-logo span { color: var(--rust); }
+
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links a {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink2);
+  text-decoration: none;
+  padding: 0 1rem;
+  border-left: var(--border-thin);
+  height: 56px;
+  line-height: 56px;
+  transition: background 0.1s, color 0.1s;
+}
+.nav-links a:hover, .nav-links a.active { background: var(--ink); color: var(--cream); }
+
+#theme-toggle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  padding: 0 14px;
+  height: 56px;
+  border: none;
+  border-left: var(--border-thin);
+  background: transparent;
+  color: var(--ink3);
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+#theme-toggle:hover { background: var(--ink); color: var(--cream); }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: var(--border);
+  padding: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+section { position: relative; z-index: 1; }
+
+/* ARTICLE HEADER */
+.article-header {
+  border-bottom: var(--border);
+  background: var(--paper);
+  padding: 4rem 2rem 0;
+}
+
+.article-header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.article-breadcrumb {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.article-breadcrumb a { color: var(--rust); text-decoration: none; }
+.article-breadcrumb a:hover { text-decoration: underline; }
+
+.article-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 5px 10px;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(14px, 2.5vw, 22px);
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.article-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.2rem 0;
+  border-top: var(--border-thin);
+  margin-top: 1rem;
+}
+
+.article-meta-item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--stone);
+  line-height: 1.8;
+}
+
+.article-meta-item span { color: var(--ink2); display: block; }
+
+/* HERO IMAGE */
+.article-hero-img {
+  border-bottom: var(--border);
+  overflow: hidden;
+  max-height: 380px;
+}
+.article-hero-img svg { display: block; width: 100%; }
+
+/* ARTICLE BODY */
+.article-body {
+  padding: 4rem 2rem;
+}
+
+.article-body-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Typography */
+.article-body p {
+  font-size: 16px;
+  color: var(--ink2);
+  line-height: 1.95;
+  margin-bottom: 1.6rem;
+}
+
+.article-body h2 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(11px, 1.6vw, 14px);
+  color: var(--ink);
+  line-height: 1.8;
+  margin: 3rem 0 1.2rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--rust);
+}
+
+.article-body h3 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 2.2rem 0 0.8rem;
+}
+
+/* Pullquote */
+.pullquote {
+  border: var(--border);
+  padding: 2rem 2rem 2rem 1.6rem;
+  border-left: 6px solid var(--rust);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+
+.pullquote p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px !important;
+  font-style: italic;
+  color: var(--ink) !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.7 !important;
+}
+
+.pullquote cite {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--rust);
+  font-style: normal;
+}
+
+/* Inline figure with SVG diagram */
+.figure {
+  border: var(--border);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+
+.figure-img { border-bottom: var(--border-thin); overflow: hidden; }
+.figure-img svg { display: block; width: 100%; }
+
+.figure-caption {
+  padding: 0.8rem 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+/* Key terms box */
+.key-terms {
+  border: var(--border);
+  margin: 2.5rem 0;
+}
+
+.key-terms-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+
+.key-terms-body { padding: 1.2rem 1.4rem; }
+
+.key-term {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: var(--border-thin);
+  font-size: 14px;
+}
+.key-term:last-child { border-bottom: none; }
+
+.key-term-word {
+  font-weight: 700;
+  color: var(--rust);
+  font-style: italic;
+}
+
+.key-term-def { color: var(--ink2); }
+
+/* Strat table */
+.strat-table {
+  border: var(--border);
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 13px;
+}
+
+.strat-table th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 10px 12px;
+  text-align: left;
+  border-right: var(--border-thin);
+  letter-spacing: 0.08em;
+}
+
+.strat-table td {
+  padding: 10px 12px;
+  border-bottom: var(--border-thin);
+  border-right: var(--border-thin);
+  color: var(--ink2);
+  vertical-align: top;
+}
+
+.strat-table tr:last-child td { border-bottom: none; }
+.strat-table td:last-child,
+.strat-table th:last-child { border-right: none; }
+
+.strat-table tr:hover td { background: var(--paper); }
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #1A1A18;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Article footer / next steps */
+.article-footer {
+  border-top: var(--border);
+  padding: 3rem 2rem;
+  background: var(--paper);
+}
+
+.article-footer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.article-footer-box {
+  border: var(--border);
+}
+
+.article-footer-box-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+
+.article-footer-box-body {
+  padding: 1.2rem;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+
+.article-footer-box-body a {
+  color: var(--rust);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .article-body { padding: 2.5rem 1.2rem; }
+  .article-header { padding: 3rem 1.2rem 0; }
+  .article-footer { padding: 2rem 1.2rem; }
+  .article-footer-inner { grid-template-columns: 1fr; }
+  .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .key-term { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+</style>
+<!-- Google Analytics: replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VML6X1920W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VML6X1920W');
+</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../css/notebook.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Rare earth elements in the Kalyus Beds: where they came from and why they matter", "url": "https://francovschi.vercel.app/blog/rare-earth-elements-kalyus-beds.html", "author": {"@type": "Person", "name": "Ion Francovschi", "url": "https://francovschi.vercel.app/"}, "about": {"@type": "ScholarlyArticle", "sameAs": "https://doi.org/10.1016/j.chemer.2020.125612", "datePublished": "2020", "isPartOf": {"@type": "Periodical", "name": "Geochemistry (Chemie der Erde)"}}}</script>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Ion <span>Francovschi</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">ABOUT</a></li>
+    <li><a href="../index.html#research">RESEARCH</a></li>
+    <li><a href="../index.html#publications">PAPERS</a></li>
+	<li><a href="index.html" class="active">BLOG</a></li>
+	<li><a href="../cv.html">CV</a></li>
+    <li><a href="../fieldwork.html">FIELD PICS</a></li>
+    <li><a href="../oilgas.html">O&amp;G PICS</a></li>
+    <li><a href="../index.html#contact">CONTACT</a></li>
+  </ul>
+  <button id="theme-toggle" aria-label="Toggle dark mode">☾ DARK</button>
+  <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="index.html">◄ BLOG</a>
+      <span>/</span>
+      <span>GEOCHEMISTRY</span>
+    </div>
+    <span class="article-tag">GEOCHEMISTRY</span>
+    <h1>Rare earth elements<br>in the Kalyus Beds</h1>
+    <div class="article-meta-bar">
+      <div class="article-meta-item">PAPER<span>2020 · GEOCHEMISTRY (CHEMIE DER ERDE)</span></div>
+      <div class="article-meta-item">MY ROLE<span>LEAD AUTHOR</span></div>
+      <div class="article-meta-item">READ TIME<span>~3 MINUTES</span></div>
+      <div class="article-meta-item">FORMAT<span>PLAIN-LANGUAGE SUMMARY</span></div>
+    </div>
+  </div>
+</div>
+
+<article class="article-body">
+  <div class="article-body-inner">
+
+    <p class="article-lede">Phosphorites and black argillites of the Kalyus Beds hold 793–1735 ppm rare earth elements — taken up during diagenesis, and potentially of economic interest.</p>
+
+    <p>The <strong>Kalyus Beds</strong> of the late Ediacaran Nagoryany Formation crop out in northeastern Moldova. They are dominated by black argillites, with phosphorites and calcareous concretions. In this paper we looked at their rare earth element (REE), major- and trace-element geochemistry — both to understand the ancient seawater they formed in and to assess whether they contain economically interesting concentrations of REE.</p>
+
+<h2>Four kinds of rock, three REE stories</h2>
+
+<p>We grouped the samples into four lithologies: <strong>phosphorites</strong>, <strong>enriched argillites</strong>, <strong>pure argillites</strong> and <strong>carbonates</strong>. Their REE patterns fall into three distinct shapes.</p>
+
+<div class="figure">
+      <div class="figure-img">
+        <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic rare earth element patterns in the Kalyus Beds: middle-REE bulge, flat crustal pattern and light-REE depleted seawater-like pattern"><rect width="720" height="300" fill="#F2ECE0"/><line x1="80" y1="36" x2="80" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="80" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">La</text><line x1="113.8" y1="36" x2="113.8" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="113.8" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Ce</text><line x1="147.7" y1="36" x2="147.7" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="147.7" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Pr</text><line x1="181.5" y1="36" x2="181.5" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="181.5" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Nd</text><line x1="215.4" y1="36" x2="215.4" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="215.4" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Sm</text><line x1="249.2" y1="36" x2="249.2" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="249.2" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Eu</text><line x1="283.1" y1="36" x2="283.1" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="283.1" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Gd</text><line x1="316.9" y1="36" x2="316.9" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="316.9" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Tb</text><line x1="350.8" y1="36" x2="350.8" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="350.8" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Dy</text><line x1="384.6" y1="36" x2="384.6" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="384.6" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Ho</text><line x1="418.5" y1="36" x2="418.5" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="418.5" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Er</text><line x1="452.3" y1="36" x2="452.3" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="452.3" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Tm</text><line x1="486.2" y1="36" x2="486.2" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="486.2" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Yb</text><line x1="520" y1="36" x2="520" y2="246" stroke="#1A1A18" stroke-opacity=".06"/><text x="520" y="264" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">Lu</text><line x1="80" y1="36" x2="520" y2="36" stroke="#1A1A18" stroke-opacity="0.08"/><text x="72" y="40" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6F6F67" text-anchor="end">10×</text><line x1="80" y1="141" x2="520" y2="141" stroke="#1A1A18" stroke-opacity="0.25" stroke-dasharray="4 3"/><text x="72" y="145" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6F6F67" text-anchor="end">1×</text><line x1="80" y1="246" x2="520" y2="246" stroke="#1A1A18" stroke-opacity="0.08"/><text x="72" y="250" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6F6F67" text-anchor="end">0.1×</text><line x1="80" y1="36" x2="80" y2="246" stroke="#6F6F67"/><text x="18" y="141" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#6F6F67" text-anchor="middle" transform="rotate(-90 18 141)">sample / PAAS (log)</text><path d="M80 135.8 C83.9 135.6 105.9 137.1 113.8 134.7 C121.7 132.2 139.8 119.2 147.7 114.8 C155.6 110.3 173.6 102.2 181.5 96.9 C189.4 91.6 207.5 73.5 215.4 69.6 C223.3 65.7 241.3 63.8 249.2 63.3 C257.1 62.8 275.2 63.9 283.1 65.4 C291 66.9 309 73.2 316.9 75.9 C324.8 78.6 342.9 85.6 350.8 88.5 C358.7 91.4 376.7 98.4 384.6 101.1 C392.5 103.8 410.6 109.4 418.5 111.6 C426.4 113.8 444.4 118.3 452.3 120 C460.2 121.7 478.3 125.1 486.2 126.3 C494.1 127.5 516.1 130 520 130.5" fill="none" stroke="#B85C30" stroke-width="2.2" stroke-linecap="round"/><circle cx="80" cy="135.8" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="113.8" cy="134.7" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="147.7" cy="114.8" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="181.5" cy="96.9" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="215.4" cy="69.6" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="249.2" cy="63.3" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="283.1" cy="65.4" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="316.9" cy="75.9" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="350.8" cy="88.5" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="384.6" cy="101.1" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="418.5" cy="111.6" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="452.3" cy="120" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="486.2" cy="126.3" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><circle cx="520" cy="130.5" r="2.6" fill="#F2ECE0" stroke="#B85C30" stroke-width="1.3"/><path d="M80 143.1 C83.9 142.9 105.9 141.2 113.8 141 C121.7 140.8 139.8 141.1 147.7 141 C155.6 140.9 173.6 139.9 181.5 139.9 C189.4 139.9 207.5 141.2 215.4 141 C223.3 140.8 241.3 138 249.2 137.8 C257.1 137.7 275.2 139.6 283.1 139.9 C291 140.3 309 140.8 316.9 141 C324.8 141.2 342.9 142.1 350.8 142.1 C358.7 142.1 376.7 141.1 384.6 141 C392.5 140.9 410.6 140.8 418.5 141 C426.4 141.2 444.4 143 452.3 143.1 C460.2 143.2 478.3 142.3 486.2 142.1 C494.1 141.8 516.1 141.1 520 141" fill="none" stroke="#1A1A18" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 3"/><circle cx="80" cy="143.1" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="113.8" cy="141" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="147.7" cy="141" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="181.5" cy="139.9" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="215.4" cy="141" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="249.2" cy="137.8" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="283.1" cy="139.9" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="316.9" cy="141" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="350.8" cy="142.1" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="384.6" cy="141" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="418.5" cy="141" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="452.3" cy="143.1" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="486.2" cy="142.1" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><circle cx="520" cy="141" r="2.6" fill="#F2ECE0" stroke="#1A1A18" stroke-width="1.3"/><path d="M80 222.9 C83.9 223.9 105.9 232 113.8 231.3 C121.7 230.6 139.8 219 147.7 216.6 C155.6 214.2 173.6 212 181.5 210.3 C189.4 208.6 207.5 203.4 215.4 201.9 C223.3 200.4 241.3 198.7 249.2 197.7 C257.1 196.7 275.2 194.5 283.1 193.5 C291 192.5 309 190.3 316.9 189.3 C324.8 188.3 342.9 186.1 350.8 185.1 C358.7 184.1 376.7 181.6 384.6 180.9 C392.5 180.2 410.6 179.3 418.5 178.8 C426.4 178.3 444.4 177.2 452.3 176.7 C460.2 176.2 478.3 175.1 486.2 174.6 C494.1 174.1 516.1 172.7 520 172.5" fill="none" stroke="#3A6A8A" stroke-width="2.2" stroke-linecap="round"/><circle cx="80" cy="222.9" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="113.8" cy="231.3" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="147.7" cy="216.6" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="181.5" cy="210.3" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="215.4" cy="201.9" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="249.2" cy="197.7" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="283.1" cy="193.5" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="316.9" cy="189.3" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="350.8" cy="185.1" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="384.6" cy="180.9" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="418.5" cy="178.8" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="452.3" cy="176.7" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="486.2" cy="174.6" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><circle cx="520" cy="172.5" r="2.6" fill="#F2ECE0" stroke="#3A6A8A" stroke-width="1.3"/><line x1="548" y1="60" x2="574" y2="60" stroke="#B85C30" stroke-width="2.4"/><text x="582" y="64" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#1A1A18" text-anchor="start">phosphorites &amp;</text><text x="582" y="77" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#1A1A18" text-anchor="start">enriched argillites</text><line x1="548" y1="94" x2="574" y2="94" stroke="#1A1A18" stroke-width="2.4" stroke-dasharray="6 3"/><text x="582" y="98" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#1A1A18" text-anchor="start">pure argillites</text><line x1="548" y1="128" x2="574" y2="128" stroke="#3A6A8A" stroke-width="2.4"/><text x="582" y="132" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#1A1A18" text-anchor="start">carbonates</text><text x="704" y="290" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#6F6F67" text-anchor="end">SCHEMATIC — SHAPES ONLY</text></svg>
+      </div>
+      <div class="figure-caption">FIG. 1 — The three pattern shapes found in the Kalyus Beds (normalised REE, schematic): a middle-REE bulge in phosphorites and enriched argillites, a flat crust-like pattern in pure argillites, and a light-REE-depleted, seawater-like pattern in carbonates.</div>
+    </div>
+
+<ul>
+  <li><strong>Phosphorites and enriched argillites</strong> show a pronounced middle-REE bulge — the fingerprint of strong REE uptake during diagenesis. Their REE track phosphorus closely, so the enrichment is controlled by apatite. Y/Ho ratios mostly below 35 indicate that more than 90% of the REE came from land-derived (lithogenous) sources.</li>
+  <li><strong>Pure argillites</strong> have flat patterns similar to the average upper continental crust. Their REE sit in detrital clay and silt eroded from felsic to mafic rocks of neighbouring Baltica — plausibly the Ukrainian Shield and the Volyn-Brest flood-basalt province.</li>
+  <li><strong>Carbonates</strong> show light-REE depletion and Y/Ho ratios up to 53 — they preserve a mainly seawater-derived signal.</li>
+</ul>
+
+<h2>A window of low oxygen</h2>
+
+<p>Cerium behaves differently from the other REE when oxygen is present, so the cerium anomaly (Ce/Ce*) is a useful redox indicator. Values of 0.80–1.02 point to <strong>suboxic to anoxic seawater</strong> while the Kalyus Beds were deposited. Because oxic conditions were widespread on the shallow margins of Baltica at that time, we interpreted this as a local and temporary anoxic episode; how it relates to other late Ediacaran anoxic events deserved further study (and was followed up in our <a href="kalyus-beds-551-million-years.html">2021 paper on the age of the Kalyus Beds</a>).</p>
+
+<h2>A potential resource</h2>
+
+<p>Total REE contents in the phosphorites and enriched argillites are high — <strong>793 to 1735 ppm</strong>, with a particular enrichment in the middle REE — and comparable to other phosphorite deposits around the world. The host rock contains less (198–296 ppm), but whole-rock open-pit extraction might still be feasible. More work is needed to identify economically viable areas.</p>
+
+<h2>Why it matters</h2>
+
+<p>As demand for rare earth elements grows each year, sedimentary phosphorites are attracting attention as alternative sources. The Kalyus Beds show that the Ediacaran succession of Moldova is worth a closer look — both as an archive of ancient ocean chemistry and as a possible exploration target.</p>
+
+    <div class="key-terms">
+      <div class="key-terms-header">KEY TERMS</div>
+      <div class="key-terms-body">
+        <div class="key-term"><span class="key-term-word">REE pattern</span><span class="key-term-def">Concentrations of the rare earth elements, normalised to a reference, plotted in atomic order; its shape reveals sources and processes.</span></div>
+        <div class="key-term"><span class="key-term-word">Ce anomaly</span><span class="key-term-def">Cerium depleted relative to its neighbours; a sign of oxygenated water. Values near 1 suggest low oxygen.</span></div>
+        <div class="key-term"><span class="key-term-word">Y/Ho ratio</span><span class="key-term-def">Seawater has high Y/Ho; values near crustal ratios point to land-derived material.</span></div>
+        <div class="key-term"><span class="key-term-word">Diagenetic uptake</span><span class="key-term-def">Incorporation of elements into minerals after deposition, from pore waters.</span></div>
+        <div class="key-term"><span class="key-term-word">Argillite</span><span class="key-term-def">A hardened mudstone or claystone.</span></div>
+      </div>
+    </div>
+
+    <div class="paper-box">
+      <div class="paper-box-header">THE PAPER</div>
+      <div class="paper-box-body">
+        <p class="paper-cite">Francovschi, I., Grădinaru, E., Roban, R.D., Ducea, M.N., Ciobotaru, V., Shumlyanskyy, L. (2020). Rare earth element (REE) enrichment of the late Ediacaran Kalyus Beds (East European Platform) through diagenetic uptake. <em>Geochemistry</em> 80, 125612.</p>
+        <div class="pub-links"><a href="https://doi.org/10.1016/j.chemer.2020.125612" target="_blank" rel="noopener">READ THE PAPER ↗</a><button type="button" class="pub-cite" data-bib="@article{Francovschi_2020,
+  title={Rare earth element (REE) enrichment of the late Ediacaran Kalyus Beds (East European Platform) through diagenetic uptake},
+  volume={80},
+  ISSN={0009-2819},
+  url={http://dx.doi.org/10.1016/j.chemer.2020.125612},
+  DOI={10.1016/j.chemer.2020.125612},
+  number={2},
+  journal={Geochemistry},
+  publisher={Elsevier BV},
+  author={Francovschi, Ion and Grădinaru, Eugen and Roban, Relu-Dumitru and Ducea, Mihai N. and Ciobotaru, Valerian and Shumlyanskyy, Leonid},
+  year={2020},
+  month=May,
+  pages={125612}
+}">CITE · BibTeX</button></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<!-- ARTICLE FOOTER -->
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">◄ NEWER</div>
+      <div class="article-footer-box-body"><a href="kalyus-beds-551-million-years.html">Putting a date on the Kalyus Beds: a 551-million-year-old volcanic signal</a></div>
+    </div>
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">OLDER →</div>
+      <div class="article-footer-box-body">This is the oldest paper here. <a href="index.html">← All papers</a></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-txt">
+    © 2026 ION FRANCOVSCHI — PHD EARTH SCIENCES<br>
+    <span class="dim">EDIACARAN · CAMBRIAN · BALTICA · EEP</span>
+  </div>
+  <div class="footer-txt" style="text-align:right;">
+    <span class="dim">STATIC HTML · VERCEL</span>
+  </div>
+</footer>
+
+<script src="../js/theme.js"></script>
+<script>
+document.querySelectorAll('.pub-cite').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var label = b.textContent;
+    var done = function () { b.textContent = 'COPIED ✓'; b.classList.add('copied');
+      setTimeout(function () { b.textContent = label; b.classList.remove('copied'); }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.bib).then(done, function () { window.prompt('Copy citation:', b.dataset.bib); });
+    else window.prompt('Copy citation:', b.dataset.bib);
+  });
+});
+</script>
+</body>
+</html>

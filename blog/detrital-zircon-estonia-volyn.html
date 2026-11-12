@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Following the sand: how sediment sources across Baltica changed from the Ediacaran to the Cambrian — Ion Francovschi</title>
+<meta name="description" content="Zircon ages from drill cores in Estonia and the Volyn region of Ukraine show Baltica&#x27;s margins switching from quiet passive margins to collision zones.">
+<link rel="canonical" href="https://francovschi.vercel.app/blog/detrital-zircon-estonia-volyn.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ion Francovschi">
+<meta property="og:title" content="Following the sand: how sediment sources across Baltica changed from the Ediacaran to the Cambrian — Ion Francovschi">
+<meta property="og:description" content="Zircon ages from drill cores in Estonia and the Volyn region of Ukraine show Baltica&#x27;s margins switching from quiet passive margins to collision zones.">
+<meta property="og:url" content="https://francovschi.vercel.app/blog/detrital-zircon-estonia-volyn.html">
+<meta property="og:image" content="https://francovschi.vercel.app/img/francovschi.jpg">
+<meta property="og:image:alt" content="Portrait of Ion Francovschi">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f5f0e8">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ── LIGHT MODE ── */
+:root {
+  --cream: #F5F0E8;
+  --paper: #FDFAF5;
+  --ink: #1A1A18;
+  --ink2: #3D3D38;
+  --ink3: #7A7A72;
+  --rust: #B85C30;
+  --rust-lt: #E8956A;
+  --sage: #5A7A5A;
+  --stone: #8A8278;
+  --border: 2px solid #1A1A18;
+  --border-thin: 1px solid #1A1A18;
+}
+
+/* ── DARK MODE ── */
+html.dark {
+  --cream: #1C1F24;
+  --paper: #22262D;
+  --ink: #E4DED2;
+  --ink2: #C0BAB0;
+  --ink3: #8A8478;
+  --rust: #D4784A;
+  --rust-lt: #E8956A;
+  --sage: #7AAA7A;
+  --stone: #6A6460;
+  --border: 2px solid #5A5450;
+  --border-thin: 1px solid #4A4440;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  transition: background 0.2s, color 0.2s;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,26,24,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,26,24,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+}
+
+.nav-logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-logo span { color: var(--rust); }
+
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links a {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink2);
+  text-decoration: none;
+  padding: 0 1rem;
+  border-left: var(--border-thin);
+  height: 56px;
+  line-height: 56px;
+  transition: background 0.1s, color 0.1s;
+}
+.nav-links a:hover, .nav-links a.active { background: var(--ink); color: var(--cream); }
+
+#theme-toggle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  padding: 0 14px;
+  height: 56px;
+  border: none;
+  border-left: var(--border-thin);
+  background: transparent;
+  color: var(--ink3);
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+#theme-toggle:hover { background: var(--ink); color: var(--cream); }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: var(--border);
+  padding: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+section { position: relative; z-index: 1; }
+
+/* ARTICLE HEADER */
+.article-header {
+  border-bottom: var(--border);
+  background: var(--paper);
+  padding: 4rem 2rem 0;
+}
+
+.article-header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.article-breadcrumb {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.article-breadcrumb a { color: var(--rust); text-decoration: none; }
+.article-breadcrumb a:hover { text-decoration: underline; }
+
+.article-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 5px 10px;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(14px, 2.5vw, 22px);
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.article-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.2rem 0;
+  border-top: var(--border-thin);
+  margin-top: 1rem;
+}
+
+.article-meta-item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--stone);
+  line-height: 1.8;
+}
+
+.article-meta-item span { color: var(--ink2); display: block; }
+
+/* HERO IMAGE */
+.article-hero-img {
+  border-bottom: var(--border);
+  overflow: hidden;
+  max-height: 380px;
+}
+.article-hero-img svg { display: block; width: 100%; }
+
+/* ARTICLE BODY */
+.article-body {
+  padding: 4rem 2rem;
+}
+
+.article-body-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Typography */
+.article-body p {
+  font-size: 16px;
+  color: var(--ink2);
+  line-height: 1.95;
+  margin-bottom: 1.6rem;
+}
+
+.article-body h2 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(11px, 1.6vw, 14px);
+  color: var(--ink);
+  line-height: 1.8;
+  margin: 3rem 0 1.2rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--rust);
+}
+
+.article-body h3 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 2.2rem 0 0.8rem;
+}
+
+/* Pullquote */
+.pullquote {
+  border: var(--border);
+  padding: 2rem 2rem 2rem 1.6rem;
+  border-left: 6px solid var(--rust);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+
+.pullquote p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px !important;
+  font-style: italic;
+  color: var(--ink) !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.7 !important;
+}
+
+.pullquote cite {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--rust);
+  font-style: normal;
+}
+
+/* Inline figure with SVG diagram */
+.figure {
+  border: var(--border);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+
+.figure-img { border-bottom: var(--border-thin); overflow: hidden; }
+.figure-img svg { display: block; width: 100%; }
+
+.figure-caption {
+  padding: 0.8rem 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+/* Key terms box */
+.key-terms {
+  border: var(--border);
+  margin: 2.5rem 0;
+}
+
+.key-terms-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+
+.key-terms-body { padding: 1.2rem 1.4rem; }
+
+.key-term {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: var(--border-thin);
+  font-size: 14px;
+}
+.key-term:last-child { border-bottom: none; }
+
+.key-term-word {
+  font-weight: 700;
+  color: var(--rust);
+  font-style: italic;
+}
+
+.key-term-def { color: var(--ink2); }
+
+/* Strat table */
+.strat-table {
+  border: var(--border);
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 13px;
+}
+
+.strat-table th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 10px 12px;
+  text-align: left;
+  border-right: var(--border-thin);
+  letter-spacing: 0.08em;
+}
+
+.strat-table td {
+  padding: 10px 12px;
+  border-bottom: var(--border-thin);
+  border-right: var(--border-thin);
+  color: var(--ink2);
+  vertical-align: top;
+}
+
+.strat-table tr:last-child td { border-bottom: none; }
+.strat-table td:last-child,
+.strat-table th:last-child { border-right: none; }
+
+.strat-table tr:hover td { background: var(--paper); }
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #1A1A18;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Article footer / next steps */
+.article-footer {
+  border-top: var(--border);
+  padding: 3rem 2rem;
+  background: var(--paper);
+}
+
+.article-footer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.article-footer-box {
+  border: var(--border);
+}
+
+.article-footer-box-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+
+.article-footer-box-body {
+  padding: 1.2rem;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+
+.article-footer-box-body a {
+  color: var(--rust);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .article-body { padding: 2.5rem 1.2rem; }
+  .article-header { padding: 3rem 1.2rem 0; }
+  .article-footer { padding: 2rem 1.2rem; }
+  .article-footer-inner { grid-template-columns: 1fr; }
+  .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .key-term { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+</style>
+<!-- Google Analytics: replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VML6X1920W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VML6X1920W');
+</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../css/notebook.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Following the sand: how sediment sources across Baltica changed from the Ediacaran to the Cambrian", "url": "https://francovschi.vercel.app/blog/detrital-zircon-estonia-volyn.html", "author": {"@type": "Person", "name": "Ion Francovschi", "url": "https://francovschi.vercel.app/"}, "about": {"@type": "ScholarlyArticle", "sameAs": "https://doi.org/10.1016/j.precamres.2023.107087", "datePublished": "2023", "isPartOf": {"@type": "Periodical", "name": "Precambrian Research"}}}</script>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Ion <span>Francovschi</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">ABOUT</a></li>
+    <li><a href="../index.html#research">RESEARCH</a></li>
+    <li><a href="../index.html#publications">PAPERS</a></li>
+	<li><a href="index.html" class="active">BLOG</a></li>
+	<li><a href="../cv.html">CV</a></li>
+    <li><a href="../fieldwork.html">FIELD PICS</a></li>
+    <li><a href="../oilgas.html">O&amp;G PICS</a></li>
+    <li><a href="../index.html#contact">CONTACT</a></li>
+  </ul>
+  <button id="theme-toggle" aria-label="Toggle dark mode">☾ DARK</button>
+  <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="index.html">◄ BLOG</a>
+      <span>/</span>
+      <span>PROVENANCE</span>
+    </div>
+    <span class="article-tag">PROVENANCE</span>
+    <h1>Following the sand<br>across Baltica</h1>
+    <div class="article-meta-bar">
+      <div class="article-meta-item">PAPER<span>2023 · PRECAMBRIAN RESEARCH</span></div>
+      <div class="article-meta-item">MY ROLE<span>LEAD AUTHOR</span></div>
+      <div class="article-meta-item">READ TIME<span>~3 MINUTES</span></div>
+      <div class="article-meta-item">FORMAT<span>PLAIN-LANGUAGE SUMMARY</span></div>
+    </div>
+  </div>
+</div>
+
+<article class="article-body">
+  <div class="article-body-inner">
+
+    <p class="article-lede">Zircon ages from drill cores in Estonia and the Volyn region of Ukraine show Baltica's margins switching from quiet passive margins to collision zones.</p>
+
+    <p>Sand grains carry a memory of the rocks they eroded from. Among them, tiny crystals of zircon are especially useful: they survive transport and recycling, and each one can be dated. By comparing the ages of many detrital zircons, we can tell which mountain belts, shields or volcanic arcs were supplying sediment to a basin — and how that changed over time.</p>
+
+<p>In this study we used detrital zircon ages to reconstruct how the late Ediacaran to early Cambrian sedimentary basins of <strong>northwestern, western and southwestern Baltica</strong> evolved.</p>
+
+<h2>Samples and approach</h2>
+
+<p>We dated zircons by U–Pb LA-ICP-MS from <strong>three sandstone samples</strong> from a drill core in northeastern Estonia and <strong>four sandstone samples</strong> from three drill cores in the Volyn region of Ukraine. We then compared the resulting age patterns with published data from southwestern Ukraine and Moldova, eastern Poland, Belarus and northwestern Russia.</p>
+
+<div class="figure">
+      <div class="figure-img">
+        <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic map of Baltica with new sample areas in NE Estonia and Volyn, comparison regions, the Fennoscandian and Ukrainian shields, and orogens along the south-western and north-eastern margins"><rect width="720" height="300" fill="#F2ECE0"/><rect width="720" height="300" fill="#AFCBDA"/><path d="M250 40 C275.8 26.7 323.3 28 360 30 C396.7 32 436.7 42 470 52 C503.3 62 538.3 73.7 560 90 C581.7 106.3 596.7 130 600 150 C603.3 170 593.3 193.3 580 210 C566.7 226.7 546.7 240.3 520 250 C493.3 259.7 453.3 266 420 268 C386.7 270 350 268.3 320 262 C290 255.7 260 243.7 240 230 C220 216.3 205.8 200 200 180 C194.2 160 196.7 133.3 205 110 C213.3 86.7 224.2 53.3 250 40 Z" fill="#E8DCBC" stroke="#1A1A18" stroke-opacity=".5"/><path d="M210 196 C240 236 300 262 360 268" fill="none" stroke="#9A5A3A" stroke-width="12" stroke-opacity=".28" stroke-linecap="round"/><path d="M500 54 C560 82 600 130 604 168" fill="none" stroke="#9A5A3A" stroke-width="12" stroke-opacity=".28" stroke-linecap="round"/><text x="150" y="262" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#8E3F1C" text-anchor="start">pre-Scythides /</text><text x="150" y="274" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#8E3F1C" text-anchor="start">Santacrusades orogens</text><text x="612" y="70" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#8E3F1C" text-anchor="start">Timanian</text><text x="612" y="82" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#8E3F1C" text-anchor="start">Orogen</text><ellipse cx="300" cy="86" rx="62" ry="30" fill="#5A7A5A" fill-opacity=".18" stroke="#5A7A5A" stroke-dasharray="4 3"/><text x="300" y="90" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#5A7A5A" text-anchor="middle">Fennoscandian Shield</text><ellipse cx="420" cy="228" rx="64" ry="24" fill="#5A7A5A" fill-opacity=".18" stroke="#5A7A5A" stroke-dasharray="4 3"/><text x="420" y="232" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#5A7A5A" text-anchor="middle">Ukrainian Shield</text><circle cx="268" cy="128" r="6" fill="#B85C30" stroke="#B85C30" stroke-width="1.4"/><text x="278" y="132" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#B85C30" text-anchor="start" font-weight="600">NE Estonia</text><circle cx="350" cy="112" r="5" fill="#FDFAF5" stroke="#1A1A18" stroke-width="1.4"/><text x="360" y="116" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#1A1A18" text-anchor="start">NW Russia</text><circle cx="232" cy="168" r="5" fill="#FDFAF5" stroke="#1A1A18" stroke-width="1.4"/><text x="222" y="172" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#1A1A18" text-anchor="end">E Poland</text><circle cx="300" cy="172" r="5" fill="#FDFAF5" stroke="#1A1A18" stroke-width="1.4"/><text x="310" y="176" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#1A1A18" text-anchor="start">Belarus</text><circle cx="300" cy="206" r="6" fill="#B85C30" stroke="#B85C30" stroke-width="1.4"/><text x="290" y="210" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#B85C30" text-anchor="end" font-weight="600">Volyn</text><circle cx="330" cy="236" r="5" fill="#FDFAF5" stroke="#1A1A18" stroke-width="1.4"/><text x="320" y="240" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#1A1A18" text-anchor="end">SW Ukraine &amp; Moldova</text><text x="470" y="160" font-family="Fraunces, Georgia, serif" font-size="16" fill="#3D3220" text-anchor="middle" font-weight="600" letter-spacing="3">BALTICA</text><circle cx="40" cy="268" r="6" fill="#B85C30"/><text x="52" y="272" font-family="IBM Plex Mono, monospace" font-size="10" fill="#1A1A18" text-anchor="start">new samples</text><circle cx="150" cy="24" r="5" fill="#FDFAF5" stroke="#1A1A18"/><text x="160" y="28" font-family="IBM Plex Mono, monospace" font-size="10" fill="#1A1A18" text-anchor="start">published data</text><text x="704" y="292" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#2E4E62" text-anchor="end">SCHEMATIC · MODERN COORDINATES</text></svg>
+      </div>
+      <div class="figure-caption">FIG. 1 — Simplified sketch of Baltica in modern coordinates, showing the two new sampling areas (rust) and the regions used for comparison. Orogens grew along the south-western and north-eastern margins during the late Ediacaran–early Cambrian. Not to scale.</div>
+    </div>
+
+<h2>The big picture</h2>
+
+<p>All of these basins record the same overall transition: from a <strong>passive continental margin</strong> to <strong>collisional settings</strong>. The change was driven mainly by the pre-Scythides and Santacrusades orogenies along the south-southwestern margin of Baltica and, to a lesser extent, by the Timanian Orogeny along the north-northeastern and eastern margins (in modern coordinates).</p>
+
+<h2>Region by region</h2>
+
+<p><strong>Southwestern Baltica (Moldova-Podillya-Volyn).</strong> The basin started on a flattened Precambrian basement in the distal part of a foreland basin, fed steadily by the nearby <em>Ukrainian Shield</em>. Later in the Redkino stage, volcanic ash arrived from arcs close to — but separate from — Baltica. As the forebulge migrated, the basin briefly emerged, then subsided again into a foredeep in the Kotlin stage. The sediment supply shifted back and forth between the Ukrainian Shield and Fennoscandia.</p>
+
+<p><strong>Northwestern Russia.</strong> Sediment first came from <em>Fennoscandia</em>; from the Dominopol stage onward, the rising <em>Timanian Orogen</em> also fed the St Petersburg and White Sea areas.</p>
+
+<p><strong>Eastern Poland and Belarus.</strong> A bimodal zircon age pattern reflects short-distance transport from the local basement. It became polymodal during the Dominopol stage, when major tectonic changes reorganised the drainage system.</p>
+
+<p><strong>Estonia.</strong> The most stable record of all. From the Kotlin to the early Cambrian Lontova horizons, sediment came almost entirely from the Precambrian basement — the Svecofennian orogen (ca. 1900–1800 Ma) and ca. 1700–1500 Ma rapakivi-type intrusions of southwestern Fennoscandia. The source stayed the same for nearly 50 million years, until new magmatic-arc sources appeared in the upper Dominopol horizon.</p>
+
+<h2>Why it matters</h2>
+
+<p>Baltica was the core of what became Europe. Knowing when and how its quiet margins turned into active, collisional ones helps place the Ediacaran–Cambrian sedimentary record — and the fossils it contains — in its tectonic context, and makes correlation between basins across the continent far more reliable.</p>
+
+    <div class="key-terms">
+      <div class="key-terms-header">KEY TERMS</div>
+      <div class="key-terms-body">
+        <div class="key-term"><span class="key-term-word">Detrital zircon</span><span class="key-term-def">Durable zircon grains eroded from older rocks; their ages fingerprint the source area.</span></div>
+        <div class="key-term"><span class="key-term-word">Passive margin</span><span class="key-term-def">A continental edge without an active plate boundary, with slow subsidence and steady sedimentation.</span></div>
+        <div class="key-term"><span class="key-term-word">Foreland basin</span><span class="key-term-def">A basin that forms in front of a growing mountain belt as the crust is loaded and flexed.</span></div>
+        <div class="key-term"><span class="key-term-word">Forebulge</span><span class="key-term-def">A gentle upward flexure of the crust ahead of a foreland basin; it can lift a basin above sea level as it migrates.</span></div>
+        <div class="key-term"><span class="key-term-word">Regional horizons</span><span class="key-term-def">Local stratigraphic units of the East European Platform (Redkino, Kotlin, Rivne, Dominopol, Lontova…).</span></div>
+      </div>
+    </div>
+
+    <div class="paper-box">
+      <div class="paper-box-header">THE PAPER</div>
+      <div class="paper-box-body">
+        <p class="paper-cite">Francovschi, I., Shumlyanskyy, L., Soesoo, A., Tarasko, I., Melnychuk, V., Hoffmann, A., Kovalick, A., Love, G., Bekker, A. (2023). U–Pb geochronology of detrital zircon from the Ediacaran and Cambrian sedimentary successions of NE Estonia and Volyn region of Ukraine: implications for the provenance and comparison with other areas within Baltica. <em>Precambrian Research</em> 392, 107087.</p>
+        <div class="pub-links"><a href="https://doi.org/10.1016/j.precamres.2023.107087" target="_blank" rel="noopener">READ THE PAPER ↗</a><button type="button" class="pub-cite" data-bib="@article{Francovschi_2023,
+  title={U–Pb geochronology of detrital zircon from the Ediacaran and Cambrian sedimentary successions of NE Estonia and Volyn region of Ukraine: Implications for the provenance and comparison with other areas within Baltica},
+  volume={392},
+  ISSN={0301-9268},
+  url={http://dx.doi.org/10.1016/j.precamres.2023.107087},
+  DOI={10.1016/j.precamres.2023.107087},
+  journal={Precambrian Research},
+  publisher={Elsevier BV},
+  author={Francovschi, Ion and Shumlyanskyy, Leonid and Soesoo, Alvar and Tarasko, Iryna and Melnychuk, Viktor and Hoffmann, Adam and Kovalick, Alex and Love, Gordon and Bekker, Andrey},
+  year={2023},
+  month=July,
+  pages={107087}
+}">CITE · BibTeX</button></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<!-- ARTICLE FOOTER -->
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">◄ NEWER</div>
+      <div class="article-footer-box-body"><a href="glacial-or-alluvial-moldova-podillya.html">Ice or rivers? Testing a disputed Ediacaran glacial deposit with zircon</a></div>
+    </div>
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">OLDER →</div>
+      <div class="article-footer-box-body"><a href="kalyus-beds-551-million-years.html">Putting a date on the Kalyus Beds: a 551-million-year-old volcanic signal</a></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-txt">
+    © 2026 ION FRANCOVSCHI — PHD EARTH SCIENCES<br>
+    <span class="dim">EDIACARAN · CAMBRIAN · BALTICA · EEP</span>
+  </div>
+  <div class="footer-txt" style="text-align:right;">
+    <span class="dim">STATIC HTML · VERCEL</span>
+  </div>
+</footer>
+
+<script src="../js/theme.js"></script>
+<script>
+document.querySelectorAll('.pub-cite').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var label = b.textContent;
+    var done = function () { b.textContent = 'COPIED ✓'; b.classList.add('copied');
+      setTimeout(function () { b.textContent = label; b.classList.remove('copied'); }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.bib).then(done, function () { window.prompt('Copy citation:', b.dataset.bib); });
+    else window.prompt('Copy citation:', b.dataset.bib);
+  });
+});
+</script>
+</body>
+</html>

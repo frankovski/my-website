@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Putting a date on the Kalyus Beds: a 551-million-year-old volcanic signal — Ion Francovschi</title>
+<meta name="description" content="The youngest zircons in the Kalyus black argillites date them to about 551 million years — calibrating the Ediacaran biota of the Moldova-Podillya Basin.">
+<link rel="canonical" href="https://francovschi.vercel.app/blog/kalyus-beds-551-million-years.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ion Francovschi">
+<meta property="og:title" content="Putting a date on the Kalyus Beds: a 551-million-year-old volcanic signal — Ion Francovschi">
+<meta property="og:description" content="The youngest zircons in the Kalyus black argillites date them to about 551 million years — calibrating the Ediacaran biota of the Moldova-Podillya Basin.">
+<meta property="og:url" content="https://francovschi.vercel.app/blog/kalyus-beds-551-million-years.html">
+<meta property="og:image" content="https://francovschi.vercel.app/img/francovschi.jpg">
+<meta property="og:image:alt" content="Portrait of Ion Francovschi">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f5f0e8">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ── LIGHT MODE ── */
+:root {
+  --cream: #F5F0E8;
+  --paper: #FDFAF5;
+  --ink: #1A1A18;
+  --ink2: #3D3D38;
+  --ink3: #7A7A72;
+  --rust: #B85C30;
+  --rust-lt: #E8956A;
+  --sage: #5A7A5A;
+  --stone: #8A8278;
+  --border: 2px solid #1A1A18;
+  --border-thin: 1px solid #1A1A18;
+}
+
+/* ── DARK MODE ── */
+html.dark {
+  --cream: #1C1F24;
+  --paper: #22262D;
+  --ink: #E4DED2;
+  --ink2: #C0BAB0;
+  --ink3: #8A8478;
+  --rust: #D4784A;
+  --rust-lt: #E8956A;
+  --sage: #7AAA7A;
+  --stone: #6A6460;
+  --border: 2px solid #5A5450;
+  --border-thin: 1px solid #4A4440;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  transition: background 0.2s, color 0.2s;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,26,24,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,26,24,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+}
+
+.nav-logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-logo span { color: var(--rust); }
+
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links a {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink2);
+  text-decoration: none;
+  padding: 0 1rem;
+  border-left: var(--border-thin);
+  height: 56px;
+  line-height: 56px;
+  transition: background 0.1s, color 0.1s;
+}
+.nav-links a:hover, .nav-links a.active { background: var(--ink); color: var(--cream); }
+
+#theme-toggle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  padding: 0 14px;
+  height: 56px;
+  border: none;
+  border-left: var(--border-thin);
+  background: transparent;
+  color: var(--ink3);
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+#theme-toggle:hover { background: var(--ink); color: var(--cream); }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: var(--border);
+  padding: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+section { position: relative; z-index: 1; }
+
+/* ARTICLE HEADER */
+.article-header {
+  border-bottom: var(--border);
+  background: var(--paper);
+  padding: 4rem 2rem 0;
+}
+
+.article-header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.article-breadcrumb {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.article-breadcrumb a { color: var(--rust); text-decoration: none; }
+.article-breadcrumb a:hover { text-decoration: underline; }
+
+.article-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 5px 10px;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(14px, 2.5vw, 22px);
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.article-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.2rem 0;
+  border-top: var(--border-thin);
+  margin-top: 1rem;
+}
+
+.article-meta-item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--stone);
+  line-height: 1.8;
+}
+
+.article-meta-item span { color: var(--ink2); display: block; }
+
+/* HERO IMAGE */
+.article-hero-img {
+  border-bottom: var(--border);
+  overflow: hidden;
+  max-height: 380px;
+}
+.article-hero-img svg { display: block; width: 100%; }
+
+/* ARTICLE BODY */
+.article-body {
+  padding: 4rem 2rem;
+}
+
+.article-body-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Typography */
+.article-body p {
+  font-size: 16px;
+  color: var(--ink2);
+  line-height: 1.95;
+  margin-bottom: 1.6rem;
+}
+
+.article-body h2 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(11px, 1.6vw, 14px);
+  color: var(--ink);
+  line-height: 1.8;
+  margin: 3rem 0 1.2rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--rust);
+}
+
+.article-body h3 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 2.2rem 0 0.8rem;
+}
+
+/* Pullquote */
+.pullquote {
+  border: var(--border);
+  padding: 2rem 2rem 2rem 1.6rem;
+  border-left: 6px solid var(--rust);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+
+.pullquote p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px !important;
+  font-style: italic;
+  color: var(--ink) !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.7 !important;
+}
+
+.pullquote cite {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--rust);
+  font-style: normal;
+}
+
+/* Inline figure with SVG diagram */
+.figure {
+  border: var(--border);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+
+.figure-img { border-bottom: var(--border-thin); overflow: hidden; }
+.figure-img svg { display: block; width: 100%; }
+
+.figure-caption {
+  padding: 0.8rem 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+/* Key terms box */
+.key-terms {
+  border: var(--border);
+  margin: 2.5rem 0;
+}
+
+.key-terms-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+
+.key-terms-body { padding: 1.2rem 1.4rem; }
+
+.key-term {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: var(--border-thin);
+  font-size: 14px;
+}
+.key-term:last-child { border-bottom: none; }
+
+.key-term-word {
+  font-weight: 700;
+  color: var(--rust);
+  font-style: italic;
+}
+
+.key-term-def { color: var(--ink2); }
+
+/* Strat table */
+.strat-table {
+  border: var(--border);
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 13px;
+}
+
+.strat-table th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 10px 12px;
+  text-align: left;
+  border-right: var(--border-thin);
+  letter-spacing: 0.08em;
+}
+
+.strat-table td {
+  padding: 10px 12px;
+  border-bottom: var(--border-thin);
+  border-right: var(--border-thin);
+  color: var(--ink2);
+  vertical-align: top;
+}
+
+.strat-table tr:last-child td { border-bottom: none; }
+.strat-table td:last-child,
+.strat-table th:last-child { border-right: none; }
+
+.strat-table tr:hover td { background: var(--paper); }
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #1A1A18;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Article footer / next steps */
+.article-footer {
+  border-top: var(--border);
+  padding: 3rem 2rem;
+  background: var(--paper);
+}
+
+.article-footer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.article-footer-box {
+  border: var(--border);
+}
+
+.article-footer-box-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+
+.article-footer-box-body {
+  padding: 1.2rem;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+
+.article-footer-box-body a {
+  color: var(--rust);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .article-body { padding: 2.5rem 1.2rem; }
+  .article-header { padding: 3rem 1.2rem 0; }
+  .article-footer { padding: 2rem 1.2rem; }
+  .article-footer-inner { grid-template-columns: 1fr; }
+  .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .key-term { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+</style>
+<!-- Google Analytics: replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VML6X1920W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VML6X1920W');
+</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../css/notebook.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Putting a date on the Kalyus Beds: a 551-million-year-old volcanic signal", "url": "https://francovschi.vercel.app/blog/kalyus-beds-551-million-years.html", "author": {"@type": "Person", "name": "Ion Francovschi", "url": "https://francovschi.vercel.app/"}, "about": {"@type": "ScholarlyArticle", "sameAs": "https://doi.org/10.1016/j.precamres.2020.106062", "datePublished": "2021", "isPartOf": {"@type": "Periodical", "name": "Precambrian Research"}}}</script>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Ion <span>Francovschi</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">ABOUT</a></li>
+    <li><a href="../index.html#research">RESEARCH</a></li>
+    <li><a href="../index.html#publications">PAPERS</a></li>
+	<li><a href="index.html" class="active">BLOG</a></li>
+	<li><a href="../cv.html">CV</a></li>
+    <li><a href="../fieldwork.html">FIELD PICS</a></li>
+    <li><a href="../oilgas.html">O&amp;G PICS</a></li>
+    <li><a href="../index.html#contact">CONTACT</a></li>
+  </ul>
+  <button id="theme-toggle" aria-label="Toggle dark mode">☾ DARK</button>
+  <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="index.html">◄ BLOG</a>
+      <span>/</span>
+      <span>GEOCHRONOLOGY</span>
+    </div>
+    <span class="article-tag">GEOCHRONOLOGY</span>
+    <h1>Putting a date on<br>the Kalyus Beds</h1>
+    <div class="article-meta-bar">
+      <div class="article-meta-item">PAPER<span>2021 · PRECAMBRIAN RESEARCH</span></div>
+      <div class="article-meta-item">MY ROLE<span>LEAD AUTHOR</span></div>
+      <div class="article-meta-item">READ TIME<span>~3 MINUTES</span></div>
+      <div class="article-meta-item">FORMAT<span>PLAIN-LANGUAGE SUMMARY</span></div>
+    </div>
+  </div>
+</div>
+
+<article class="article-body">
+  <div class="article-body-inner">
+
+    <p class="article-lede">The youngest zircons in the Kalyus black argillites date them to about 551 million years — calibrating the Ediacaran biota of the Moldova-Podillya Basin.</p>
+
+    <p>The Moldova-Podillya Basin is remarkable for its Ediacaran fossils. But to compare them with fossils elsewhere, we need to know <em>when</em> the rocks were deposited. This paper provides a new age for one of the key units: the <strong>Kalyus Beds</strong> of the Nagoryany Formation in northeastern Moldova.</p>
+
+<p>The Kalyus Beds are black argillites rich in organic matter, with phosphorite and calcareous concretions. They record low-oxygen (anoxic) conditions on the sea floor, and near their base they contain layers of volcanic tuffite.</p>
+
+<h2>Dating the sediment</h2>
+
+<p>We dated detrital zircons from the argillites by U–Pb LA-ICP-MS. The ages fall into four clusters: about <strong>1945, 1780, 1525 and 551 Ma</strong>.</p>
+
+<div class="figure">
+      <div class="figure-img">
+        <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schematic detrital zircon age distribution of the Kalyus Beds with peaks near 551, 1525, 1780 and 1945 million years"><rect width="720" height="300" fill="#F2ECE0"/><line x1="60" y1="34" x2="60" y2="240" stroke="#1A1A18" stroke-opacity=".06"/><text x="60" y="258" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">0</text><line x1="174.5" y1="34" x2="174.5" y2="240" stroke="#1A1A18" stroke-opacity=".06"/><text x="174.5" y="258" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">400</text><line x1="289.1" y1="34" x2="289.1" y2="240" stroke="#1A1A18" stroke-opacity=".06"/><text x="289.1" y="258" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">800</text><line x1="403.6" y1="34" x2="403.6" y2="240" stroke="#1A1A18" stroke-opacity=".06"/><text x="403.6" y="258" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">1200</text><line x1="518.2" y1="34" x2="518.2" y2="240" stroke="#1A1A18" stroke-opacity=".06"/><text x="518.2" y="258" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">1600</text><line x1="632.7" y1="34" x2="632.7" y2="240" stroke="#1A1A18" stroke-opacity=".06"/><text x="632.7" y="258" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="middle">2000</text><line x1="60" y1="240" x2="690" y2="240" stroke="#6F6F67"/><path d="M60 240 L62.9 240 L65.7 240 L68.6 240 L71.5 240 L74.3 240 L77.2 240 L80 240 L82.9 240 L85.8 240 L88.6 240 L91.5 240 L94.4 240 L97.2 240 L100.1 240 L103 240 L105.8 240 L108.7 240 L111.5 240 L114.4 240 L117.3 240 L120.1 240 L123 240 L125.9 240 L128.7 240 L131.6 240 L134.5 240 L137.3 240 L140.2 240 L143 240 L145.9 240 L148.8 240 L151.6 240 L154.5 240 L157.4 240 L160.2 240 L163.1 240 L166 240 L168.8 240 L171.7 240 L174.5 240 L177.4 240 L180.3 240 L183.1 240 L186 240 L188.9 240 L191.7 240 L194.6 239.8 L197.5 238.9 L200.3 235.7 L203.2 226.4 L206 204.8 L208.9 165.9 L211.8 113.2 L214.6 63.5 L217.5 40.2 L220.4 56.1 L223.2 102.3 L226.1 156.1 L229 198.4 L231.8 223.3 L234.7 234.5 L237.5 238.5 L240.4 239.7 L243.3 239.9 L246.1 240 L249 240 L251.9 240 L254.7 240 L257.6 240 L260.5 240 L263.3 240 L266.2 240 L269 240 L271.9 240 L274.8 240 L277.6 240 L280.5 240 L283.4 240 L286.2 240 L289.1 240 L292 240 L294.8 240 L297.7 240 L300.5 240 L303.4 240 L306.3 240 L309.1 240 L312 240 L314.9 240 L317.7 240 L320.6 240 L323.5 240 L326.3 240 L329.2 240 L332 240 L334.9 240 L337.8 240 L340.6 240 L343.5 240 L346.4 240 L349.2 240 L352.1 240 L355 240 L357.8 240 L360.7 240 L363.5 240 L366.4 240 L369.3 240 L372.1 240 L375 240 L377.9 240 L380.7 240 L383.6 240 L386.5 240 L389.3 240 L392.2 240 L395 240 L397.9 240 L400.8 240 L403.6 240 L406.5 240 L409.4 240 L412.2 240 L415.1 240 L418 240 L420.8 240 L423.7 240 L426.5 240 L429.4 240 L432.3 240 L435.1 240 L438 240 L440.9 240 L443.7 240 L446.6 240 L449.5 239.9 L452.3 239.8 L455.2 239.5 L458 239.1 L460.9 238.2 L463.8 236.8 L466.6 234.5 L469.5 231 L472.4 225.9 L475.2 219.1 L478.1 210.4 L481 200.2 L483.8 189.1 L486.7 177.9 L489.5 168 L492.4 160.5 L495.3 156.5 L498.1 156.5 L501 160.5 L503.9 168 L506.7 177.9 L509.6 189.1 L512.5 200.2 L515.3 210.4 L518.2 219.1 L521 225.9 L523.9 231 L526.8 234.5 L529.6 236.8 L532.5 238.2 L535.4 239.1 L538.2 239.5 L541.1 239.7 L544 239.7 L546.8 239.2 L549.7 237.5 L552.5 232.9 L555.4 223 L558.3 205.2 L561.1 179.1 L564 149 L566.9 124 L569.7 113.5 L572.6 121.6 L575.5 144 L578.3 170.9 L581.2 193 L584 205.7 L586.9 209.3 L589.8 206.1 L592.6 198.9 L595.5 189.4 L598.4 178.8 L601.2 167.7 L604.1 157 L607 147.2 L609.8 139.1 L612.7 133.4 L615.5 130.4 L618.4 130.4 L621.3 133.4 L624.1 139.1 L627 147.2 L629.9 157 L632.7 167.7 L635.6 178.8 L638.5 189.6 L641.3 199.7 L644.2 208.6 L647 216.2 L649.9 222.5 L652.8 227.4 L655.6 231.2 L658.5 234.1 L661.4 236.1 L664.2 237.5 L667.1 238.4 L670 239.1 L672.8 239.4 L675.7 239.7 L678.5 239.8 L681.4 239.9 L684.3 239.9 L687.1 240 L690 240 L690 240 L60 240 Z" fill="#5A7A5A" fill-opacity=".14"/><path d="M60 240 L62.9 240 L65.7 240 L68.6 240 L71.5 240 L74.3 240 L77.2 240 L80 240 L82.9 240 L85.8 240 L88.6 240 L91.5 240 L94.4 240 L97.2 240 L100.1 240 L103 240 L105.8 240 L108.7 240 L111.5 240 L114.4 240 L117.3 240 L120.1 240 L123 240 L125.9 240 L128.7 240 L131.6 240 L134.5 240 L137.3 240 L140.2 240 L143 240 L145.9 240 L148.8 240 L151.6 240 L154.5 240 L157.4 240 L160.2 240 L163.1 240 L166 240 L168.8 240 L171.7 240 L174.5 240 L177.4 240 L180.3 240 L183.1 240 L186 240 L188.9 240 L191.7 240 L194.6 239.8 L197.5 238.9 L200.3 235.7 L203.2 226.4 L206 204.8 L208.9 165.9 L211.8 113.2 L214.6 63.5 L217.5 40.2 L220.4 56.1 L223.2 102.3 L226.1 156.1 L229 198.4 L231.8 223.3 L234.7 234.5 L237.5 238.5 L240.4 239.7 L243.3 239.9 L246.1 240 L249 240 L251.9 240 L254.7 240 L257.6 240 L260.5 240 L263.3 240 L266.2 240 L269 240 L271.9 240 L274.8 240 L277.6 240 L280.5 240 L283.4 240 L286.2 240 L289.1 240 L292 240 L294.8 240 L297.7 240 L300.5 240 L303.4 240 L306.3 240 L309.1 240 L312 240 L314.9 240 L317.7 240 L320.6 240 L323.5 240 L326.3 240 L329.2 240 L332 240 L334.9 240 L337.8 240 L340.6 240 L343.5 240 L346.4 240 L349.2 240 L352.1 240 L355 240 L357.8 240 L360.7 240 L363.5 240 L366.4 240 L369.3 240 L372.1 240 L375 240 L377.9 240 L380.7 240 L383.6 240 L386.5 240 L389.3 240 L392.2 240 L395 240 L397.9 240 L400.8 240 L403.6 240 L406.5 240 L409.4 240 L412.2 240 L415.1 240 L418 240 L420.8 240 L423.7 240 L426.5 240 L429.4 240 L432.3 240 L435.1 240 L438 240 L440.9 240 L443.7 240 L446.6 240 L449.5 239.9 L452.3 239.8 L455.2 239.5 L458 239.1 L460.9 238.2 L463.8 236.8 L466.6 234.5 L469.5 231 L472.4 225.9 L475.2 219.1 L478.1 210.4 L481 200.2 L483.8 189.1 L486.7 177.9 L489.5 168 L492.4 160.5 L495.3 156.5 L498.1 156.5 L501 160.5 L503.9 168 L506.7 177.9 L509.6 189.1 L512.5 200.2 L515.3 210.4 L518.2 219.1 L521 225.9 L523.9 231 L526.8 234.5 L529.6 236.8 L532.5 238.2 L535.4 239.1 L538.2 239.5 L541.1 239.7 L544 239.7 L546.8 239.2 L549.7 237.5 L552.5 232.9 L555.4 223 L558.3 205.2 L561.1 179.1 L564 149 L566.9 124 L569.7 113.5 L572.6 121.6 L575.5 144 L578.3 170.9 L581.2 193 L584 205.7 L586.9 209.3 L589.8 206.1 L592.6 198.9 L595.5 189.4 L598.4 178.8 L601.2 167.7 L604.1 157 L607 147.2 L609.8 139.1 L612.7 133.4 L615.5 130.4 L618.4 130.4 L621.3 133.4 L624.1 139.1 L627 147.2 L629.9 157 L632.7 167.7 L635.6 178.8 L638.5 189.6 L641.3 199.7 L644.2 208.6 L647 216.2 L649.9 222.5 L652.8 227.4 L655.6 231.2 L658.5 234.1 L661.4 236.1 L664.2 237.5 L667.1 238.4 L670 239.1 L672.8 239.4 L675.7 239.7 L678.5 239.8 L681.4 239.9 L684.3 239.9 L687.1 240 L690 240" fill="none" stroke="#1A1A18" stroke-width="1.6"/><path d="M169.8 240 L171.7 240 L174.5 240 L177.4 240 L180.3 240 L183.1 240 L186 240 L188.9 240 L191.7 240 L194.6 239.8 L197.5 238.9 L200.3 235.7 L203.2 226.4 L206 204.8 L208.9 165.9 L211.8 113.2 L214.6 63.5 L217.5 40.2 L220.4 56.1 L223.2 102.3 L226.1 156.1 L229 198.4 L231.8 223.3 L234.7 234.5 L237.5 238.5 L240.4 239.7 L243.3 239.9 L246.1 240 L249 240 L251.9 240 L254.7 240 L257.6 240 L260.5 240 L263.3 240 L265.8 240 Z" fill="#B85C30" fill-opacity=".35"/><text x="231.8" y="46" font-family="IBM Plex Mono, monospace" font-size="11.5" fill="#B85C30" text-anchor="start" font-weight="600">551.2 ± 4.2 Ma</text><text x="231.8" y="61" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#B85C30" text-anchor="start">volcanic arc · youngest cluster</text><text x="496.7" y="150" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#5A7A5A" text-anchor="middle">~1525</text><text x="569.7" y="112" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#5A7A5A" text-anchor="middle">~1780</text><text x="617" y="128" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#5A7A5A" text-anchor="middle">~1945</text><text x="561.1" y="70" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#5A7A5A" text-anchor="middle">East European Craton</text><text x="561.1" y="84" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#5A7A5A" text-anchor="middle">(Proterozoic crust)</text><text x="690" y="274" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="end">zircon age (Ma)</text><text x="704" y="292" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#6F6F67" text-anchor="end">SCHEMATIC</text></svg>
+      </div>
+      <div class="figure-caption">FIG. 1 — Schematic distribution of detrital zircon ages in the Kalyus Beds. Three older populations come from the Proterozoic crust of the East European Craton; the youngest, ca. 551 Ma, comes from contemporaneous volcanism. Peak heights are illustrative.</div>
+    </div>
+
+<p>The three older clusters match known rock units of the East European Platform: their hafnium isotope values point to distal sources in the Proterozoic crust of the craton. The youngest cluster, <strong>551.2 ± 4.2 Ma</strong>, is different. These zircons can be linked to arc-related volcanism — the same volcanism that delivered ash to the tuffite layers. Hafnium isotopes of two of these young zircons suggest a mantle contribution; a third came from felsic magma formed by re-melting older crust.</p>
+
+<p>Because the young zircons were incorporated directly from volcanic ash, or recycled very shortly after eruption, <strong>551 Ma is either the true depositional age or very close to it</strong>. Two bentonite (volcanic ash) beds lower in the Podillya succession have independently been dated at 555.4 ± 2.9 Ma and 556.78 ± 0.18 Ma, so the three ages line up in the right order going up-section.</p>
+
+<h2>Where did the volcanism come from?</h2>
+
+<p>The ash was probably produced by arc volcanism at an active margin adjacent to Baltica, related to the closure of the Thor Ocean and the docking of the Teisseyre-Tornquist Terrane Assemblage to Baltica, which began in the late Ediacaran.</p>
+
+<h2>Why it matters</h2>
+
+<p>The new age helps calibrate sedimentary and volcanic events in the basin and the evolution of its Ediacaran biota. Macro- and microfossils of the Nagoryany Formation, which belong to the <strong>Miaohe biota biozone</strong>, can be confined to the interval between about 551.2 and 552.82 Ma. Newly identified taxa also significantly increase the known diversity of that biozone.</p>
+
+<p>The age also allows a correlation with an anoxic episode in the upper Doushantuo Formation of South China. That growing body of evidence suggests that late Ediacaran anoxia may have been more than a local phenomenon — and that such conditions may have contributed to the decline of the Ediacaran fauna.</p>
+
+    <div class="key-terms">
+      <div class="key-terms-header">KEY TERMS</div>
+      <div class="key-terms-body">
+        <div class="key-term"><span class="key-term-word">Maximum depositional age</span><span class="key-term-def">The age of the youngest zircons in a sediment; the rock cannot be older than this.</span></div>
+        <div class="key-term"><span class="key-term-word">Tuffite</span><span class="key-term-def">A rock made of volcanic ash mixed with ordinary sediment.</span></div>
+        <div class="key-term"><span class="key-term-word">Hf isotopes (εHf)</span><span class="key-term-def">Tell whether the magma that formed a zircon came from the mantle or from re-melted older crust.</span></div>
+        <div class="key-term"><span class="key-term-word">Miaohe biota</span><span class="key-term-def">A late Ediacaran assemblage of carbonaceous fossils, first described from South China.</span></div>
+        <div class="key-term"><span class="key-term-word">Anoxia</span><span class="key-term-def">Absence of dissolved oxygen in seawater or pore water.</span></div>
+      </div>
+    </div>
+
+    <div class="paper-box">
+      <div class="paper-box-header">THE PAPER</div>
+      <div class="paper-box-body">
+        <p class="paper-cite">Francovschi, I., Grădinaru, E., Li, H., Shumlyanskyy, L., Ciobotaru, V. (2021). U–Pb geochronology and Hf isotope systematics of detrital zircon from the late Ediacaran Kalyus Beds (East European Platform): palaeogeographic evolution of southwestern Baltica and constraints on the Ediacaran biota. <em>Precambrian Research</em> 355, 106062.</p>
+        <div class="pub-links"><a href="https://doi.org/10.1016/j.precamres.2020.106062" target="_blank" rel="noopener">READ THE PAPER ↗</a><button type="button" class="pub-cite" data-bib="@article{Francovschi_2021,
+  title={U–Pb geochronology and Hf isotope systematics of detrital zircon from the late Ediacaran Kalyus Beds (East European Platform): palaeogeographic evolution of southwestern Baltica and constraints on the Ediacaran biota},
+  volume={355},
+  ISSN={0301-9268},
+  url={http://dx.doi.org/10.1016/j.precamres.2020.106062},
+  DOI={10.1016/j.precamres.2020.106062},
+  journal={Precambrian Research},
+  publisher={Elsevier BV},
+  author={Francovschi, Ion and Grădinaru, Eugen and Li, Huan and Shumlyanskyy, Leonid and Ciobotaru, Valerian},
+  year={2021},
+  month=Apr,
+  pages={106062}
+}">CITE · BibTeX</button></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<!-- ARTICLE FOOTER -->
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">◄ NEWER</div>
+      <div class="article-footer-box-body"><a href="detrital-zircon-estonia-volyn.html">Following the sand: how sediment sources across Baltica changed from the Ediacaran to the Cambrian</a></div>
+    </div>
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">OLDER →</div>
+      <div class="article-footer-box-body"><a href="rare-earth-elements-kalyus-beds.html">Rare earth elements in the Kalyus Beds: where they came from and why they matter</a></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-txt">
+    © 2026 ION FRANCOVSCHI — PHD EARTH SCIENCES<br>
+    <span class="dim">EDIACARAN · CAMBRIAN · BALTICA · EEP</span>
+  </div>
+  <div class="footer-txt" style="text-align:right;">
+    <span class="dim">STATIC HTML · VERCEL</span>
+  </div>
+</footer>
+
+<script src="../js/theme.js"></script>
+<script>
+document.querySelectorAll('.pub-cite').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var label = b.textContent;
+    var done = function () { b.textContent = 'COPIED ✓'; b.classList.add('copied');
+      setTimeout(function () { b.textContent = label; b.classList.remove('copied'); }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.bib).then(done, function () { window.prompt('Copy citation:', b.dataset.bib); });
+    else window.prompt('Copy citation:', b.dataset.bib);
+  });
+});
+</script>
+</body>
+</html>

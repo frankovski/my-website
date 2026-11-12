@@ -135,3 +135,42 @@ h2 { font-size: clamp(28px, 3.4vw, 42px) !important; line-height: 1.1 !important
 .hero-tag, .page-tag { text-transform: uppercase; }
 .error-title { text-transform: lowercase !important; }
 .error-title::first-letter { text-transform: uppercase; }
+
+/* ---------- paper-summary posts ---------- */
+.article-lede { font-size: 1.12em; color: var(--ink); border-left: 2px solid var(--rust); padding-left: 1rem; }
+.article-body ul { margin: 0 0 1.6rem 1.3rem; }
+.article-body li { margin-bottom: 0.55rem; line-height: 1.75; }
+.paper-box { border: var(--border); background: var(--paper); margin: 2.6rem 0 0.5rem; }
+.paper-box-header {
+  font: 600 11px/1.4 var(--mono); letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 10px 16px; background: var(--ink); color: var(--cream);
+}
+.paper-box-body { padding: 18px 20px 20px; }
+.paper-cite { font-size: 14px; line-height: 1.7; color: var(--ink2); margin-bottom: 14px; }
+.paper-box .pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.paper-box .pub-links a, .paper-box .pub-cite {
+  padding: 8px 12px; border: var(--border-thin); background: transparent; color: var(--ink);
+  text-decoration: none; cursor: pointer; line-height: 1.4;
+}
+.paper-box .pub-links a:hover, .paper-box .pub-cite:hover { background: var(--ink); color: var(--cream); }
+.paper-box .pub-cite.copied { background: var(--sage); color: var(--paper); }
+.article-row-img { background: #F2ECE0; display: flex; align-items: center; }
+.article-row-img svg { display: block; width: 100%; height: auto; }
+.blog-card-img { background: #F2ECE0; }
+
+.nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; background: none; border: var(--border); padding: 8px; cursor: pointer; flex-shrink: 0; margin-left: 8px; }
+.nav-hamburger span { display: block; height: 2px; background: var(--ink); transition: transform 0.2s, opacity 0.2s; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* phone menu for every page (articles, blog list, CV… lacked these rules) */
+@media (max-width: 860px) {
+  nav { padding: 0 1rem; flex-wrap: wrap; height: auto; min-height: 56px; align-items: center; }
+  .nav-logo { margin-right: auto; white-space: nowrap; }
+  .nav-hamburger { display: flex !important; }
+  .nav-links { display: none !important; flex-direction: column; width: 100%; border-top: var(--border); background: var(--paper); order: 3; }
+  .nav-links.open { display: flex !important; }
+  .nav-links a { height: auto; padding: 14px 1rem; border-left: none; border-bottom: var(--border-thin); }
+  .nav-links li:last-child a { border-bottom: none; }
+}

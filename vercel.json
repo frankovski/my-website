@@ -1,6 +1,33 @@
 {
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+    {
+      "src": "/blog/vendian-sea-baltica(\\.html)?",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/"
+      }
+    },
+    {
+      "src": "/blog/carbon-isotope-excursion-ediacaran-cambrian(\\.html)?",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/"
+      }
+    },
+    {
+      "src": "/blog/baltica-541-million-years-ago(\\.html)?",
+      "status": 301,
+      "headers": {
+        "Location": "/blog/"
+      }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "status": 404,
+      "dest": "/404.html"
+    }
   ]
 }

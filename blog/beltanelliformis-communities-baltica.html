@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading an Ediacaran seafloor from the spacing of its fossils — Ion Francovschi</title>
+<meta name="description" content="Thousands of disc-shaped Beltanelliformis fossils from Moldova reveal two different ways these early communities were assembled — by currents, or by patches on the seafloor.">
+<link rel="canonical" href="https://francovschi.vercel.app/blog/beltanelliformis-communities-baltica.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ion Francovschi">
+<meta property="og:title" content="Reading an Ediacaran seafloor from the spacing of its fossils — Ion Francovschi">
+<meta property="og:description" content="Thousands of disc-shaped Beltanelliformis fossils from Moldova reveal two different ways these early communities were assembled — by currents, or by patches on the seafloor.">
+<meta property="og:url" content="https://francovschi.vercel.app/blog/beltanelliformis-communities-baltica.html">
+<meta property="og:image" content="https://francovschi.vercel.app/img/francovschi.jpg">
+<meta property="og:image:alt" content="Portrait of Ion Francovschi">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#f5f0e8">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ── LIGHT MODE ── */
+:root {
+  --cream: #F5F0E8;
+  --paper: #FDFAF5;
+  --ink: #1A1A18;
+  --ink2: #3D3D38;
+  --ink3: #7A7A72;
+  --rust: #B85C30;
+  --rust-lt: #E8956A;
+  --sage: #5A7A5A;
+  --stone: #8A8278;
+  --border: 2px solid #1A1A18;
+  --border-thin: 1px solid #1A1A18;
+}
+
+/* ── DARK MODE ── */
+html.dark {
+  --cream: #1C1F24;
+  --paper: #22262D;
+  --ink: #E4DED2;
+  --ink2: #C0BAB0;
+  --ink3: #8A8478;
+  --rust: #D4784A;
+  --rust-lt: #E8956A;
+  --sage: #7AAA7A;
+  --stone: #6A6460;
+  --border: 2px solid #5A5450;
+  --border-thin: 1px solid #4A4440;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  transition: background 0.2s, color 0.2s;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,26,24,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,26,24,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+}
+
+.nav-logo {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.nav-logo span { color: var(--rust); }
+
+.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links a {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink2);
+  text-decoration: none;
+  padding: 0 1rem;
+  border-left: var(--border-thin);
+  height: 56px;
+  line-height: 56px;
+  transition: background 0.1s, color 0.1s;
+}
+.nav-links a:hover, .nav-links a.active { background: var(--ink); color: var(--cream); }
+
+#theme-toggle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  padding: 0 14px;
+  height: 56px;
+  border: none;
+  border-left: var(--border-thin);
+  background: transparent;
+  color: var(--ink3);
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  transition: background 0.1s, color 0.1s;
+  white-space: nowrap;
+}
+#theme-toggle:hover { background: var(--ink); color: var(--cream); }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: var(--border);
+  padding: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+section { position: relative; z-index: 1; }
+
+/* ARTICLE HEADER */
+.article-header {
+  border-bottom: var(--border);
+  background: var(--paper);
+  padding: 4rem 2rem 0;
+}
+
+.article-header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.article-breadcrumb {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.article-breadcrumb a { color: var(--rust); text-decoration: none; }
+.article-breadcrumb a:hover { text-decoration: underline; }
+
+.article-tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 5px 10px;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(14px, 2.5vw, 22px);
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.article-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.2rem 0;
+  border-top: var(--border-thin);
+  margin-top: 1rem;
+}
+
+.article-meta-item {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--stone);
+  line-height: 1.8;
+}
+
+.article-meta-item span { color: var(--ink2); display: block; }
+
+/* HERO IMAGE */
+.article-hero-img {
+  border-bottom: var(--border);
+  overflow: hidden;
+  max-height: 380px;
+}
+.article-hero-img svg { display: block; width: 100%; }
+
+/* ARTICLE BODY */
+.article-body {
+  padding: 4rem 2rem;
+}
+
+.article-body-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Typography */
+.article-body p {
+  font-size: 16px;
+  color: var(--ink2);
+  line-height: 1.95;
+  margin-bottom: 1.6rem;
+}
+
+.article-body h2 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(11px, 1.6vw, 14px);
+  color: var(--ink);
+  line-height: 1.8;
+  margin: 3rem 0 1.2rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--rust);
+}
+
+.article-body h3 {
+  font-family: 'Courier Prime', monospace;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 2.2rem 0 0.8rem;
+}
+
+/* Pullquote */
+.pullquote {
+  border: var(--border);
+  padding: 2rem 2rem 2rem 1.6rem;
+  border-left: 6px solid var(--rust);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+
+.pullquote p {
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px !important;
+  font-style: italic;
+  color: var(--ink) !important;
+  margin-bottom: 0.6rem !important;
+  line-height: 1.7 !important;
+}
+
+.pullquote cite {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--rust);
+  font-style: normal;
+}
+
+/* Inline figure with SVG diagram */
+.figure {
+  border: var(--border);
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+
+.figure-img { border-bottom: var(--border-thin); overflow: hidden; }
+.figure-img svg { display: block; width: 100%; }
+
+.figure-caption {
+  padding: 0.8rem 1rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  color: var(--ink3);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+
+/* Key terms box */
+.key-terms {
+  border: var(--border);
+  margin: 2.5rem 0;
+}
+
+.key-terms-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+
+.key-terms-body { padding: 1.2rem 1.4rem; }
+
+.key-term {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: var(--border-thin);
+  font-size: 14px;
+}
+.key-term:last-child { border-bottom: none; }
+
+.key-term-word {
+  font-weight: 700;
+  color: var(--rust);
+  font-style: italic;
+}
+
+.key-term-def { color: var(--ink2); }
+
+/* Strat table */
+.strat-table {
+  border: var(--border);
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 13px;
+}
+
+.strat-table th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 10px 12px;
+  text-align: left;
+  border-right: var(--border-thin);
+  letter-spacing: 0.08em;
+}
+
+.strat-table td {
+  padding: 10px 12px;
+  border-bottom: var(--border-thin);
+  border-right: var(--border-thin);
+  color: var(--ink2);
+  vertical-align: top;
+}
+
+.strat-table tr:last-child td { border-bottom: none; }
+.strat-table td:last-child,
+.strat-table th:last-child { border-right: none; }
+
+.strat-table tr:hover td { background: var(--paper); }
+
+.swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #1A1A18;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Article footer / next steps */
+.article-footer {
+  border-top: var(--border);
+  padding: 3rem 2rem;
+  background: var(--paper);
+}
+
+.article-footer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.article-footer-box {
+  border: var(--border);
+}
+
+.article-footer-box-header {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 7px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 8px 14px;
+  border-bottom: var(--border);
+  letter-spacing: 0.1em;
+}
+
+.article-footer-box-body {
+  padding: 1.2rem;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.8;
+}
+
+.article-footer-box-body a {
+  color: var(--rust);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .article-body { padding: 2.5rem 1.2rem; }
+  .article-header { padding: 3rem 1.2rem 0; }
+  .article-footer { padding: 2rem 1.2rem; }
+  .article-footer-inner { grid-template-columns: 1fr; }
+  .article-meta-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .key-term { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+</style>
+<!-- Google Analytics: replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VML6X1920W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VML6X1920W');
+</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../css/notebook.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Reading an Ediacaran seafloor from the spacing of its fossils", "url": "https://francovschi.vercel.app/blog/beltanelliformis-communities-baltica.html", "author": {"@type": "Person", "name": "Ion Francovschi", "url": "https://francovschi.vercel.app/"}, "about": {"@type": "ScholarlyArticle", "sameAs": "https://doi.org/10.1016/j.precamres.2026.108032", "datePublished": "2026", "isPartOf": {"@type": "Periodical", "name": "Precambrian Research"}}}</script>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Ion <span>Francovschi</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#about">ABOUT</a></li>
+    <li><a href="../index.html#research">RESEARCH</a></li>
+    <li><a href="../index.html#publications">PAPERS</a></li>
+	<li><a href="index.html" class="active">BLOG</a></li>
+	<li><a href="../cv.html">CV</a></li>
+    <li><a href="../fieldwork.html">FIELD PICS</a></li>
+    <li><a href="../oilgas.html">O&amp;G PICS</a></li>
+    <li><a href="../index.html#contact">CONTACT</a></li>
+  </ul>
+  <button id="theme-toggle" aria-label="Toggle dark mode">☾ DARK</button>
+  <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header">
+  <div class="article-header-inner">
+    <div class="article-breadcrumb">
+      <a href="index.html">◄ BLOG</a>
+      <span>/</span>
+      <span>PALAEOECOLOGY</span>
+    </div>
+    <span class="article-tag">PALAEOECOLOGY</span>
+    <h1>Reading an Ediacaran<br>seafloor from the<br>spacing of its fossils</h1>
+    <div class="article-meta-bar">
+      <div class="article-meta-item">PAPER<span>2026 · PRECAMBRIAN RESEARCH</span></div>
+      <div class="article-meta-item">MY ROLE<span>CO-AUTHOR</span></div>
+      <div class="article-meta-item">READ TIME<span>~3 MINUTES</span></div>
+      <div class="article-meta-item">FORMAT<span>PLAIN-LANGUAGE SUMMARY</span></div>
+    </div>
+  </div>
+</div>
+
+<article class="article-body">
+  <div class="article-body-inner">
+
+    <p class="article-lede">Thousands of disc-shaped Beltanelliformis fossils from Moldova reveal two different ways these early communities were assembled — by currents, or by patches on the seafloor.</p>
+
+    <p>Disc-shaped fossils are among the most abundant and widespread organisms of the late Ediacaran (about 580–539 million years ago). What they actually were is still debated — microbial colonies, jellyfish-like medusae, or the holdfasts that anchored frond-shaped organisms to the seafloor. Two of them, <em>Beltanelliformis</em> and <em>Nemiana</em>, are often interpreted as algal or bacterial colonies and typically occur in dense clusters of a single species.</p>
+
+<p>This study, led by E.G. Mitchell, asks a different kind of question. Instead of looking at individual fossils, it looks at <strong>where they are relative to each other</strong>. Spatial patterns — whether specimens are clumped, evenly spaced or random, and at what scales — preserve the imprint of the biological and ecological processes that built the community.</p>
+
+<h2>The surfaces</h2>
+
+<p>The core of the dataset comes from four newly mapped bedding surfaces in the Moldova-Podillya Basin (ca. 567–539 Ma):</p>
+
+<ul>
+  <li><strong>Valcine Area A</strong> and <strong>Valcine Area B</strong> — nearshore to shallow-marine settings;</li>
+  <li><strong>Cosaui</strong> — a lower-energy marine setting;</li>
+  <li><strong>Egoreni</strong> — shallow-marine conditions.</li>
+</ul>
+
+<p>Together these surfaces contain <strong>2352 specimens over 11.46 m²</strong>. For comparison we re-analysed two previously published communities from the Urals (Kolesnikov, 2022; 196 specimens over 1.80 m²) and the White Sea area (Leonov, 2007; 121 specimens over 0.46 m²).</p>
+
+<div class="figure">
+      <div class="figure-img">
+        <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two community patterns of Beltanelliformis: oriented clusters spread by currents in higher-energy settings, and clusters on favourable seafloor patches in lower-energy settings"><rect width="720" height="300" fill="#F2ECE0"/><rect x="16" y="16" width="336" height="268" rx="4" fill="#FDFAF5" stroke="#1A1A18" stroke-opacity=".25"/><text x="32" y="42" font-family="Fraunces, Georgia, serif" font-size="15" fill="#1A1A18" text-anchor="start" font-weight="600">Higher energy</text><text x="32" y="60" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="start">dispersal by currents</text><rect x="368" y="16" width="336" height="268" rx="4" fill="#FDFAF5" stroke="#1A1A18" stroke-opacity=".25"/><text x="384" y="42" font-family="Fraunces, Georgia, serif" font-size="15" fill="#1A1A18" text-anchor="start" font-weight="600">Lower energy</text><text x="384" y="60" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6F6F67" text-anchor="start">habitat patchiness</text><circle cx="84.4" cy="120.6" r="5.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="114.5" cy="131.3" r="4.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="114.5" cy="130.7" r="3.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="82.3" cy="118.1" r="3.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="53.3" cy="111.4" r="3.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="95.2" cy="128.7" r="6.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="70.4" cy="110.8" r="6.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="131.7" cy="137.4" r="4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="96.8" cy="124.3" r="4.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="185.6" cy="169.1" r="5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="166.4" cy="161.5" r="4.9" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="187.1" cy="173.2" r="3.7" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="170.2" cy="161.8" r="4.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="159.2" cy="159.9" r="4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="189.4" cy="165.8" r="3.9" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="156" cy="158.9" r="6.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="177.7" cy="165.1" r="6.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="196.9" cy="179.4" r="5.6" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="284.7" cy="119.9" r="3.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="251.6" cy="96.2" r="5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="283.5" cy="111.7" r="5.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="246" cy="97.9" r="4.6" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="298.4" cy="109.8" r="4.7" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="266" cy="107.1" r="5.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="228.2" cy="82.8" r="5.9" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="265.3" cy="113.2" r="5.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="294.2" cy="119.3" r="3.6" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="115.7" cy="233.2" r="5.7" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="121.4" cy="236.7" r="4.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="116.2" cy="230.7" r="4.6" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="66.6" cy="211.6" r="5.9" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="121.7" cy="231" r="4.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="81.2" cy="228" r="6.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="118" cy="235.3" r="3.8" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="112.6" cy="236.7" r="5.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="109.8" cy="230.4" r="4.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="230.6" cy="234" r="6.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="240.3" cy="227" r="5.2" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="246.7" cy="233.4" r="6.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="258.4" cy="228.9" r="5.8" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="232.7" cy="233.1" r="3.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="244.8" cy="232.8" r="3.2" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="253.4" cy="240.1" r="4.2" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="250.4" cy="236.2" r="3.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="266.8" cy="244.7" r="3.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="321.4" cy="182.6" r="3.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="299.7" cy="184.5" r="4.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="330.7" cy="197.5" r="6.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="275.3" cy="172.6" r="3.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="316.1" cy="188.4" r="3.9" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="306.2" cy="179.6" r="3.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="325.7" cy="187.1" r="3.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="295" cy="177.9" r="4.8" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="343.5" cy="193.9" r="5.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><path d="M40 86 H320" stroke="#3A6A8A" stroke-width="1.6" stroke-opacity=".7"/><path d="M314 81 L322 86 L314 91" fill="none" stroke="#3A6A8A" stroke-width="1.6" stroke-opacity=".7"/><path d="M40 270 H320" stroke="#3A6A8A" stroke-width="1.6" stroke-opacity=".7"/><path d="M314 265 L322 270 L314 275" fill="none" stroke="#3A6A8A" stroke-width="1.6" stroke-opacity=".7"/><text x="180" y="81" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#3A6A8A" text-anchor="middle">current</text><ellipse cx="450" cy="140" rx="52" ry="34" fill="#5A7A5A" fill-opacity=".16" stroke="#5A7A5A" stroke-dasharray="4 3"/><circle cx="448.2" cy="156.8" r="3.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="454.3" cy="119.8" r="5.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="440.3" cy="151.6" r="5.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="489.2" cy="137.6" r="5.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="465.3" cy="118.2" r="3.7" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="424.7" cy="138.2" r="3.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="472.2" cy="142.6" r="3.8" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="435.3" cy="114.5" r="4.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="489.1" cy="129.3" r="5.9" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="436.8" cy="149.8" r="3.7" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="456.3" cy="151.9" r="4.9" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="481.7" cy="125" r="4.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="428.2" cy="119.6" r="3.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="428.3" cy="117.5" r="5.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="450" cy="120.7" r="3.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="456" cy="124.4" r="5.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><ellipse cx="600" cy="120" rx="44" ry="30" fill="#5A7A5A" fill-opacity=".16" stroke="#5A7A5A" stroke-dasharray="4 3"/><circle cx="622.3" cy="117.3" r="4.2" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="629" cy="113.1" r="3.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="609.8" cy="126.8" r="5.7" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="604.8" cy="111.2" r="5.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="629" cy="117.5" r="4.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="587.5" cy="117.3" r="3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="628.6" cy="116.4" r="4.6" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="621.7" cy="113.4" r="5.6" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="607.6" cy="110" r="3.8" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="595.3" cy="131.6" r="4.8" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="598.6" cy="135.9" r="3.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="618.1" cy="112.2" r="4.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="570.3" cy="108.3" r="4.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><ellipse cx="540" cy="225" rx="70" ry="34" fill="#5A7A5A" fill-opacity=".16" stroke="#5A7A5A" stroke-dasharray="4 3"/><circle cx="575.3" cy="215.2" r="4.6" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="532.2" cy="224.4" r="4.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="541.5" cy="226.6" r="5.4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="558.5" cy="241.9" r="5.2" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="509.3" cy="219.5" r="4.6" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="492.2" cy="216.6" r="3.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="513.4" cy="219.9" r="3.8" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="545.7" cy="205.3" r="4.7" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="543.4" cy="198.4" r="4.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="509" cy="212.1" r="4.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="526.4" cy="207.4" r="4.6" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="484.8" cy="228.7" r="5.1" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="579.8" cy="206" r="3.8" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="488.1" cy="215.1" r="5.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="553" cy="232.4" r="4.3" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="565.3" cy="231" r="3.2" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="515.4" cy="203.4" r="5.7" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="567.4" cy="244.5" r="5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="573.6" cy="245.5" r="5.9" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="550.6" cy="251.7" r="4.2" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="483.1" cy="227.2" r="5.5" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="660" cy="200" r="4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="410" cy="250" r="4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><circle cx="690" cy="260" r="4" fill="#D9C7A0" stroke="#1A1A18" stroke-opacity=".45"/><text x="640" y="74" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#5A7A5A" text-anchor="middle">favourable patch</text><text x="704" y="292" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#6F6F67" text-anchor="end">SCHEMATIC</text></svg>
+      </div>
+      <div class="figure-caption">FIG. 1 — The two community dynamics, sketched. Left: in higher-energy settings, clusters are oriented and spread by currents. Right: in quieter settings, specimens gather on favourable patches of the seafloor. Schematic, not real specimen positions.</div>
+    </div>
+
+<h2>Two ways to build a community</h2>
+
+<p>The communities did not all behave the same way. The Valcine and Urals surfaces show <strong>strongly oriented clusters and dispersal-driven patterns</strong>: offspring settled in clumps that were spread and aligned by water flow. The Cosaui, Egoreni and White Sea surfaces, in contrast, are best explained by <strong>habitat patchiness</strong>: specimens concentrated wherever subtle differences in the substrate made the seafloor more favourable.</p>
+
+<p>These two dynamics line up with differences in depositional setting. <em>Beltanelliformis</em> living in higher-energy environments were organised by dispersal in currents; those in weaker flow were organised by local, subtle heterogeneities of the seafloor. We also inferred a maximum lifespan for <em>Nemiana-Beltanelliformis</em> comparable to, but shorter than, that of living cyanobacteria.</p>
+
+<h2>Why it matters</h2>
+
+<p>Ediacaran communities from Newfoundland and England — the so-called Avalon assemblage — show remarkably consistent ecological drivers across large distances and long time spans. The Baltica communities studied here, part of the White Sea assemblage, behave differently: their dynamics vary with the environment. That variability is itself a clue to how these early ecosystems worked, and it shows how much information is stored in a single, well-exposed bedding plane.</p>
+
+    <div class="key-terms">
+      <div class="key-terms-header">KEY TERMS</div>
+      <div class="key-terms-body">
+        <div class="key-term"><span class="key-term-word">Beltanelliformis / Nemiana</span><span class="key-term-def">Disc-shaped Ediacaran fossils, often interpreted as algal or bacterial colonies, commonly found in dense clusters.</span></div>
+        <div class="key-term"><span class="key-term-word">Spatial analysis</span><span class="key-term-def">Statistical study of how specimens are arranged on a surface — clustered, random or regular — to infer the processes behind the pattern.</span></div>
+        <div class="key-term"><span class="key-term-word">Bedding surface</span><span class="key-term-def">A preserved ancient seafloor; on it, fossils can lie where the organisms lived.</span></div>
+        <div class="key-term"><span class="key-term-word">White Sea assemblage</span><span class="key-term-def">Ediacaran biota typical of shallow-marine settings, named after classic sites in northern Russia.</span></div>
+      </div>
+    </div>
+
+    <div class="paper-box">
+      <div class="paper-box-header">THE PAPER</div>
+      <div class="paper-box-body">
+        <p class="paper-cite">Mitchell, E.G., Francovschi, I., Agic, H., Bekker, A. (2026). Spatial analysis of <em>Beltanelliformis (Nemiana)</em> in Baltica. <em>Precambrian Research</em> 436, 108032.</p>
+        <div class="pub-links"><a href="https://doi.org/10.1016/j.precamres.2026.108032" target="_blank" rel="noopener">READ THE PAPER ↗</a><button type="button" class="pub-cite" data-bib="@article{Mitchell_2026,
+  title={Spatial analysis of Beltanelliformis (Nemiana) in Baltica},
+  volume={436},
+  ISSN={0301-9268},
+  url={http://dx.doi.org/10.1016/j.precamres.2026.108032},
+  DOI={10.1016/j.precamres.2026.108032},
+  journal={Precambrian Research},
+  publisher={Elsevier BV},
+  author={Mitchell, Emily G. and Francovschi, Ion and Agić, Heda and Bekker, Andrey},
+  year={2026},
+  month=May,
+  pages={108032}
+}">CITE · BibTeX</button></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<!-- ARTICLE FOOTER -->
+<div class="article-footer">
+  <div class="article-footer-inner">
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">◄ NEWER</div>
+      <div class="article-footer-box-body"><a href="dzhurzhivka-phosphorite-conglomerates.html">Phosphorite pebbles from an Ediacaran sea: an early pulse of phosphogenesis in SW Baltica</a></div>
+    </div>
+    <div class="article-footer-box">
+      <div class="article-footer-box-header">OLDER →</div>
+      <div class="article-footer-box-body"><a href="glacial-or-alluvial-moldova-podillya.html">Ice or rivers? Testing a disputed Ediacaran glacial deposit with zircon</a></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-txt">
+    © 2026 ION FRANCOVSCHI — PHD EARTH SCIENCES<br>
+    <span class="dim">EDIACARAN · CAMBRIAN · BALTICA · EEP</span>
+  </div>
+  <div class="footer-txt" style="text-align:right;">
+    <span class="dim">STATIC HTML · VERCEL</span>
+  </div>
+</footer>
+
+<script src="../js/theme.js"></script>
+<script>
+document.querySelectorAll('.pub-cite').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var label = b.textContent;
+    var done = function () { b.textContent = 'COPIED ✓'; b.classList.add('copied');
+      setTimeout(function () { b.textContent = label; b.classList.remove('copied'); }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.bib).then(done, function () { window.prompt('Copy citation:', b.dataset.bib); });
+    else window.prompt('Copy citation:', b.dataset.bib);
+  });
+});
+</script>
+</body>
+</html>
